@@ -1,0 +1,231 @@
+    *, 
+    ::after, 
+    ::before {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        font-size: 16px;
+        font-family: $font-primary;
+        line-height: 1.5;
+        color: $blue;
+    }
+
+    .site__content_container {
+        height: auto;
+    }
+
+    .site__main {
+        padding: 0;
+    }
+
+    .site__wrapper {
+        margin-right: auto;
+        margin-left: auto;
+
+        @include sm {
+            width: 540px;
+        }
+
+        @include md {
+            width: 750px;
+        }
+
+        @include lg {
+            width: 970px;
+        }
+         
+        @include xl {
+            width: 1170px;
+        }
+    }
+    
+    .text-left {
+        text-align: left;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .clear-both {
+        clear: both;
+    }
+
+    .pull-left {
+        float: left;
+    }
+
+    .pull-right {
+        float: right;
+    }
+
+    .hidden {
+        display: none!important;
+    }
+
+    .responsiveimg {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .alert {
+        background-color: $black-alt;
+        border-radius: 2px;
+        color: $white;
+        font-size: .875rem;
+        font-weight: 600;
+        margin: 1rem auto;
+        padding: .5rem 2rem .5rem 1rem;
+        position: relative;
+        text-align: left;
+        width: 100%; 
+    }
+
+    .alert-success {
+        background-color: $green;
+    }
+
+    .alert-failure {
+        background-color: $red;
+    }
+
+    .label {
+        font-family: $font-primary;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.03em;
+        color: $black;
+        font-weight: bold;
+        margin-bottom: .5em;
+    }
+
+    .button {
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 0.4375rem 1.75rem;
+        border: 0;
+        outline: none;
+        border-radius: 2px;
+        color: $white;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 150ms;
+        user-select: none;
+        display: inline-block;
+
+        &.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            text-decoration: none;
+        }
+    }
+
+    .form__text_field {
+        font-size: 14px;
+        width: 100%;
+        border: 1px solid $line-alt;
+        margin-bottom: 1.25em;
+        padding: 0.625rem 0.875rem;
+        color: $black-alt;
+        border-radius: 2px;
+        background-color: $white;
+        background-clip: padding-box;
+        transition: border-color .15s, background-color .15s;
+
+        &:focus {
+            border-color: $blue;
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    .form__select_menu {
+        background: $white url("../images/layout/double_caret.png") no-repeat right 5px top 50%;
+        background-size: 14px 16px;
+        border: 1px solid $line-alt;
+        border-radius: 2px;
+        color: $black-alt;
+        font-size: 14px;
+        padding: 11px 14px;
+        padding-right: 1.5em;
+        appearance: none;
+
+        &:focus {
+            outline: none;
+            border-color: $blue;
+            box-shadow: 0 0 1px $blue;
+        }
+    }
+
+    .display-mobile {
+        display: block;
+
+        @include lg {
+            display: none!important;
+        }
+    }
+
+    .display-desktop {
+        display: none;
+
+        @include lg {
+            display: block!important;
+        }
+    }
+
+    h1 {
+        font-size: 32px;
+
+        @include md {
+            font-size: 40px;
+        }
+
+        @include lg {
+            font-size: 48px;
+        }
+    }
+
+    h2 {
+        font-size: 20px;
+
+        @include md {
+            font-size: 28px;
+        }
+
+        @include lg {
+            font-size: 36px;
+        }
+    }
+
+    h3 {
+        font-size: 18px;
+
+        @include md {
+            font-size: 20px;
+        }
+
+        @include lg {
+            font-size: 24px;
+        }
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    fieldset {
+        position: relative;
+    }

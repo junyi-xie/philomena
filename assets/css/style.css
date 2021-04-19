@@ -1,0 +1,325 @@
+/* variables and reset */
+/* responsive breakpoints */
+/* mixins */
+/* imports */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("fontawesome.css");
+/* fonts */
+/* others */
+/* colors */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* general */
+*,
+::after,
+::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 16px;
+  font-family: "Rubik", sans-serif;
+  line-height: 1.5;
+  color: #321497;
+}
+
+.site__content_container {
+  height: auto;
+}
+
+.site__main {
+  padding: 0;
+}
+
+.site__wrapper {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .site__wrapper {
+    width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .site__wrapper {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .site__wrapper {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .site__wrapper {
+    width: 1170px;
+  }
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.clear-both {
+  clear: both;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.responsiveimg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.alert {
+  background-color: #0a0918;
+  border-radius: 2px;
+  color: white;
+  font-size: .875rem;
+  font-weight: 600;
+  margin: 1rem auto;
+  padding: .5rem 2rem .5rem 1rem;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+.alert-success {
+  background-color: #32b259;
+}
+
+.alert-failure {
+  background-color: #af1e48;
+}
+
+.label {
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  color: black;
+  font-weight: bold;
+  margin-bottom: .5em;
+}
+
+.button {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 0.4375rem 1.75rem;
+  border: 0;
+  outline: none;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  -webkit-transition: all 150ms;
+  transition: all 150ms;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: inline-block;
+}
+
+.button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.form__text_field {
+  font-size: 14px;
+  width: 100%;
+  border: 1px solid #d8dae0;
+  margin-bottom: 1.25em;
+  padding: 0.625rem 0.875rem;
+  color: #0a0918;
+  border-radius: 2px;
+  background-color: white;
+  background-clip: padding-box;
+  -webkit-transition: border-color .15s, background-color .15s;
+  transition: border-color .15s, background-color .15s;
+}
+
+.form__text_field:focus {
+  border-color: #321497;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.form__select_menu {
+  background: white url("../images/layout/double_caret.png") no-repeat right 5px top 50%;
+  background-size: 14px 16px;
+  border: 1px solid #d8dae0;
+  border-radius: 2px;
+  color: #0a0918;
+  font-size: 14px;
+  padding: 11px 14px;
+  padding-right: 1.5em;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.form__select_menu:focus {
+  outline: none;
+  border-color: #321497;
+  -webkit-box-shadow: 0 0 1px #321497;
+          box-shadow: 0 0 1px #321497;
+}
+
+.display-mobile {
+  display: block;
+}
+
+@media (min-width: 992px) {
+  .display-mobile {
+    display: none !important;
+  }
+}
+
+.display-desktop {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .display-desktop {
+    display: block !important;
+  }
+}
+
+h1 {
+  font-size: 32px;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 992px) {
+  h1 {
+    font-size: 48px;
+  }
+}
+
+h2 {
+  font-size: 20px;
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 992px) {
+  h2 {
+    font-size: 36px;
+  }
+}
+
+h3 {
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  h3 {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  h3 {
+    font-size: 24px;
+  }
+}
+
+p {
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+fieldset {
+  position: relative;
+}
+/*# sourceMappingURL=style.css.map */

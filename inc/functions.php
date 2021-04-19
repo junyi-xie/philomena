@@ -23,7 +23,7 @@
      * 
      * @return void
      */
-    function flashMessage($name = '', $message = '', $class = 'success') {
+    function flashMessage($name = '', $message = '', $class = 'alert-success') {
     
         if (!empty($name)) {
 
@@ -47,5 +47,89 @@
                 unset($_SESSION[$name.'_class']);
             }
         }
+    }
+
+    
+    /**
+     * Get files in given directory with specified extention type.
+     *
+     * @param string $dir
+     * @param string $ext
+     *
+     * @return array
+     */
+    function getFiles($dir = '', $ext = '') {
+
+        $handle = opendir($dir);
+
+        if (!$handle) return array();
+        
+        $contents = array();
+
+        while ($entry = readdir($handle))   
+        {
+            if ($entry == '.' || $entry == '..') continue;
+
+            $entry = $dir.DIRECTORY_SEPARATOR.$entry;
+            
+            if (is_file($entry)) {
+
+                if (preg_match("/\.$ext$/", $entry)) {
+
+                    $contents[] = $entry;
+
+                }
+
+            } else if (is_dir($entry)) {
+
+                $contents = array_merge($contents, getFiles($entry, $ext));
+
+            }
+        }
+
+        closedir($handle);
+    
+        return $contents;
+    }
+
+    
+    /**
+     * Load files from array. This fuction is used with getFiles().
+     *
+     * @param array $contents
+     *
+     * @return string
+     */
+    function loadFiles($contents = array()) {
+
+        $s = '';
+
+        foreach($contents as $file) {
+
+            $ext = pathinfo($file, PATHINFO_EXTENSION);
+
+            switch ($ext) {
+
+                default:
+                    $s .= 'silence...';
+                break;
+
+                case 'js':
+                    $s .= '<script type="text/javascript" src="'.$file.'"></script>';
+                break;
+
+                case 'css': 
+                    $s .= '<link rel="stylesheet" type="text/css" href="'.$file.'?'.date("YmdHis").'" media="screen">';
+                break;
+
+                case 'php':
+                    $s .= 'include_once("'.$file.'")';
+                break;
+
+            }
+
+        }
+
+        return $s;
     }
 ?>
