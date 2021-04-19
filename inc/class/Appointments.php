@@ -3,7 +3,13 @@
     
     namespace Philomena;
 
-    class Appointments
+    /**
+     * Philomena Appointments Class.
+     *     
+     * @author Junyi Xie
+     * @version 1.0.0
+     */
+    class Appointments extends Database
     {
         // constructor
         public function __construct() 

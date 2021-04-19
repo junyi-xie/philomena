@@ -3,7 +3,13 @@
     
     namespace Philomena;
 
-    class Users
+    /**
+     * Philomena Users Class.
+     *     
+     * @author Junyi Xie
+     * @version 1.0.0
+     */
+    class Users extends Database
     {
         // constructor
         public function __construct() 
