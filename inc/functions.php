@@ -1,6 +1,13 @@
 <?php
     /* Copyright (c) - 2021 by Junyi Xie */
 
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+
+    require 'class/lib/PHPMailer/src/Exception.php';
+    require 'class/lib/PHPMailer/src/PHPMailer.php';
+    require 'class/lib/PHPMailer/src/SMTP.php';
+
     
     /**
      * print_r but fancier.
@@ -131,5 +138,40 @@
         }
 
         return $s;
+    }
+
+
+    /**
+     * Send mail function. Created a reminder message for the customer about their booked appointment.
+     * 
+     * @return mixed
+     */
+    function sendMail() {
+
+        $mail = new PHPMailer();
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'username';
+        $mail->Password = 'password';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
+
+        $mail->setFrom('', '');
+        $mail->addAddress('', '');
+
+        $mail->isHTML(true);
+        $mail->AddEmbeddedImage('assets/images/layout/logo_philomena.png', 'philomena_logo');
+
+        $mail->CharSet = "UTF-8";
+        $mail->Subject = "";
+        $mail->Body = "";
+
+        
+        if (!$mail->send()) {
+            return $mail->ErrorInfo;
+        } else {
+            return true;
+        }
     }
 ?>

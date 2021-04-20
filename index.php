@@ -3,7 +3,7 @@
 
     include_once("inc/connect.php");
     include_once("inc/functions.php");
-    include_once("inc/class.php");
+    include_once("inc/autoloader.php");
 ?>
 
 <!DOCTYPE html>

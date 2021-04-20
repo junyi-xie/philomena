@@ -23,6 +23,8 @@
     .site__wrapper {
         margin-right: auto;
         margin-left: auto;
+        padding-right: 15px;
+        padding-left: 15px;
 
         @include sm {
             width: 540px;
@@ -224,8 +226,4 @@
 
     a {
         text-decoration: none;
-    }
-
-    fieldset {
-        position: relative;
     }

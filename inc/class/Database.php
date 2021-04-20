@@ -102,6 +102,44 @@
 
 
         /**
+         * Function that creates select query with input data.
+         *
+         * @param string $sql
+         * @param string $join
+         * @param string $where
+         * @param string $order
+         * @param int $limit
+         * 
+         * @return array
+         */
+        public function queryHandler($sql = '', $join = '', $where = '', $order = '', $limit = 0) {
+
+            if (!empty($join)) {
+                $sql .= ' LEFT JOIN '. $join;
+            } 
+
+            if (!empty($where)) {
+                $sql .= ' WHERE 1 AND '. $where;
+            } 
+            
+            if (!empty($order)) {
+                $sql .= ' ORDER BY '. $order;
+            } 
+            
+            if (!empty($limit)) {
+                $sql .= ' LIMIT '. $limit;
+            }
+
+
+            if ($limit == 1) {
+                return $this->pdo->query($sql)->fetch(\PDO::FETCH_ASSOC);
+            } else {
+                return $this->pdo->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
+            } 
+        }
+
+
+        /**
          * Function to disconnect from the database.
          *
          * @return void
