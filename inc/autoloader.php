@@ -1,11 +1,6 @@
 <?php 
     /* Copyright (c) - 2021 by Junyi Xie */	
 
-    use Philomena\Database;
-    use Philomena\Users;
-    use Philomena\Appointments;
-
-
     spl_autoload_register(function ($class) {
         $prefix = 'Philomena\\';
     
@@ -21,6 +16,4 @@
             require $file;
         }
     });
-
-    $Database = new Database('127.0.0.1', 'root', '', 'philomena');
 ?>

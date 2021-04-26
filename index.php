@@ -3,7 +3,6 @@
 
     include_once("inc/connect.php");
     include_once("inc/functions.php");
-    include_once("inc/autoloader.php");
 ?>
 
 <!DOCTYPE html>
@@ -35,9 +34,6 @@
             <?php 
                 $select = $Database->Select(sql: "SELECT * FROM openinghours WHERE branch_id = :branch_id", data: ['branch_id' => '1',]);
                 printr($select);
-
-                // $t = $Database->Insert(table: "users", data: ['role_id' => '2', 'first_name' => 'admin', 'last_name' => 'admin', 'phone' => '0', 'email' => 'admin@admin.com', 'password' => password_hash('admin', PASSWORD_DEFAULT), 'address' => '', 'zipcode' => '', 'city' => '', 'province' => '', 'country' => 'The Netherlands', 'account_created' => date("YmdHis"), 'last_login' => '0',]);
-                // printr($t);
             ?>
 
         </div>

@@ -1,27 +1,36 @@
 <?php
     /* Copyright (c) - 2021 by Junyi Xie */	
 
-    if(session_status() == PHP_SESSION_NONE )
+    use Philomena\Database; 
+
+
+    if (session_status() == PHP_SESSION_NONE )
     {
         session_start();
     }
 
-    date_default_timezone_set('Europe/Amsterdam');
+    /* Directory */
+    define('DIR', $_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI']);
 
-    $hostname 	= "127.0.0.1";
-    $username	= "root";
-    $password 	= "";
-    $dbname		= "philomena";
 
-    try {
-        $pdo = new PDO("mysql:host=$hostname;dbname=$dbname;charset=utf8mb4;", $username, $password, [
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES   => false,
-        ]);
-        
-    } catch(PDOException $e) {
-
-        die("Connection failed: ". $e->getMessage());        
+    if (!file_exists(DIR.'inc/autoloader.php')) {
+        exit('<h1>Could not connect to the database... Autoloader file is missing...</h1>');
+    } else {
+        include_once("autoloader.php");
     }
+
+
+    /* Hostname */
+    define('HOSTNAME', '127.0.0.1');
+
+    /* Username */
+    define('USERNAME', 'root');
+
+    /* Password */
+    define('PASSWORD', '');
+
+    /* Database */
+    define('DBNAME', 'philomena');
+
+    $Database = new Database(HOSTNAME, USERNAME, PASSWORD, DBNAME);
 ?>
