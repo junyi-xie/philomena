@@ -7,9 +7,9 @@
      * Philomena Database Class.
      *     
      * @author Junyi Xie
-     * @version 1.0.0
+     * @version 1.0.1
      */
-    class Database
+    class Database extends Query
     {
 
         /**
@@ -61,16 +61,16 @@
 
 
         /**
-         * Class Constructor.
+         * Datbase Class Constructor.
          *
-         * @param string $host
-         * @param string $user
-         * @param string $pass
-         * @param string $db
+         * @param string $host The host name, in most cases its just localhost.
+         * @param string $user The username you have choosen for your host.
+         * @param string $pass The password to connect to your database environment.
+         * @param string $db The database you wish to connect to.
          * 
          * @return void
          */
-        public function __construct($host, $user, $pass, $db)
+        public function __construct(string $host, string $user, string $pass, string $db)
         {
             $this->hostname = $host;
             $this->username = $user;
@@ -102,44 +102,6 @@
 
 
         /**
-         * Function that creates select query with input data.
-         *
-         * @param string $sql
-         * @param string $join
-         * @param string $where
-         * @param string $order
-         * @param int $limit
-         * 
-         * @return array
-         */
-        public function queryHandler($sql = '', $join = '', $where = '', $order = '', $limit = 0) {
-
-            if (!empty($join)) {
-                $sql .= ' LEFT JOIN '. $join;
-            } 
-
-            if (!empty($where)) {
-                $sql .= ' WHERE 1 AND '. $where;
-            } 
-            
-            if (!empty($order)) {
-                $sql .= ' ORDER BY '. $order;
-            } 
-            
-            if (!empty($limit)) {
-                $sql .= ' LIMIT '. $limit;
-            }
-
-
-            if ($limit == 1) {
-                return $this->pdo->query($sql)->fetch(\PDO::FETCH_ASSOC);
-            } else {
-                return $this->pdo->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
-            } 
-        }
-
-
-        /**
          * Function to disconnect from the database.
          *
          * @return void
@@ -151,7 +113,7 @@
 
 
         /**
-         * Class Destructor.
+         * Database Class Destructor.
          *
          * @return void
          */

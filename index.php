@@ -32,6 +32,10 @@
 
         <div class="site__wrapper">
             
+            <?php 
+                $select = $Database->Select(sql: "SELECT * FROM openinghours WHERE branch_id = :branch_id", data: ['branch_id' => '1',]);
+                printr($select);
+            ?>
 
         </div>
     
