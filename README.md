@@ -5,11 +5,12 @@ This project is intended to replace the old school method of phone and register 
 **Note:** Additionally, both customers and staffs are able to log in to their respective dasboard and have a variety of functionalities within their control. To add on that, the customer / guest is limited in actions compared to what an employee / staff are able to do.
 
 ## Configuration ##
-To start the database connection, include anywhere in the file this line:
+To start the database connection, head over to [connect.php](https://github.com/junyi-xie/philomena/blob/main/inc/connect.php) and change the define params to your own settings, for example:
 ```php
-use Philomena\Database;
-
-$Database = new Database('127.0.0.1', 'root', '', 'philomena');
+define('HOSTNAME', '127.0.0.1');
+define('USERNAME', 'root');
+define('PASSWORD', '');
+define('DBNAME', 'philomena');
 ```
 This will autoload the [database](https://github.com/junyi-xie/philomena/blob/main/inc/class/Database.php) class, which contains the connection to the database and has the the [query](https://github.com/junyi-xie/philomena/blob/main/inc/class/Query.php) class for the CRUD functionalities. Inside there are 4 functions; Select, Update, Insert and Delete, these functions are used in combination with some other classes to basically do all the backend stuff.
 
