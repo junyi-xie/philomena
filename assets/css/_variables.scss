@@ -1,12 +1,9 @@
-    
-    /* responsive breakpoints */
     $screen-sm-min: 576px;
     $screen-md-min: 768px;
     $screen-lg-min: 992px;
     $screen-xl-min: 1200px;
 
 
-    /* mixins */
     @mixin sm {
         @media (min-width: #{$screen-sm-min}) {
             @content;
@@ -38,17 +35,14 @@
     }
 
 
-    /* imports */
     @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     @import url('fontawesome.css');
 
 
-    /* fonts */
     $font-primary: 'Rubik', sans-serif;
     $font-icon: 'Font Awesome 5 Free';
 
 
-    /* others */
     $line: rgb(237, 239, 243);
     $line-alt: rgb(216, 218, 224);
 
@@ -56,7 +50,6 @@
     $menu-alt: rgb(20, 8, 61);
 
 
-    /* colors */
     $white: rgb(255, 255, 255);
     $white-alt: rgb(246, 246, 249);
 
