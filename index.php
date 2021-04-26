@@ -44,7 +44,7 @@
 
 <?php include_once("inc/footer.php") ?>
 
-<?php print('<!--'.date("YmdHis").'-->'); $jsFiles = getFiles('assets/js', 'js'); echo loadFiles($jsFiles); ?>
+<?php print("<!--".date("YmdHis")."-->"); $jsFiles = getFiles("assets/js", "js"); echo loadFiles($jsFiles); ?>
     
 </body>
 </html>
