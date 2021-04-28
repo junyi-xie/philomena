@@ -2,6 +2,13 @@
     /* Copyright (c) - 2021 by Junyi Xie */
 
 
+    /* If the session is inactive, start a new session. */
+    if (session_status() == PHP_SESSION_NONE)
+    {
+        session_start();
+    }
+
+
     /* Display All Errors */
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -29,12 +36,12 @@
     define('INC', 'inc');
 
     /* Absolute Base Path */
-    if (!defined('PATH')) {
+    if ( !defined('PATH') ) {
         define('PATH', __DIR__ . '/');
     }
 
 
-    /* Load default files for site to function normally */
+    /* Load default files for the system to function normally */
     require PATH . INC . '/connect.php';
     require PATH . INC . '/functions.php';
 ?>

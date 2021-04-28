@@ -1,5 +1,5 @@
 <?php
-    /* Copyright (c) - 2021 by Junyi Xie */	
+    /* Copyright (c) - 2021 by Junyi Xie */
 
     require_once 'config.php';
 ?>
