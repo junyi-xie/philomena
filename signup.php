@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Philomena | Hair & Nails</title>
+    <title>Signup - Philomena.nl</title>
     <meta charset="UTF-8">
     <meta name="author" content="Junyi Xie">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,26 +22,11 @@
 </head>
 <body>
 
-<?php include_once("inc/header.php") ?>
 
-<div class="site__content_container">
+<form action="" method="post">
 
-    <div class="site__main">
 
-        <div class="site__wrapper">
-            
-            <?php 
-                $select = $Database->Select(sql: "SELECT * FROM openinghours WHERE branch_id = :branch_id", data: ['branch_id' => '1',]);
-                printr($select);
-            ?>
-
-        </div>
-    
-    </div>
-
-</div>
-
-<?php include_once("inc/footer.php") ?>
+</form>
 
 <?php print("<!--".date("YmdHis")."-->"); $jsFiles = getFiles("assets/js", "js"); echo loadFiles($jsFiles); ?>
     

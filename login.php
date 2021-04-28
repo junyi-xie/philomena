@@ -1,5 +1,7 @@
 <?php
-    /* Copyright (c) - 2021 by Junyi Xie */	
+    /* Copyright (c) - 2021 by Junyi Xie */
+
+    use Philomena\Users;
 
     require_once 'config.php';
 ?>
@@ -7,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Philomena | Hair & Nails</title>
+    <title>Login - Philomena.nl</title>
     <meta charset="UTF-8">
     <meta name="author" content="Junyi Xie">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,26 +24,19 @@
 </head>
 <body>
 
-<?php include_once("inc/header.php") ?>
 
-<div class="site__content_container">
+<?php 
 
-    <div class="site__main">
+    $Users = new Users();
+?>
 
-        <div class="site__wrapper">
-            
-            <?php 
-                $select = $Database->Select(sql: "SELECT * FROM openinghours WHERE branch_id = :branch_id", data: ['branch_id' => '1',]);
-                printr($select);
-            ?>
+<form action="login.php" method="GET">
 
-        </div>
-    
-    </div>
+    <input type="email" name="email" id="" placeholder="email">
+    <input type="password" name="password" id="" placeholder="password">
+    <input type="submit" value="submit">
 
-</div>
-
-<?php include_once("inc/footer.php") ?>
+</form>
 
 <?php print("<!--".date("YmdHis")."-->"); $jsFiles = getFiles("assets/js", "js"); echo loadFiles($jsFiles); ?>
     
