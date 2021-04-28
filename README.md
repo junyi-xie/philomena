@@ -5,7 +5,7 @@ This project is intended to replace the old school method of phone and register 
 **Note:** Additionally, both customers and staffs are able to log in to their respective dasboard and have a variety of functionalities within their control. To add on that, the customer / guest is limited in actions compared to what an employee / staff are able to do.
 
 ## Configuration ##
-To start the database connection, head over to [connect.php](https://github.com/junyi-xie/philomena/blob/main/inc/connect.php) and change the define params to your own settings, for example:
+To start the database connection, head over to [config.php](https://github.com/junyi-xie/philomena/blob/main/config.php) and change the define params to your own settings, for example:
 ```php
 define('HOSTNAME', '127.0.0.1');
 define('USERNAME', 'root');
