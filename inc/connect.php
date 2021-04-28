@@ -3,7 +3,6 @@
 
     use Philomena\Database; 
 
-    /* Checks if the autoloader file exists */
     if ( !file_exists(PATH . INC . '/autoloader.php') ) {
         exit('<h1>Could not include autoloader.php... The file is missing...</h1><p>Click <a href="https://github.com/junyi-xie/philomena/blob/main/inc/autoloader.php" target="_blank">here</a> to get the file...</p>');
     } else {
