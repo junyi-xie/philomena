@@ -17,7 +17,7 @@
          *
          * @var string
          */
-        protected $hostname;
+        private $hostname;
 
 
         /**
@@ -25,7 +25,7 @@
          *
          * @var string
          */
-        protected $username;
+        private $username;
 
 
         /**
@@ -33,7 +33,7 @@
          *
          * @var string
          */
-        protected $password;
+        private $password;
 
 
         /**
@@ -41,7 +41,7 @@
          *
          * @var string
          */
-        protected $dbname;
+        private $dbname;
 
 
         /**
@@ -57,7 +57,7 @@
          *
          * @var object
          */
-        public $pdo;
+        protected $pdo;
 
 
         /**
