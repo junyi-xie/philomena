@@ -36,6 +36,42 @@
         private $password;
 
 
+        /**
+         * Users Class Constructor.
+         *
+         * @return void
+         */
+        public function __construct()
+        {
+            
+        }
+
+
+        /**
+         * Set the user email address.
+         *
+         * @param string $email The email address that the user has given.
+         * 
+         * @return void
+         */
+        public function setUser()
+        {
+
+        }
+
+
+        /**
+         * Set the user email address.
+         *
+         * @param string $email The email address that the user has given.
+         * 
+         * @return void
+         */
+        public function getUser()
+        {
+            return $this->uid;
+        }
+
 
         /**
          * Set the user email address.
@@ -47,7 +83,7 @@
         public function setEmail(string $email)
         {
             if ( !$this->isEmailValid($email) ) {
-                // email not valid
+                // return email not valid
             }
 
             $this->email = $email;
@@ -114,7 +150,7 @@
         
 
         /**
-         * Return the email address from the user.
+         * Return the user password. This can be the hashed password or just the normal string for verification / inserting use.
          * 
          * @return string
          */
@@ -138,13 +174,50 @@
 
         public function accountExists()
         {
-            return;
+            $data = array();
+            $data['sql'] = "SELECT email FROM users WHERE 1 AND email = :email";
+            $data['data'] = [':email' => $this->getEmail()];
+
+            return $data;
         }
 
 
+        /**
+         * Checks if the user is already logged in or not. The user id can be saved inside a session or cookie hashed. This is used so the user doesn't have to sign in again, and will be instantly redirected to the appropriate dashboard.
+         * 
+         * @return bool
+         */
         public function isLoggedIn()
         {
-            return;
+            if ( !empty($this->uid) && null !== $this->uid ) {
+                return true;
+            } 
+
+            return false;
+        }
+
+
+        /**
+         * Reset all the variables inside this class.
+         *
+         * @return void
+         */
+        public function clearData()
+        {
+            $this->uid = null;
+            $this->email = null;
+            $this->password = null;
+        }
+
+
+        /**
+         * Users Class Destructor.
+         *
+         * @return void
+         */    
+        public function __destruct()
+        {
+            $this->clearData();
         }
     }
 ?>
