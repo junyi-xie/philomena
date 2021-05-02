@@ -21,6 +21,22 @@
 
 
         /**
+         * Available roles to assign to a user.
+         *
+         * @var array
+         */
+        private $role = ['1' => 'Admin', '2' => 'Guest', '3' => 'Barber', '4' => 'Nail Stylist'];
+
+
+        /**
+         * The user first and last name.
+         *
+         * @var string
+         */
+        private $name;
+
+
+        /**
          * The user e-mail address.
          *
          * @var string
@@ -37,44 +53,100 @@
 
 
         /**
+         * The user phone number.
+         *
+         * @var int
+         */
+        private $phone;
+
+
+        /**
+         * The user address.
+         *
+         * @var string
+         */
+        private $address;
+
+
+        /**
+         * The user zipcode.
+         *
+         * @var string
+         */
+        private $zipcode;
+
+
+        /**
+         * The user city.
+         *
+         * @var string
+         */
+        private $city;
+
+
+        /**
+         * The user province.
+         *
+         * @var string
+         */
+        private $province;
+
+
+        /**
+         * The user country.
+         *
+         * @var string
+         */
+        private $country;
+
+
+        /**
          * Users Class Constructor.
+         * 
+         * @param array $config This contains the users basic information, such as name, phone, address and more. The user password and email need to be configurated manually, this is because they have addtional options depending on the process kind.
          *
          * @return void
          */
-        public function __construct()
+        public function __construct(id $user = null)
         {
-            
+
+            if ( !$user ) {
+
+
+            } else {
+                $this->setUser($id);
+            }
         }
 
 
         /**
-         * Set the user email address.
+         * Set the user id.
          *
-         * @param string $email The email address that the user has given.
+         * @param int $id The user id, which is used to execute queries on the current user that is signed up. 
          * 
          * @return void
          */
-        public function setUser()
+        public function setUser(int $id)
         {
-
+            $this->uid = $id;
         }
 
 
         /**
-         * Set the user email address.
+         * Set the user full name.
          *
-         * @param string $email The email address that the user has given.
+         * @param string $name 
          * 
          * @return void
          */
-        public function getUser()
+        public function setName(string $name)
         {
-            return $this->uid;
+            $this->name = $name;
         }
 
 
         /**
-         * Set the user email address.
+         * Set the user email address. It firsts checks if the email is valid before assigning the email with the users value.
          *
          * @param string $email The email address that the user has given.
          * 
@@ -89,31 +161,7 @@
             $this->email = $email;
         }
 
-
-        /**
-         * Check if the user input email is a valid email.
-         *
-         * @param string $email The email address that needs to check if it's valid for use. e.g. $email must contain @ and .com of some sort.
-         * 
-         * @return bool
-         */
-        public function isEmailValid(string $email)
-        {
-            return filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+./', $email);
-        }
-
-
-        /**
-         * Return the email address from the user.
-         * 
-         * @return string
-         */
-        public function getEmail()
-        {
-            return $this->email;
-        }
-
-
+        
         /**
          * Set the user password. This function is used to set the password. In case of registering an account, the hash is set on true and on login it's set on false.
          *
@@ -136,6 +184,97 @@
 
 
         /**
+         * Set the user phone number.
+         *
+         * @param int $nunber 
+         * 
+         * @return void
+         */
+        public function setPhone(int $number)
+        {
+            $this->phone = $number;
+        }
+
+
+        /**
+         * Set the user address.
+         *
+         * @param string $address 
+         * 
+         * @return void
+         */
+        public function setAddress(string $address)
+        {
+            $this->address = $address;
+        }
+
+
+        /**
+         * Set the user zipcode.
+         *
+         * @param string $zip 
+         * 
+         * @return void
+         */
+        public function setZipcode(string $zip)
+        {
+            $this->zipcode = $zip;
+        }
+
+
+        /**
+         * Set the user city.
+         *
+         * @param string $city 
+         * 
+         * @return void
+         */
+        public function setCity(string $city)
+        {
+            $this->city = $city;
+        }
+
+
+        /**
+         * Set the user province.
+         *
+         * @param string $province
+         * 
+         * @return void
+         */
+        public function setProvince(string $province)
+        {
+            $this->province = $province;
+        }
+
+
+        /**
+         * Set the user country.
+         *
+         * @param string $country
+         * 
+         * @return void
+         */
+        public function setCountry(string $country)
+        {
+            $this->country = $country;
+        }
+
+
+        /**
+         * Check if the user input email is a valid email. This is to prevent users from using not available emails to create an account, which can prevent a mail to be send.
+         *
+         * @param string $email The email address that needs to check if it's valid for use. e.g. $email must contain @ and .com of some sort.
+         * 
+         * @return bool
+         */
+        public function isEmailValid(string $email)
+        {
+            return filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+./', $email);
+        }
+
+
+        /**
          * If the user tries to login, check if the password hash from the database matches the password the user has given.
          * 
          * @param string $password The password that the user has entered when trying to login.
@@ -150,35 +289,24 @@
         
 
         /**
-         * Return the user password. This can be the hashed password or just the normal string for verification / inserting use.
+         * Login
          * 
-         * @return string
+         * @return bool
          */
-        public function getPassword()
+        public function login()
         {
-            return $this->password;
+            return false;
         }
 
 
-        public function checkLogin()
+        /**
+         * Logout
+         * 
+         * @return void
+         */
+        public function logout()
         {
-            return;
-        }
-
-
-        public function registerUser()
-        {
-            return;
-        }
-
-
-        public function accountExists()
-        {
-            $data = array();
-            $data['sql'] = "SELECT email FROM users WHERE 1 AND email = :email";
-            $data['data'] = [':email' => $this->getEmail()];
-
-            return $data;
+            return false;
         }
 
 
@@ -191,33 +319,119 @@
         {
             if ( !empty($this->uid) && null !== $this->uid ) {
                 return true;
-            } 
+            }
 
             return false;
         }
 
 
         /**
-         * Reset all the variables inside this class.
+         * Get the user id.
          *
-         * @return void
+         * @return string
          */
-        public function clearData()
+        public function getUser()
         {
-            $this->uid = null;
-            $this->email = null;
-            $this->password = null;
+            return $this->uid;
         }
 
 
         /**
-         * Users Class Destructor.
+         * Get the user full name.
          *
-         * @return void
-         */    
-        public function __destruct()
+         * @return string
+         */
+        public function getName()
         {
-            $this->clearData();
+            return $this->name;
+        }
+
+
+        /**
+         * Return the email address from the user. The email address can be used to change the current email address to another or for a query to set the email for a new registered user.
+         * 
+         * @return string
+         */
+        public function getEmail()
+        {
+            return $this->email;
+        }
+
+
+        /**
+         * Return the user password. This can be the hashed password or just the normal string for verification / inserting use.
+         * 
+         * @return string
+         */
+        public function getPassword()
+        {
+            return $this->password;
+        }
+
+
+        /**
+         * Get the user phone number.
+         *
+         * @return string
+         */
+        public function getPhone()
+        {
+            return $this->phone;
+        }
+
+
+        /**
+         * Get the user address.
+         *
+         * @return string
+         */
+        public function getAddress()
+        {
+            return $this->address;
+        }
+
+
+        /**
+         * Get the user zipcode.
+         *
+         * @return string
+         */
+        public function getZipcode()
+        {
+            return $this->zipcode;
+        }
+
+
+        /**
+         * Get the user city.
+         *
+         * @return string
+         */
+        public function getCity()
+        {
+            return $this->city;
+        }
+
+
+        /**
+         * Get the user province.
+         *
+         * @return string
+         */
+        public function getProvince()
+        {
+            return $this->province;
+        }
+
+
+        /**
+         * Get the user country.
+         *
+         * @return string
+         */
+        public function getCountry()
+        {
+            return $this->country;
         }
     }
 ?>
