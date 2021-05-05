@@ -53,12 +53,13 @@ This will autoload the [database](https://github.com/junyi-xie/philomena/blob/ma
  ┃ ┃ ┗ 📜main.js
  ┣ 📂inc
  ┃ ┣ 📂class
- ┃ ┃ ┣ 📂lib
- ┃ ┃ ┃ ┣ 📂Mollie
- ┃ ┃ ┃ ┗ 📂PHPMailer
+ ┃ ┃ ┣ 📂Mollie
+ ┃ ┃ ┣ 📂PHPMailer
  ┃ ┃ ┣ 📜Appointments.php
+ ┃ ┃ ┣ 📜Cookie.php
  ┃ ┃ ┣ 📜Database.php
  ┃ ┃ ┣ 📜Query.php
+ ┃ ┃ ┣ 📜Session.php
  ┃ ┃ ┗ 📜Users.php
  ┃ ┣ 📜autoloader.php
  ┃ ┣ 📜connect.php
@@ -67,9 +68,12 @@ This will autoload the [database](https://github.com/junyi-xie/philomena/blob/ma
  ┃ ┗ 📜header.php
  ┣ 📜.gitignore
  ┣ 📜.htaccess
+ ┣ 📜config.php
  ┣ 📜index.php
+ ┣ 📜login.php
  ┣ 📜philomena.sql
- ┗ 📜README.md
+ ┣ 📜README.md
+ ┗ 📜signup.php
 ```
 
 ## Requirements ##
