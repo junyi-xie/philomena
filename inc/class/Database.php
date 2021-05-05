@@ -11,6 +11,13 @@
      */
     class Database extends Query
     {
+        /**
+         * Instance.
+         *
+         * @var null.
+         */
+        private static $_instance = null;
+
 
         /**
          * The hostname.
@@ -98,6 +105,21 @@
             } catch (\PDOException $e) {
                 throw new \PDOException($e->getMessage(), (int) $e->getCode());
             }
+        }
+
+
+        /**
+         * Get the pdo instance from the database class to use in another class. 
+         *
+         * @return object
+         */
+        public static function getInstance() 
+        {
+            if ( !isset(self::$_instance) ) {
+                self::$_instance = new Database(HOSTNAME, USERNAME, PASSWORD, DBNAME);
+            }
+
+            return self::$_instance;
         }
 
 

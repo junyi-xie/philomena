@@ -11,7 +11,6 @@
      */
     class Users
     {
-
         /**
          * The user id.
          *
@@ -26,14 +25,6 @@
          * @var array
          */
         private $role = ['1' => 'Admin', '2' => 'Guest', '3' => 'Barber', '4' => 'Nail Stylist'];
-
-
-        /**
-         * The user first and last name.
-         *
-         * @var string
-         */
-        private $name;
 
 
         /**
@@ -53,51 +44,11 @@
 
 
         /**
-         * The user phone number.
+         * The user information, such as name, address, phone number and more.
          *
-         * @var int
+         * @var array
          */
-        private $phone;
-
-
-        /**
-         * The user address.
-         *
-         * @var string
-         */
-        private $address;
-
-
-        /**
-         * The user zipcode.
-         *
-         * @var string
-         */
-        private $zipcode;
-
-
-        /**
-         * The user city.
-         *
-         * @var string
-         */
-        private $city;
-
-
-        /**
-         * The user province.
-         *
-         * @var string
-         */
-        private $province;
-
-
-        /**
-         * The user country.
-         *
-         * @var string
-         */
-        private $country;
+        private $data;
 
 
         /**
@@ -107,20 +58,18 @@
          *
          * @return void
          */
-        public function __construct(id $user = null)
+        public function __construct(array $config = null)
         {
+            $this->pdo = Database::getInstance();
 
-            if ( !$user ) {
-
-
-            } else {
-                $this->setUser($id);
+            if ( !empty($config) && is_array($config) && null !== $config ) {
+                $this->setData($config);
             }
         }
 
 
         /**
-         * Set the user id.
+         * Set the user id. This makes it so you can access the uid from within this class, if the uid is set then you can use the isLoggedIn function so you don't have to sign in again.
          *
          * @param int $id The user id, which is used to execute queries on the current user that is signed up. 
          * 
@@ -129,19 +78,6 @@
         public function setUser(int $id)
         {
             $this->uid = $id;
-        }
-
-
-        /**
-         * Set the user full name.
-         *
-         * @param string $name 
-         * 
-         * @return void
-         */
-        public function setName(string $name)
-        {
-            $this->name = $name;
         }
 
 
@@ -155,7 +91,7 @@
         public function setEmail(string $email)
         {
             if ( !$this->isEmailValid($email) ) {
-                // return email not valid
+                return false;
             }
 
             $this->email = $email;
@@ -176,7 +112,7 @@
         public function setPassword(string $password, int $length = 6, string $algorithm = PASSWORD_BCRYPT, bool $hash = false, array $options = [])
         {
             if ( strlen($password) < $length ) {
-                //  return password length too short.
+                return false;
             }
 
             $this->password = !$hash ? $password : password_hash($password, $algorithm, $options);
@@ -184,80 +120,15 @@
 
 
         /**
-         * Set the user phone number.
+         * Set the user data.
          *
-         * @param int $nunber 
+         * @param array $config
          * 
          * @return void
          */
-        public function setPhone(int $number)
+        public function setData(array $data)
         {
-            $this->phone = $number;
-        }
-
-
-        /**
-         * Set the user address.
-         *
-         * @param string $address 
-         * 
-         * @return void
-         */
-        public function setAddress(string $address)
-        {
-            $this->address = $address;
-        }
-
-
-        /**
-         * Set the user zipcode.
-         *
-         * @param string $zip 
-         * 
-         * @return void
-         */
-        public function setZipcode(string $zip)
-        {
-            $this->zipcode = $zip;
-        }
-
-
-        /**
-         * Set the user city.
-         *
-         * @param string $city 
-         * 
-         * @return void
-         */
-        public function setCity(string $city)
-        {
-            $this->city = $city;
-        }
-
-
-        /**
-         * Set the user province.
-         *
-         * @param string $province
-         * 
-         * @return void
-         */
-        public function setProvince(string $province)
-        {
-            $this->province = $province;
-        }
-
-
-        /**
-         * Set the user country.
-         *
-         * @param string $country
-         * 
-         * @return void
-         */
-        public function setCountry(string $country)
-        {
-            $this->country = $country;
+            $this->data = $data;
         }
 
 
@@ -286,27 +157,91 @@
         {
             return password_verify($password, $hashed);
         }
-        
+
 
         /**
-         * Login
+         * Check if the account the user tried to sign up with already exists, if it does not exist it with return 0, which means the input email address does not exist and the user needs to create a new account.
          * 
-         * @return bool
+         * @param string $email The email address the user tried to sign in with.
+         * @param bool $count Set on true if you wish to return just the row count, on false it will return an array of data.
+         * @param bool $single Set the fetch method to all or just a single array.
+         * 
+         * @return mixed
          */
-        public function login()
+        public function verifyAccountExists(string $email, bool $count = false, bool $single = true)
         {
+            return $this->pdo->Select(sql: "SELECT * FROM users WHERE email = :email", data: [':email' => $email], row: $count, fetch: $single);
+        }
+
+        
+        /**
+         * Function to log in to the dashboard. Checks if the required parameters are filled and if you wish to remember your log in so you don't have to sign in again.
+         * 
+         * @param string $email The email address the user tried to sign in with, checks if the account exists in the login process.
+         * @param string $password The password the user used to login, validate the password if it matches with the user.
+         * @param bool $remember If you wish to save your login with a cookie on top of a session to prevent signin in again.
+         * 
+         * @return mixed
+         */
+        public function SignIn(string $email = null, string $password = null, bool $remember = false)
+        {
+            if ( null !== $email && $password ) {
+
+                // Checks if the email address exists in the users table.
+                if ( !$User = $this->verifyAccountExists($email) ) {
+                    return flashMessage('signin', 'Account doesn\'t exist...!', 'alert-failure');
+                } else {
+                    // This function validates the password. It uses the password_verify function to make sure that the passwords match.
+                    if ( $this->checkPassword($password, $User->password) ) {
+
+                        // Set last login time to current timestamp.    
+                        if ( $this->pdo->Update("users", ['last_login' => date("YmdHis")], "id = $User->id") ) {
+
+                            // Not necessary. ('-O-')
+                            if ( Session::checkSession('uid') ) {
+                                Session::unsetSession('uid');
+                            }
+                            
+                            Session::putSession('uid', $User->id);
+
+                            // If the remember me checkbox is ticked.
+                            if ( $remember ) {
+                                // Save login information as Cookie item.
+                                Cookie::putCookie('uid', $User->id, 604800);
+                            }
+
+                            return true;
+                        }
+                    } else {
+                        return flashMessage('signin', 'Incorrect Password...!', 'alert-failure');
+                    }
+                }
+            }
+            
             return false;
         }
 
 
         /**
-         * Logout
+         * Function to create a new account.
+         * 
+         * @return mixed
+         */
+        public function SignUp()
+        {
+            // TO DO.
+        }
+
+
+        /**
+         * Function to log out. This just deletes both the session and cookie with the necessary user information to prevent access to the dashboard.
          * 
          * @return void
          */
-        public function logout()
+        public function Logout()
         {
-            return false;
+            Session::unsetSession('uid');
+		    Cookie::unsetCookie('uid');
         }
 
 
@@ -326,24 +261,13 @@
 
 
         /**
-         * Get the user id.
+         * Get the user id. This uid is unique to the user and it is used to verify wether you have an account or not.
          *
-         * @return string
+         * @return int
          */
         public function getUser()
         {
             return $this->uid;
-        }
-
-
-        /**
-         * Get the user full name.
-         *
-         * @return string
-         */
-        public function getName()
-        {
-            return $this->name;
         }
 
 
@@ -370,68 +294,13 @@
 
 
         /**
-         * Get the user phone number.
+         * Function to return the user data, the result will be in an array and will contain information about the user, such as name, phone number and more.
          *
-         * @return string
+         * @return array
          */
-        public function getPhone()
+        public function getData()
         {
-            return $this->phone;
-        }
-
-
-        /**
-         * Get the user address.
-         *
-         * @return string
-         */
-        public function getAddress()
-        {
-            return $this->address;
-        }
-
-
-        /**
-         * Get the user zipcode.
-         *
-         * @return string
-         */
-        public function getZipcode()
-        {
-            return $this->zipcode;
-        }
-
-
-        /**
-         * Get the user city.
-         *
-         * @return string
-         */
-        public function getCity()
-        {
-            return $this->city;
-        }
-
-
-        /**
-         * Get the user province.
-         *
-         * @return string
-         */
-        public function getProvince()
-        {
-            return $this->province;
-        }
-
-
-        /**
-         * Get the user country.
-         *
-         * @return string
-         */
-        public function getCountry()
-        {
-            return $this->country;
+            return $this->data;
         }
     }
 ?>

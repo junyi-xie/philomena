@@ -11,18 +11,18 @@
      */
     class Query
     {        
-
         /**
          * Select function. Most parameters already have a default value, unless you wish to have a more complex selector.
          *
          * @param string $sql Main select query, which does not contain the conditions.
          * @param array $data Where the conditions will be filled in.
          * @param int $mode Set fetch mode, https://www.php.net/manual/en/pdostatement.fetch.php
-         * @param bool $row On true if you wish to return rowCount, else its false on default and wont return rowCount
+         * @param bool $row On true if you wish to return rowCount, else its false on default and wont return rowCount.
+         * @param bool $fetch If you want to return a single array, fetch on true, otherwise fetch on false will return everything.
          * 
          * @return mixed Returns int if rowcount is true, else it returns array with data which you specified in the query.
          */
-        public function Select(string $sql, array $data = [], int $mode = \PDO::FETCH_OBJ, bool $row = false) 
+        public function Select(string $sql, array $data = [], int $mode = \PDO::FETCH_OBJ, bool $row = false, bool $fetch = false) 
         {
             $statement = $this->pdo->prepare($sql);
 
@@ -37,7 +37,7 @@
 			} else if ($row) {
                 return $statement->rowCount();
 		    } else {
-		        return $statement->fetchAll($mode);
+		        return !$fetch ? $statement->fetchAll($mode) : $statement->fetch($mode);
             }
         }
 

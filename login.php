@@ -5,49 +5,35 @@
 
     require_once 'config.php';
 
-
     $Users = new Users();
 
 
     if ( !$Users->isLoggedIn() ) {
 
-        
+        include_once( INC . '/header.php');
+
+        echo '<form action="login.php" method="POST">
+
+            <input type="email" name="email" id="" placeholder="email">
+            <input type="password" name="password" id="" placeholder="password">
+            <input type="submit" value="submit">
+
+        </form>';
+
+        include_once( INC . '/footer.php');        
 
     } else {
 
 
+
     }
 
-    if ( !empty($_POST) ) {
-        
 
-        $Users->setPassword($_POST['password']);
+    if (isset($_POST) && !empty($_POST)) {
+        $appel2 = $Users->SignIn($_POST['email'], $_POST['password']);
 
-        $a = $Users->getPassword();
-        
-        $b = $Users->checkPassword($_POST['new'], $a);
 
-        printr($b);
+        echo flashMessage('signin');
+        printr($appel2);
     }
-
-  
-    $t = password_algos();
-
-    printr($t);
-include_once( INC . '/header.php');
-
-
-echo '<form action="login.php" method="POST">
-
-    <input type="password" name="new" id="">
-    <input type="email" name="email" id="" placeholder="email">
-    <input type="password" name="password" id="" placeholder="password">
-    <input type="submit" value="submit">
-
-</form>';
-
-
-
-
-include_once( INC . '/footer.php');
 ?>
