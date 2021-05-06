@@ -16,6 +16,7 @@
 
             <input type="email" name="email" id="" placeholder="email">
             <input type="password" name="password" id="" placeholder="password">
+            <input type="checkbox" name="cookie" value="1" checked="checked">
             <input type="submit" value="submit">
 
         </form>';
@@ -29,11 +30,15 @@
     }
 
 
+
     if (isset($_POST) && !empty($_POST)) {
-        $appel2 = $Users->SignIn($_POST['email'], $_POST['password']);
+        $appel2 = $Users->SignIn($_POST['email'], $_POST['password'], $_POST['cookie']);
 
 
         echo flashMessage('signin');
         printr($appel2);
+
+        printr($_COOKIE);
+
     }
 ?>

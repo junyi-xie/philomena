@@ -20,14 +20,6 @@
 
 
         /**
-         * Available roles to assign to a user.
-         *
-         * @var array
-         */
-        private $role = ['1' => 'Admin', '2' => 'Guest', '3' => 'Barber', '4' => 'Nail Stylist'];
-
-
-        /**
          * The user e-mail address.
          *
          * @var string
@@ -109,7 +101,7 @@
          * 
          * @return void
          */
-        public function setPassword(string $password, int $length = 6, string $algorithm = PASSWORD_BCRYPT, bool $hash = false, array $options = [])
+        public function setPassword(string $password, int $length = 6, string $algorithm = PASSWORD_BCRYPT, bool $hash = true, array $options = [])
         {
             if ( strlen($password) < $length ) {
                 return false;
@@ -120,9 +112,9 @@
 
 
         /**
-         * Set the user data.
+         * Set the user data. This function can be used again and you won't need to manually insert data and loop through it to get the values.
          *
-         * @param array $config
+         * @param array $config This contains the nessencary information associated with the current user. This can be used to update the current user data, such as name, phone number and more.
          * 
          * @return void
          */
@@ -189,9 +181,9 @@
 
                 // Checks if the email address exists in the users table.
                 if ( !$User = $this->verifyAccountExists($email) ) {
-                    return flashMessage('signin', 'Account doesn\'t exist...!', 'alert-failure');
+                    return flashMessage('signin', 'Account doesn\'t exist.', 'alert alert-failure');
                 } else {
-                    // This function validates the password. It uses the password_verify function to make sure that the passwords match.
+                    // This function validates the password. It uses the password_verify function to make sure that the password matches with the hash.
                     if ( $this->checkPassword($password, $User->password) ) {
 
                         // Set last login time to current timestamp.    
@@ -213,7 +205,7 @@
                             return true;
                         }
                     } else {
-                        return flashMessage('signin', 'Incorrect Password...!', 'alert-failure');
+                        return flashMessage('signin', 'Incorrect Password.', 'alert alert-failure');
                     }
                 }
             }
@@ -223,13 +215,57 @@
 
 
         /**
-         * Function to create a new account.
+         * This function is used to create a new account for users who don't have one. On default the user is always a guest and only an administrator can change an users role.
+         * 
+         * @param array $user This contains the information the user provided to sign up with an account. This array needs to contain certain keys before processing the data.
          * 
          * @return mixed
          */
-        public function SignUp()
+        public function SignUp(array $user = null)
         {
-            // TO DO.
+            if ( null === $user && !empty($this->getEmail()) && !empty($this->getPassword()) ) {
+                
+                // Check if the email address is available.
+                if ( $this->verifyAccountExists($this->getEmail(), true) === 0) {
+
+                    if ( !empty($this->getData()) && is_array($this->getData()) ) {
+                        // Insert the data into the users table.
+                        if ( !$this->pdo->Insert("users", $this->getData()) ) {
+                            return false;
+                        } else {
+                            return flashMessage('signup', 'Account successfuly created.', 'alert alert-success');  
+                        }
+                    }
+                } else {
+                    return flashMessage('signup', 'Email address is already in use.', 'alert alert-failure');    
+                }
+            } else {
+                if ( is_array($user) && null !== $user ) {
+                    // Set the user data.
+                    $this->setEmail($user['email']);
+                    $this->setPassword($user['password']);
+                    $this->setData(['role_id' => 2, 'first_name' => $user['first_name'], 'last_name' => $user['last_name'], 'email' => $this->getEmail(), 'password' => $this->getPassword(), 'account_created' => date("YmdHis")]);
+
+                    if ( count($this->getData()) > 0 ) {
+                        // Now that all variables are set, try to sign up again.
+                        $this->SignUp();
+                        die();
+                    }
+                }
+            } 
+
+            return false;
+        }
+
+
+        /**
+         * Update the account information like full name, phone number, etc, with the new values that the user has submitted. Checks if the uid exists before making any changes.
+         * 
+         * @return void
+         */
+        public function change()
+        {
+            // TODO.
         }
 
 

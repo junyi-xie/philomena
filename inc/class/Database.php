@@ -14,7 +14,7 @@
         /**
          * Instance.
          *
-         * @var null.
+         * @var null
          */
         private static $_instance = null;
 
