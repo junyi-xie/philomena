@@ -2,10 +2,22 @@
     /* Copyright (c) - 2021 by Junyi Xie */
 
     use Philomena\Users;
+    use Philomena\Session;
+    use Philomena\Cookie;
+
 
     require_once 'config.php';
 
     $Users = new Users();
+
+    if ( !empty(Session::checkSession('uid')) ) 
+    {
+        $Users->setUser(Session::getSession('uid'));
+    } 
+    else if ( !empty(Cookie::checkCookie('uid')) ) 
+    {
+        $Users->setUser(Cookie::getCookie('uid'));
+    }
 
 
     if ( !$Users->isLoggedIn() ) {
@@ -25,6 +37,7 @@
 
     } else {
 
+        echo 'loggedin';
 
 
     }
@@ -36,9 +49,6 @@
 
 
         echo flashMessage('signin');
-        printr($appel2);
-
-        printr($_COOKIE);
 
     }
 ?>
