@@ -11,11 +11,12 @@
 
     include_once( INC . '/header.php');
 
+    
     ?>
 
     <div class="container" id="content" role="main">
     
-        <div class="row">
+        <div class="row no-gutter">
 
                         
             <div class="col-6">
@@ -31,6 +32,12 @@
 
     </form>
             </div>
+
+            <!-- <div class="col-6" style="background-image: url('https://res.cloudinary.com/mhmd/image/upload/v1555917661/art-colorful-contemporary-2047905_dxtao7.jpg')"> -->
+            
+
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In perferendis ab eos nesciunt modi, accusantium et dicta similique quam repellendus fugiat doloribus voluptatum suscipit quos unde tempora molestiae facere earum?</p> -->
+            <!-- </div> -->
         
         </div>
     
@@ -39,20 +46,26 @@
     
 
 <?php
-    include_once( INC . '/footer.php');        
 
 
 
-    if (!empty($_POST) && isset($_POST)) {
-    $t = $Users->SignUp($_POST);
+// printr($_SESSION);
+if (isset($_POST) && !empty($_POST)) {
+    
+    $test = $Users->SignUp($_POST);
 
 
-    // $a = $Users->getEmail();
-    // $b = $Users->getPassword();
     echo flashMessage('signup');
+}
 
-    printr($t);
-    }
 
+
+
+
+
+    include_once( INC . '/footer.php');        
+    
+
+    
 
 ?>

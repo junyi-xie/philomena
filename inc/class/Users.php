@@ -233,7 +233,7 @@
                         if ( !$this->pdo->Insert("users", $this->getData()) ) {
                             return false;
                         } else {
-                            return flashMessage('signup', 'Account successfuly created.', 'alert alert-success');  
+                            return flashMessage('signup', 'Account successfully created, click <a href="login.php">here</a> to login.', 'alert alert-success');  
                         }
                     }
                 } else {
@@ -249,18 +249,17 @@
                     // Check if password is valid and if it matches with the confirmation.
                     if ( null !== $this->setPassword($user['password'] ) ) {
                         return flashMessage('signup', 'Password is too short.', 'alert alert-failure');
-                    } else if ( $this->getPassword() !== $user['confirm']) {
+                    } else if ( $user['password'] !== $user['confirm']) {
                         return flashMessage('signup', 'Password confirmation doesn\'t match Password.', 'alert alert-failure');
                     }
 
                     // Set the user data.
                     $this->setData(['role_id' => 2, 'first_name' => $user['first_name'], 'last_name' => $user['last_name'], 'email' => $this->getEmail(), 'password' => $this->getPassword(), 'account_created' => date("YmdHis")]);
 
-                    // Make sure that the data is set by checking the count of the array before continueing.
+                    // Make sure that the data is set by checking the count of the array before continuing.
                     if ( count($this->getData()) > 0 ) {
                         // Now that all variables are set, try to sign up again.
                         $this->SignUp();
-                        die();
                     }
                 }
             } 
@@ -304,6 +303,12 @@
             }
 
             return false;
+        }
+
+
+        public function returnUser()
+        {
+            return $this->pdo->Select("SELECT * FROM users WHERE id = :uid", [':uid' => $this->getUser()]);
         }
 
 
