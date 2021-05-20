@@ -306,12 +306,6 @@
         }
 
 
-        public function returnUser()
-        {
-            return $this->pdo->Select("SELECT * FROM users WHERE id = :uid", [':uid' => $this->getUser()]);
-        }
-
-
         /**
          * Get the user id. This uid is unique to the user and it is used to verify wether you have an account or not.
          *

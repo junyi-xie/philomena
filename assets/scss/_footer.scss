@@ -1,0 +1,16 @@
+    .privacy__terms {
+        text-align: center;
+        z-index: 100;
+        position: relative;
+        color: $grey;
+        margin-top: 100px;
+
+        p {
+            font-size: .75rem;
+        }
+
+        a {
+            color: $grey;
+            text-decoration: underline;
+        }
+    }

@@ -314,6 +314,23 @@ a {
   text-decoration: none;
 }
 
+.privacy__terms {
+  text-align: center;
+  z-index: 100;
+  position: relative;
+  color: #6a6f72;
+  margin-top: 100px;
+}
+
+.privacy__terms p {
+  font-size: .75rem;
+}
+
+.privacy__terms a {
+  color: #6a6f72;
+  text-decoration: underline;
+}
+
 .authentication {
   background-color: grey;
 }
