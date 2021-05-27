@@ -111,6 +111,8 @@
 
         $s = '';
 
+        krsort($contents);
+        
         foreach($contents as $file) {
 
             $ext = pathinfo($file, PATHINFO_EXTENSION);

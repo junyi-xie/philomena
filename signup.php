@@ -11,10 +11,8 @@
 
     include_once( INC . '/header.php');
 
-    
-    ?>
 
-    <div class="container" id="content" role="main">
+    echo '<div class="container" id="content" role="main">
     
         <div class="row no-gutter">
 
@@ -30,23 +28,18 @@
         <input type="password" name="confirm" id="" min="6" placeholder="Confirm Password">
         <input type="submit" value="submit">
 
-    </form>
-            </div>
+    </form>';
+            echo '</div>';
 
-            <!-- <div class="col-6" style="background-image: url('https://res.cloudinary.com/mhmd/image/upload/v1555917661/art-colorful-contemporary-2047905_dxtao7.jpg')"> -->
-            
+            echo '<!-- <div class="col-6" style="background-image: url("https://res.cloudinary.com/mhmd/image/upload/v1555917661/art-colorful-contemporary-2047905_dxtao7.jpg")"> -->
+';            
 
-                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In perferendis ab eos nesciunt modi, accusantium et dicta similique quam repellendus fugiat doloribus voluptatum suscipit quos unde tempora molestiae facere earum?</p> -->
+                echo '<!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In perferendis ab eos nesciunt modi, accusantium et dicta similique quam repellendus fugiat doloribus voluptatum suscipit quos unde tempora molestiae facere earum?</p> -->
             <!-- </div> -->
         
         </div>
     
-    </div>
-
-    
-
-<?php
-
+    </div>';
 
 
 // printr($_SESSION);

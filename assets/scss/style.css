@@ -1,6 +1,9 @@
+@import url("bootstrap-grid.css");
+@import url("jquery-ui.min.css");
+@import url("jquery-ui.structure.min.css");
+@import url("jquery-ui.theme.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("fontawesome.css");
-@import url("grid.css");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -312,27 +315,6 @@ p {
 
 a {
   text-decoration: none;
-}
-
-.privacy__terms {
-  text-align: center;
-  z-index: 100;
-  position: relative;
-  color: #6a6f72;
-  margin-top: 100px;
-}
-
-.privacy__terms p {
-  font-size: .75rem;
-}
-
-.privacy__terms a {
-  color: #6a6f72;
-  text-decoration: underline;
-}
-
-.authentication {
-  background-color: grey;
 }
 
 .privacy__terms {
