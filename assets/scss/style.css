@@ -333,4 +333,115 @@ a {
   color: #6a6f72;
   text-decoration: underline;
 }
+
+#authentication__verification {
+  border-right: thin solid #b8bdc5;
+}
+
+#authentication__options {
+  position: relative;
+}
+
+#authentication__options::before {
+  color: #0a0918;
+  content: 'or';
+  background: white;
+  position: absolute;
+  left: 0;
+  margin-left: -8px;
+  padding: 8px 0;
+}
+
+#authentication__wrapper {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.authentication_section__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.authentication__wrapper {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .authentication__wrapper {
+    width: 25rem;
+  }
+}
+
+.button__auth_connect {
+  color: #0a0918;
+  border: 1px solid #d8dae0;
+  font-size: 1em;
+  width: 100%;
+  max-width: 25rem;
+  margin-bottom: 10px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.button__auth_connect .auth__icon {
+  width: 25px;
+  height: 100%;
+}
+
+.button__auth_connect .auth__message {
+  font-size: 14px;
+}
+
+.authentication__option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-bottom: 25px;
+}
+
+.authentication__option input[type='checkbox'] {
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.authentication__option span {
+  font-size: 14px;
+  color: #0a0918;
+  margin-left: 5px;
+}
+
+.button__auth_login {
+  width: 100%;
+  font-weight: normal;
+  background-color: #0a0918;
+  height: 45px;
+  max-width: 25rem;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
 /*# sourceMappingURL=style.css.map */
