@@ -12,7 +12,7 @@
 
     if ( isset($_POST) && !empty($_POST) ) 
     {
-        $cookie = !empty($_POST['cookie']) && $_POST['cookie'] === 1 ? true : false;
+        $cookie = !empty($_POST['cookie']) && $_POST['cookie'] === '1' ? true : false;
 
         $Users->SignIn($_POST['email'], $_POST['password'], $cookie);
     }
