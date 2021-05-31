@@ -17,7 +17,6 @@
         $Users->SignIn($_POST['email'], $_POST['password'], $cookie);
     }
 
-    echo flashMessage('signin');
 
     if ( !empty(Session::checkSession('uid')) ) 
     {

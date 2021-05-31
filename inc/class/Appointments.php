@@ -9,18 +9,58 @@
      * @author Junyi Xie
      * @version 1.0.0
      */
-    class Appointments extends Database
+    class Appointments
     {
-        // constructor
+        /**
+         * The user id.
+         *
+         * @var int
+         */
+        private $uid;
+
+
+        /**
+         * The reservation time and date.
+         *
+         * @var int
+         */
+        private $date, $time;
+
+
+        /**
+         * The staff id.
+         *
+         * @var int
+         */
+        private $staff;
+
+
+        /**
+         * The treatment type.
+         *
+         * @var array
+         */
+        private $treatment;
+
+
+        /**
+         * Appointments Class Constructor.
+         *
+         * @return void
+         */
         public function __construct() 
         {
+            $this->pdo = Database::getInstance();
 
         }
 
-        // destructor
-        public function __destruct() 
+
+        public function reservation()
         {
 
         }
+
+
+
     }
 ?>
