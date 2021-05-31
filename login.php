@@ -12,7 +12,7 @@
 
     if ( isset($_POST) && !empty($_POST) ) 
     {
-        $cookie = !empty($_POST['cookie']) ? true : false;
+        $cookie = !empty($_POST['cookie']) && $_POST['cookie'] === 1 ? true : false;
 
         $Users->SignIn($_POST['email'], $_POST['password'], $cookie);
     }
@@ -85,6 +85,12 @@
                         <section class="authentication_section__content">
 
                             <div class="authentication__wrapper">
+
+                                <div class="display-mobile">
+                                
+                                    <div class="authentication__line"><p>or</p></div>
+
+                                </div>
 
                                 <a class="button button__auth_connect" href="signup.php">
                                             

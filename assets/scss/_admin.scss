@@ -5,20 +5,26 @@
     }
     
     #authentication__verification {
-        border-right: thin solid $grey-alt;
+
+        @include lg {
+            border-right: thin solid $grey-alt;
+        }
     }
 
+   
     #authentication__options {
         position: relative;
 
-        &::before {
-            color: $black-alt;
-            content: 'or';
-            background: $white;
-            position: absolute;
-            left: 0;
-            margin-left: -8px;
-            padding: 8px 0;
+        @include lg {
+            &::before {
+                color: $black-alt;
+                content: 'or';
+                background: $white;
+                position: absolute;
+                left: 0;
+                margin-left: -8px;
+                padding: 8px 0;
+            }
         }
     }
 
@@ -34,6 +40,7 @@
     
     .authentication__wrapper {
         width: 100%;
+        max-width: 25rem;
 
         @include lg {
             // 400px
@@ -51,6 +58,7 @@
             font-size: 2em;
             font-weight: 600;
             color: $black-alt;
+            text-align: center;
         }
     }
 
@@ -59,7 +67,6 @@
         border: 1px solid $line-alt;
         font-size: 1em;
         width: 100%;
-        max-width: 25rem;
         margin-bottom: 10px;
         height: 40px;
         display: flex;
@@ -73,6 +80,23 @@
     
         .auth__message {
             font-size: 14px;
+        }
+    }
+
+    .authentication__line {
+        display: flex;
+        border-bottom: 1px solid $line;
+        color: $black-alt;
+        height: 0;
+        margin: 2.5rem 0;
+        text-align: center;
+
+        p {
+            width: 40px;
+            background-color: $white;
+            margin: auto;
+            font-size: 18px;
+            margin-top: -15px;
         }
     }
 
@@ -100,6 +124,5 @@
         font-weight: normal;
         background-color: $black-alt;
         height: 45px;
-        max-width: 25rem;
         appearance: none;
     }
