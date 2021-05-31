@@ -1,3 +1,8 @@
+    #authentication__container {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+    }
     
     #authentication__verification {
         border-right: thin solid $grey-alt;
@@ -33,6 +38,19 @@
         @include lg {
             // 400px
             width: 25rem;
+        }
+    }
+
+    .authentication__heading {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 30px;
+
+        .authentication__title {
+            font-size: 2em;
+            font-weight: 600;
+            color: $black-alt;
         }
     }
 

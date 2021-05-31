@@ -334,6 +334,13 @@ a {
   text-decoration: underline;
 }
 
+#authentication__container {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
 #authentication__verification {
   border-right: thin solid #b8bdc5;
 }
@@ -379,6 +386,23 @@ a {
   .authentication__wrapper {
     width: 25rem;
   }
+}
+
+.authentication__heading {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 20px 0 30px;
+}
+
+.authentication__heading .authentication__title {
+  font-size: 2em;
+  font-weight: 600;
+  color: #0a0918;
 }
 
 .button__auth_connect {
