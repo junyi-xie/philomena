@@ -56,11 +56,11 @@
 
                                     <label class="label">Email</label>
 
-                                    <input class="form__text_field" type="email" name="email" placeholder="Email" id="auth__email">
+                                    <input class="form__text_field" type="email" name="email" placeholder="Email" id="auth__email" required>
 
                                     <label class="label">Password</label>
 
-                                    <input class="form__text_field" type="password" name="password" placeholder="Password" id="auth__password">
+                                    <input class="form__text_field" type="password" name="password" placeholder="Password" id="auth__password" required>
 
                                     <div class="authentication__option">
 
