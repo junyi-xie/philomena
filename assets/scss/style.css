@@ -64,6 +64,7 @@ html,
 body {
   font-size: 16px;
   font-family: "Rubik", sans-serif;
+  height: 100%;
   line-height: 1.5;
   color: #321497;
 }
@@ -152,6 +153,12 @@ body {
   position: relative;
   text-align: left;
   width: 100%;
+}
+
+.alert a {
+  color: white;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .alert-success {
@@ -395,12 +402,6 @@ a {
 
 .authentication__heading {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   margin: 20px 0 30px;
 }
 
@@ -490,5 +491,88 @@ a {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+#authentication {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+#authentication__side_banner {
+  background-image: url("../images/layout/ice_cream.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-color: #d3d7ed;
+}
+
+#authentication__signup {
+  margin: auto;
+}
+
+#authentication__signup .authentication__title {
+  text-align: left;
+}
+
+.authentication__privacy_message {
+  margin-bottom: 1em;
+  margin-top: 1rem;
+}
+
+.authentication__privacy_message p {
+  color: #0a0918;
+  font-size: 10.5px;
+  line-height: 1.75;
+  text-align: left;
+}
+
+.authentication__privacy_message a {
+  color: #0a0918;
+  text-decoration: underline;
+}
+
+.authentication_section__signup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 0 50px;
+}
+
+@media (min-width: 992px) {
+  .authentication_section__signup {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 0;
+    margin-left: 40px;
+    height: 100%;
+  }
+}
+
+.authentication__login {
+  margin: 1em 0 0;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.authentication__login p {
+  color: #0a0918;
+  font-size: 12px;
+}
+
+.authentication__login a {
+  color: #0a0918;
+  text-decoration: underline;
 }
 /*# sourceMappingURL=style.css.map */

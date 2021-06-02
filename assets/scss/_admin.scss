@@ -50,8 +50,6 @@
 
     .authentication__heading {
         width: 100%;
-        display: flex;
-        justify-content: center;
         margin: 20px 0 30px;
 
         .authentication__title {
@@ -125,4 +123,72 @@
         background-color: $black-alt;
         height: 45px;
         appearance: none;
+    }
+
+    #authentication {
+        display: flex;
+        height: 100%;
+    }
+
+    #authentication__side_banner {
+        background-image: url('../images/layout/ice_cream.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-color: $cyan;
+    }
+
+    #authentication__signup {
+        margin: auto;
+
+        .authentication__title {
+            text-align: left;
+        }
+    }
+
+    .authentication__privacy_message {
+        margin-bottom: 1em;
+        margin-top: 1rem;
+
+        p {
+            color: $black-alt;
+            font-size: 10.5px;
+            line-height: 1.75;
+            text-align: left;
+        }
+
+        a {
+            color: $black-alt;
+            text-decoration: underline;
+        }
+    }
+    
+    .authentication_section__signup {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 0 50px;
+
+        @include lg {
+            align-items: flex-start;
+            justify-content: center;
+            padding: 0;
+            margin-left: 40px;
+            height: 100%;
+        }
+    }
+
+    .authentication__login {
+        margin: 1em 0 0;
+        text-align: center;
+        letter-spacing: 0.05em;
+
+        p {
+            color: $black-alt;
+            font-size: 12px;
+        }
+
+        a {
+            color: $black-alt;
+            text-decoration: underline;
+        }
     }

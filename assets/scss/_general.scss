@@ -8,6 +8,7 @@
     body {
         font-size: 16px;
         font-family: $font-primary;
+        height: 100%;
         line-height: 1.5;
         color: $blue;
     }
@@ -88,6 +89,12 @@
         position: relative;
         text-align: left;
         width: 100%; 
+
+        a {
+            color: $white;
+            text-decoration: underline;
+            font-weight: bold;
+        }
     }
 
     .alert-success {
