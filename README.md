@@ -20,14 +20,6 @@ This will autoload the [database](https://github.com/junyi-xie/philomena/blob/ma
 ```
 📦philomena
  ┣ 📂assets
- ┃ ┣ 📂css
- ┃ ┃ ┣ 📜fontawesome.css
- ┃ ┃ ┣ 📜style.css
- ┃ ┃ ┣ 📜style.css.map
- ┃ ┃ ┣ 📜style.scss
- ┃ ┃ ┣ 📜_general.scss
- ┃ ┃ ┣ 📜_reset.scss
- ┃ ┃ ┗ 📜_variables.scss
  ┃ ┣ 📂fonts
  ┃ ┃ ┣ 📜fa-brands-400.eot
  ┃ ┃ ┣ 📜fa-brands-400.svg
@@ -46,11 +38,38 @@ This will autoload the [database](https://github.com/junyi-xie/philomena/blob/ma
  ┃ ┃ ┗ 📜fa-solid-900.woff2
  ┃ ┣ 📂images
  ┃ ┃ ┣ 📂favicon
+ ┃ ┃ ┃ ┣ 📜android-chrome-192x192.png
+ ┃ ┃ ┃ ┣ 📜android-chrome-512x512.png
+ ┃ ┃ ┃ ┣ 📜apple-touch-icon.png
+ ┃ ┃ ┃ ┣ 📜favicon-16x16.png
+ ┃ ┃ ┃ ┣ 📜favicon-32x32.png
+ ┃ ┃ ┃ ┣ 📜favicon.ico
+ ┃ ┃ ┃ ┗ 📜site.webmanifest
  ┃ ┃ ┗ 📂layout
  ┃ ┃ ┃ ┣ 📜double_caret.png
+ ┃ ┃ ┃ ┣ 📜ice_cream.jpg
  ┃ ┃ ┃ ┗ 📜logo_philemena.png
- ┃ ┗ 📂js
- ┃ ┃ ┗ 📜main.js
+ ┃ ┣ 📂js
+ ┃ ┃ ┣ 📜app.js
+ ┃ ┃ ┣ 📜jquery-ui.min.js
+ ┃ ┃ ┗ 📜jquery.min.js
+ ┃ ┗ 📂scss
+ ┃ ┃ ┣ 📜bootstrap-grid.css
+ ┃ ┃ ┣ 📜fontawesome.css
+ ┃ ┃ ┣ 📜jquery-ui.min.css
+ ┃ ┃ ┣ 📜jquery-ui.structure.min.css
+ ┃ ┃ ┣ 📜jquery-ui.theme.min.css
+ ┃ ┃ ┣ 📜style.css
+ ┃ ┃ ┣ 📜style.css.map
+ ┃ ┃ ┣ 📜style.scss
+ ┃ ┃ ┣ 📜_admin.scss
+ ┃ ┃ ┣ 📜_footer.scss
+ ┃ ┃ ┣ 📜_general.scss
+ ┃ ┃ ┣ 📜_header.scss
+ ┃ ┃ ┣ 📜_layout.scss
+ ┃ ┃ ┣ 📜_mixins.scss
+ ┃ ┃ ┣ 📜_reset.scss
+ ┃ ┃ ┗ 📜_variables.scss
  ┣ 📂inc
  ┃ ┣ 📂class
  ┃ ┃ ┣ 📂Mollie
@@ -59,8 +78,12 @@ This will autoload the [database](https://github.com/junyi-xie/philomena/blob/ma
  ┃ ┃ ┣ 📜Cookie.php
  ┃ ┃ ┣ 📜Database.php
  ┃ ┃ ┣ 📜Query.php
+ ┃ ┃ ┣ 📜Redirect.php
  ┃ ┃ ┣ 📜Session.php
  ┃ ┃ ┗ 📜Users.php
+ ┃ ┣ 📂layout
+ ┃ ┃ ┣ 📜authentication.php
+ ┃ ┃ ┗ 📜registration.php
  ┃ ┣ 📜autoloader.php
  ┃ ┣ 📜connect.php
  ┃ ┣ 📜footer.php
@@ -68,7 +91,9 @@ This will autoload the [database](https://github.com/junyi-xie/philomena/blob/ma
  ┃ ┗ 📜header.php
  ┣ 📜.gitignore
  ┣ 📜.htaccess
+ ┣ 📜404.php
  ┣ 📜config.php
+ ┣ 📜dashboard.php
  ┣ 📜index.php
  ┣ 📜login.php
  ┣ 📜philomena.sql
