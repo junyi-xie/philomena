@@ -23,7 +23,7 @@
         {
             if ( null !== $location ) {
 
-                if ( file_exists(PATH . DIRECTORY_SEPARATOR . $location) ) 
+                if ( file_exists(PATH . DIRECTORY_SEPARATOR . strtok($location, '?')) ) 
                 {
                     header('Location: ' . $location);
                     exit();
