@@ -3,31 +3,24 @@
 
     require_once 'config.php';
 
-    include_once("inc/header.php");
+    include_once INC . '/header.php';
 
-echo '<div class="site__content_container">
+    print(
+        '<div class="site__content_container">
 
-    <div class="site__main">
+            <div class="site__main">
 
-        <div class="site__wrapper">';
+                <div class="site__wrapper">
+
+                    <a href="login.php">Login here</a>    
+                    <a href="signup.php">Sign up here</a>    
+                
+                </div>
             
-            
-        printr($_SESSION);
-        printr($_COOKIE); 
-        ?>
-        
-        <form action method="post">
-        
-            <input type="text" min="<?= date("YmdHis"); ?>" name="" id="datepicker">
-            <input type="submit" value="submit">
-        
-        </form
-<?php
-        echo '</div>
-    
-    </div>
+            </div>
 
-</div>';
+        </div>'
+    );
 
-include_once("inc/footer.php"); 
+    include_once INC . '/footer.php'; 
 ?>
