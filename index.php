@@ -12,10 +12,17 @@ echo '<div class="site__content_container">
         <div class="site__wrapper">';
             
             
-                $select = $Database->Select(sql: "SELECT * FROM openinghours WHERE branch_id = :branch_id", data: ['branch_id' => '1',]);
-                printr($select);
-            
-
+        printr($_SESSION);
+        printr($_COOKIE); 
+        ?>
+        
+        <form action method="post">
+        
+            <input type="text" min="<?= date("YmdHis"); ?>" name="" id="datepicker">
+            <input type="submit" value="submit">
+        
+        </form
+<?php
         echo '</div>
     
     </div>

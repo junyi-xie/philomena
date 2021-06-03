@@ -2,13 +2,11 @@
     
     $(document).ready(function(){
     
-        $(function() {
-            $("#datepicker").datepicker({
-                lang:'en',
-                dateFormat: 'yy-mm-dd',
-                changeMonth: true,
-                changeYear: true
-            });
+        $("#datepicker").datepicker({
+            lang:'en',
+            dateFormat: 'yy-mm-dd',
+            minDate: 0,
+            showButtonPanel: true
         });
         
     });
