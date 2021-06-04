@@ -269,10 +269,11 @@
          * 
          * @param array $data This contains the new data the user submitted and are placed inside an array.
          * @param string $password The current password. This is only required to make changes to either the email address or update the current password to a new one.
+         * @param bool $required This tells if the confirmation password needs to be checked before updating the changes for the specific account.
          * 
          * @return mixed
          */
-        public function updateCredentials(array $data, string $password)
+        public function updateCredentials(array $data, string $password, bool $required = false)
         {
             if ( !empty($this->getUser()) && $this->getUser() > 0 ) {
                 // @TODO
