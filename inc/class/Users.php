@@ -131,7 +131,7 @@
          * 
          * @return bool
          */
-        public function isEmailValid(string $email)
+        protected function isEmailValid(string $email)
         {
             return filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+./', $email);
         }
@@ -145,7 +145,7 @@
          * 
          * @return bool
          */
-        public function checkPassword(string $password, string $hashed)
+        protected function checkPassword(string $password, string $hashed)
         {
             return password_verify($password, $hashed);
         }
@@ -160,7 +160,7 @@
          * 
          * @return mixed
          */
-        public function verifyAccountExists(string $email, bool $count = false, bool $single = true)
+        protected function verifyAccountExists(string $email, bool $count = false, bool $single = true)
         {
             return $this->pdo->Select(sql: "SELECT * FROM users WHERE email = :email", data: [':email' => $email], row: $count, fetch: $single);
         }
@@ -255,12 +255,8 @@
 
                     // Set the user data.
                     $this->setData(['role_id' => 2, 'first_name' => $user['first_name'], 'last_name' => $user['last_name'], 'email' => $this->getEmail(), 'password' => $this->getPassword(), 'account_created' => date("YmdHis")]);
-
-                    // Make sure that the data is set by checking the count of the array before continuing.
-                    if ( count($this->getData()) > 0 ) {
-                        // Now that all variables are set, try to sign up again.
-                        $this->SignUp();
-                    }
+                    // Now that all variables are set, try to sign up again.
+                    $this->SignUp();
                 }
             } 
 
@@ -269,13 +265,20 @@
 
 
         /**
-         * Update the account information like full name, phone number, etc, with the new values that the user has submitted. Checks if the uid exists before making any changes.
+         * This function Updates the account information like full name, phone number, email, password, etc, with the new values that the user has submitted. Checks if the uid exists before making any changes.
          * 
-         * @return void
+         * @param array $data This contains the new data the user submitted and are placed inside an array.
+         * @param string $password The current password. This is only required to make changes to either the email address or update the current password to a new one.
+         * 
+         * @return mixed
          */
-        public function change()
+        public function updateCredentials(array $data, string $password)
         {
-            // TODO.
+            if ( !empty($this->getUser()) && $this->getUser() > 0 ) {
+                // @TODO
+            }
+
+            return false;
         }
 
 
@@ -303,6 +306,44 @@
             }
 
             return false;
+        }
+
+
+        /**
+         * Generate initials from a name, this can be used as an avatar when the users logs in to the dashboard. The letters are based on their full name, in this case, the first 2 letter.
+         *
+         * @param string $name This is the name of the user which needs to create initials based on their full name.
+         * 
+         * @return string
+         */
+        public function generateInitials(string $name)
+        {
+            $words = explode(' ', $name);
+
+            if ( count($words) >= 2 ) {
+                return strtoupper($words[0][0] . end($words)[0]);
+            }
+
+            return $this->makeInitials($name);
+        }
+
+
+        /**
+         * This function is used when the given name has more than 3 words, in which case, needs to be trimmed to fit the default length. 
+         *
+         * @param string $name The given name from the user.
+         * 
+         * @return string
+         */
+        protected function makeInitials(string $name)
+        {
+            preg_match_all('#([A-Z]+)#', $name, $capitals);
+
+            if ( count($capitals[1]) >= 2 ) {
+                return substr(implode('', $capitals[1]), 0, 2);
+            }
+
+            return strtoupper(substr($name, 0, 2));
         }
 
 
