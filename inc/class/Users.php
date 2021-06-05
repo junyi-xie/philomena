@@ -125,6 +125,20 @@
 
 
         /**
+         * Get the hashed password from the given uid. This is to check if the password matches with the current given one, used to make updates to an account, e.g. updating their password or personal information.
+         * 
+         * @param int $id This is the uid, used to identity which user needs to get their password retrieved.
+         * @param bool $fetch Whether to return a single data or a whole array.
+         * 
+         * @return object
+         */
+        protected function selectHashedPassword(int $id, bool $fetch = true)
+        {
+            return $this->pdo->Select(sql: "SELECT password FROM users WHERE id = :uid", data: [':uid' => $id], fetch: $fetch);
+        }
+
+
+        /**
          * Check if the user input email is a valid email. This is to prevent users from using not available emails to create an account, which can prevent a mail to be send.
          *
          * @param string $email The email address that needs to check if it's valid for use. e.g. $email must contain @ and .com of some sort.
@@ -165,7 +179,7 @@
             return $this->pdo->Select(sql: "SELECT * FROM users WHERE email = :email", data: [':email' => $email], row: $count, fetch: $single);
         }
 
-        
+
         /**
          * Function to log in to the dashboard. Checks if the required parameters are filled and if you wish to remember your log in so you don't have to sign in again.
          * 
@@ -179,31 +193,24 @@
         {
             if ( null !== $email && $password ) {
 
-                // Checks if the email address exists in the users table.
                 if ( !$User = $this->verifyAccountExists($email) ) {
                     return flashMessage('signin', 'Account doesn\'t exist.', 'alert alert-failure');
                 } else {
-                    // This function validates the password. It uses the password_verify function to make sure that the password matches with the hash.
                     if ( $this->checkPassword($password, $User->password) ) {
 
-                        // Set last login time to current timestamp.    
-                        if ( $this->pdo->Update("users", ['last_login' => date("YmdHis")], "id = $User->id") ) {
+                        $this->pdo->Update("users", ['last_login' => date("YmdHis")], "id = $User->id");
 
-                            // Not necessary. ('-O-')
-                            if ( Session::checkSession('uid') ) {
-                                Session::unsetSession('uid');
-                            }
-                            
-                            Session::putSession('uid', $User->id);
-
-                            // If the remember me checkbox is ticked.
-                            if ( $remember ) {
-                                // Save login information as Cookie item.
-                                Cookie::putCookie('uid', $User->id, 604800);
-                            }
-
-                            return true;
+                        if ( Session::checkSession('uid') ) {
+                            Session::unsetSession('uid');
                         }
+                        
+                        Session::putSession('uid', $User->id);
+
+                        if ( $remember ) {
+                            Cookie::putCookie('uid', $User->id, 604800);
+                        }
+
+                        return true;
                     } else {
                         return flashMessage('signin', 'Incorrect Password.', 'alert alert-failure');
                     }
@@ -225,11 +232,10 @@
         {
             if ( null === $user && !empty($this->getEmail()) && !empty($this->getPassword()) ) {
                 
-                // Check if the email address is available.
-                if ( $this->verifyAccountExists($this->getEmail(), true) === 0) {
+                if ( $this->verifyAccountExists(email: $this->getEmail(), count: true) === 0) {
 
                     if ( !empty($this->getData()) && is_array($this->getData()) ) {
-                        // Insert the data into the users table.
+
                         if ( !$this->pdo->Insert("users", $this->getData()) ) {
                             return false;
                         } else {
@@ -241,21 +247,22 @@
                 }
             } else {
                 if ( is_array($user) && null !== $user ) {
-                    // Validate email address before setting the variable.
-                    if ( null !== $this->setEmail($user['email']) ) {
+                    
+                    if ( null !== $this->setEmail($user['email']) ) 
+                    {
                         return flashMessage('signup', 'Invalid email address.', 'alert alert-failure');
                     }
 
-                    // Check if password is valid and if it matches with the confirmation.
-                    if ( null !== $this->setPassword($user['password'] ) ) {
+                    if ( null !== $this->setPassword($user['password'] ) ) 
+                    {
                         return flashMessage('signup', 'Password is too short.', 'alert alert-failure');
-                    } else if ( $user['password'] !== $user['confirm']) {
+                    } 
+                    else if ( $user['password'] !== $user['confirm']) 
+                    {
                         return flashMessage('signup', 'Password confirmation doesn\'t match Password.', 'alert alert-failure');
                     }
 
-                    // Set the user data.
                     $this->setData(['role_id' => 2, 'first_name' => $user['first_name'], 'last_name' => $user['last_name'], 'email' => $this->getEmail(), 'password' => $this->getPassword(), 'account_created' => date("YmdHis")]);
-                    // Now that all variables are set, try to sign up again.
                     $this->SignUp();
                 }
             } 
@@ -271,13 +278,25 @@
          * @param string $password The current password. This is only required to make changes to either the email address or update the current password to a new one.
          * @param bool $required This tells if the confirmation password needs to be checked before updating the changes for the specific account.
          * 
-         * @return mixed
+         * @return bool
          */
-        public function updateCredentials(array $data, string $password, bool $required = false)
+        public function updateCredentials(array $data, string $password = '', bool $required = false)
         {
             if ( !empty($this->getUser()) && $this->getUser() > 0 ) {
-                // @TODO
-            }
+
+                if ( $required ) 
+                {   
+                    $this->setPassword(password: $this->selectHashedPassword($this->getUser())->password, hash: false);
+
+                    if ( !$this->checkPassword($password, $this->getPassword()) ) {
+                        return false;
+                    }
+                }
+
+                if ( $this->pdo->Update("users", $data, "id = {$this->getUser()}") ) {
+                    return true;
+                }
+            } 
 
             return false;
         }
@@ -307,44 +326,6 @@
             }
 
             return false;
-        }
-
-
-        /**
-         * Generate initials from a name, this can be used as an avatar when the users logs in to the dashboard. The letters are based on their full name, in this case, the first 2 letter.
-         *
-         * @param string $name This is the name of the user which needs to create initials based on their full name.
-         * 
-         * @return string
-         */
-        public function generateInitials(string $name)
-        {
-            $words = explode(' ', $name);
-
-            if ( count($words) >= 2 ) {
-                return strtoupper($words[0][0] . end($words)[0]);
-            }
-
-            return $this->makeInitials($name);
-        }
-
-
-        /**
-         * This function is used when the given name has more than 3 words, in which case, needs to be trimmed to fit the default length. 
-         *
-         * @param string $name The given name from the user.
-         * 
-         * @return string
-         */
-        protected function makeInitials(string $name)
-        {
-            preg_match_all('#([A-Z]+)#', $name, $capitals);
-
-            if ( count($capitals[1]) >= 2 ) {
-                return substr(implode('', $capitals[1]), 0, 2);
-            }
-
-            return strtoupper(substr($name, 0, 2));
         }
 
 
