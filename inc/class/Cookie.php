@@ -43,11 +43,11 @@
          * 
          * @param string $name The name of the cookie, it can be used to return the cookie or delete the cookie with the assigned name.
          * @param string $value The values that are bound to your cookie, this can only be a string.
-         * @param int $expiry The time in seconds which you want the cookie to expire in.
+         * @param int $expiry The time in seconds which you want the cookie to expire in. On default its set for 7 days.
          * 
          * @return bool
          */
-        public static function putCookie(string $name, string $value, int $expiry) 
+        public static function putCookie(string $name, string $value, int $expiry = 604800) 
         {
             if ( setcookie($name, $value, time() + $expiry, '/') ) {
                 return true;

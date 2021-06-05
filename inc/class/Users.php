@@ -215,7 +215,7 @@
                         Session::putSession('uid', $User->id);
 
                         if ( $remember ) {
-                            Cookie::putCookie('uid', $User->id, 604800);
+                            Cookie::putCookie('uid', $User->id);
                         }
 
                         return true;
@@ -240,15 +240,12 @@
         {
             if ( null === $user && !empty($this->getEmail()) && !empty($this->getPassword()) ) {
                 
-                if ( $this->verifyAccountExists(email: $this->getEmail(), count: true) === 0) {
+                if ( !$this->verifyAccountExists($this->getEmail()) ) {
 
-                    if ( !empty($this->getData()) && is_array($this->getData()) ) {
-
-                        if ( !$this->pdo->Insert($this->table, $this->getData()) ) {
-                            return false;
-                        } else {
-                            return flashMessage('signup', 'Account successfully created, click <a href="login.php">here</a> to login.', 'alert alert-success');  
-                        }
+                    if ( !$this->pdo->Insert($this->table, $this->getData()) ) {
+                        return false;
+                    } else {
+                        return flashMessage('signup', 'Account successfully created, click <a href="login.php">here</a> to login.', 'alert alert-success');  
                     }
                 } else {
                     return flashMessage('signup', 'Email address is already in use.', 'alert alert-failure');    
@@ -261,11 +258,11 @@
                         return flashMessage('signup', 'Invalid email address.', 'alert alert-failure');
                     }
 
-                    if ( null !== $this->setPassword($user['password'] ) ) 
+                    if ( null !== $this->setPassword($user['password']) ) 
                     {
                         return flashMessage('signup', 'Password is too short.', 'alert alert-failure');
                     } 
-                    else if ( $user['password'] !== $user['confirm']) 
+                    else if ( $user['password'] !== $user['confirm'] ) 
                     {
                         return flashMessage('signup', 'Password confirmation doesn\'t match Password.', 'alert alert-failure');
                     }
@@ -290,7 +287,7 @@
          */
         public function updateCredentials(array $data, string $password = '', bool $required = false)
         {
-            if ( !empty($this->getUser()) && $this->getUser() > 0 ) {
+            if ( !empty($this->getUser()) && $this->getUser() >= 1 ) {
 
                 if ( $required ) {   
                     $this->setPassword(password: $this->selectHashedPassword($this->getUser())->password, hash: false);
@@ -300,7 +297,7 @@
                     }
                 }
 
-                if ( $this->pdo->Update($this->table, $data, "id = {$this->getUser()}") ) {
+                if ( $this->pdo->Update($this->table, $data, "id = $this->uid") ) {
                     return true;
                 }
             } 
@@ -339,11 +336,7 @@
          */
         public function isLoggedIn()
         {
-            if ( !empty($this->uid) && null !== $this->uid ) {
-                return true;
-            }
-
-            return false;
+            return (!empty($this->getUser()) && null !== $this->getUser()) ? true : false;
         }
 
 

@@ -44,11 +44,11 @@
 
                             <input class="form__text_field" type="email" name="email" placeholder="you@example.com" id="auth_email" required>
 
-                            <label class="label">Password</label>
+                            <label class="label">Password (must be longer than 6 characters)</label>
 
-                            <input class="form__text_field" type="password" name="password" min="6" placeholder="Password" id="auth_password" required>
+                            <input class="form__text_field" type="password" name="password" placeholder="Password" id="auth_password" required>
 
-                            <input class="form__text_field" type="password" name="confirm" min="6" placeholder="Confirm Password" id="auth_password_confirm" required>
+                            <input class="form__text_field" type="password" name="confirm" placeholder="Confirm Password" id="auth_password_confirm" required>
 
                             <div class="authentication__privacy_message">
 

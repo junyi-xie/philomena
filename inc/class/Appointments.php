@@ -56,22 +56,9 @@
          *
          * @return void
          */
-        public function __construct(array $config = null) 
+        public function __construct() 
         {
             $this->pdo = Database::getInstance();
-
-            if ( null === $config) {
-                if ( !empty(Session::checkSession('uid')) ) 
-                {
-                    $this->setUser(Session::getSession('uid'));
-                } 
-                else if ( !empty(Cookie::checkCookie('uid')) ) 
-                {
-                    $this->setUser(Cookie::getCookie('uid'));
-                } 
-            } else if ( is_string($config) ) {
-                $this->setUser($config['uid']);
-            }
         }
 
 
@@ -153,7 +140,7 @@
         }
 
 
-        public function makeAppointment(int $uid = null, int $staff = null, int $treatment, int $date, int $time, int $status = 0)
+        public function makeAppointment(int $uid, int $staff = null, int $treatment, int $date, int $time, int $status = 0)
         {
 
             $this->pdo->Insert($this->table, );

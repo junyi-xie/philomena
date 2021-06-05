@@ -6,7 +6,9 @@
             lang:'en',
             dateFormat: 'yy-mm-dd',
             minDate: 0,
-            showButtonPanel: true
+            showButtonPanel: true,
+            changeMonth: true,
+            changeYear: true
         });
         
     });
