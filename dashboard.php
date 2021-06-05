@@ -3,7 +3,7 @@
 
     use Philomena\Appointments;
     use Philomena\Users;
-    Use Philomena\Redirect;
+    use Philomena\Redirect;
     use Philomena\Session;
     use Philomena\Cookie;
 
