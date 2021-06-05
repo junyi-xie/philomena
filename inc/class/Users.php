@@ -284,8 +284,7 @@
         {
             if ( !empty($this->getUser()) && $this->getUser() > 0 ) {
 
-                if ( $required ) 
-                {   
+                if ( $required ) {   
                     $this->setPassword(password: $this->selectHashedPassword($this->getUser())->password, hash: false);
 
                     if ( !$this->checkPassword($password, $this->getPassword()) ) {
