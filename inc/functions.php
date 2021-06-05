@@ -24,9 +24,9 @@
     /**
      * Function to create and display error and success messages
      * 
-     * @params string $name
-     * @params string $message
-     * @params string $class
+     * @param string $name
+     * @param string $message
+     * @param string $class
      * 
      * @return void
      */

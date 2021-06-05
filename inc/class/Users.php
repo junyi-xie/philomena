@@ -44,6 +44,14 @@
 
 
         /**
+         * The database table name.
+         *
+         * @var string
+         */
+        private $table = 'users';
+
+
+        /**
          * Users Class Constructor.
          * 
          * @param array $config This contains the users basic information, such as name, phone, address and more. The user password and email need to be configurated manually, this is because they have addtional options depending on the process kind.
@@ -127,14 +135,14 @@
         /**
          * Get the hashed password from the given uid. This is to check if the password matches with the current given one, used to make updates to an account, e.g. updating their password or personal information.
          * 
-         * @param int $id This is the uid, used to identity which user needs to get their password retrieved.
+         * @param int $uid This is the uid, used to identity which user needs to get their password retrieved.
          * @param bool $fetch Whether to return a single data or a whole array.
          * 
          * @return object
          */
-        protected function selectHashedPassword(int $id, bool $fetch = true)
+        protected function selectHashedPassword(int $uid, bool $fetch = true)
         {
-            return $this->pdo->Select(sql: "SELECT password FROM users WHERE id = :uid", data: [':uid' => $id], fetch: $fetch);
+            return $this->pdo->Select(sql: "SELECT password FROM $this->table WHERE id = :uid", data: [':uid' => $uid], fetch: $fetch);
         }
 
 
@@ -176,7 +184,7 @@
          */
         protected function verifyAccountExists(string $email, bool $count = false, bool $single = true)
         {
-            return $this->pdo->Select(sql: "SELECT * FROM users WHERE email = :email", data: [':email' => $email], row: $count, fetch: $single);
+            return $this->pdo->Select(sql: "SELECT * FROM $this->table WHERE email = :email", data: [':email' => $email], row: $count, fetch: $single);
         }
 
 
@@ -198,7 +206,7 @@
                 } else {
                     if ( $this->checkPassword($password, $User->password) ) {
 
-                        $this->pdo->Update("users", ['last_login' => date("YmdHis")], "id = $User->id");
+                        $this->pdo->Update($this->table, ['last_login' => date("YmdHis")], "id = $User->id");
 
                         if ( Session::checkSession('uid') ) {
                             Session::unsetSession('uid');
@@ -236,7 +244,7 @@
 
                     if ( !empty($this->getData()) && is_array($this->getData()) ) {
 
-                        if ( !$this->pdo->Insert("users", $this->getData()) ) {
+                        if ( !$this->pdo->Insert($this->table, $this->getData()) ) {
                             return false;
                         } else {
                             return flashMessage('signup', 'Account successfully created, click <a href="login.php">here</a> to login.', 'alert alert-success');  
@@ -292,12 +300,23 @@
                     }
                 }
 
-                if ( $this->pdo->Update("users", $data, "id = {$this->getUser()}") ) {
+                if ( $this->pdo->Update($this->table, $data, "id = {$this->getUser()}") ) {
                     return true;
                 }
             } 
 
             return false;
+        }
+
+
+        /**
+         * Lets the administrators create new users, which they can configurate the options themselves, such as, roles, password and permissions.
+         * 
+         * @return void
+         */
+        public function createNewUser() 
+        {
+            // @TODO
         }
 
 

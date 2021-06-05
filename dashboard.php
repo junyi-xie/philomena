@@ -17,7 +17,7 @@
     if ( isset($_GET['signout']) && $_GET['signout'] == true )
     {
         $Users->Logout();
-        Redirect::To('index');
+        Redirect::To('index.php');
     }
 
     
@@ -31,7 +31,7 @@
     }
     else 
     {
-        Redirect::To('index');
+        Redirect::To('index.php');
     }
 
 
@@ -43,12 +43,6 @@
                 $a = $Users->updateCredentials($_POST['credentials'], '', false);
                 var_dump($a);
             break;
-            case 'password':
-                $Users->updateCredentials($_POST['credentials'], $_POST['password']);
-            break;
-            case 'email':
-                $Users->updateCredentials($_POST['credentials'], $_POST['password']);
-            break;            
         }
     }
 
