@@ -50,6 +50,21 @@
     include_once INC . '/header.php';
 
 
+    $a = $Database->Select("SELECT * FROM users AS u INNER JOIN roles AS r ON r.id = u.role_id WHERE 1 AND u.id = :id", [':id' => $Users->getUser()], fetch: true);
+
+    // printr($a);
+    switch ($a->role_id) {
+        case '1':
+            echo 'admin';
+        break;
+        case '2':
+            echo 'employee';
+        break;
+        default:
+            echo 'guest';
+        break;
+    }
+    
     echo '
         <form method="post">
             <input type="hidden" name="action" value="information">

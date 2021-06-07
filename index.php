@@ -25,7 +25,8 @@
                     <br/>
                     <br/>
                     <br/>
-';?>
+';
+?>
 
     <?php 
         $Appointments = new Appointments();
@@ -47,7 +48,7 @@
 
     } else {
 
-        echo 'welcome, lets make an appointment';
+        echo 'welcome, lets make an appointment. USERID: ]' . $Users->getUser();
 
         echo '
         <form action="index.php" method="post">
@@ -72,23 +73,29 @@
         // var_dump($a);
         printr($_POST);
 
-        $uid = $Users->getUser();
-        $staff = null;
-        $treatment = $_POST['treatment'];
-        $date = $_POST['date'];
-        $time = $_POST['time'];
-        $note = $_POST['note'];
-        /*
-        test
-        $Appointments->makeAppointment(
-            $uid,
-            $staff,
-            $treatment,
-            $date,
-            $time,
-            $note,
-        );
-        */
+        printr($_POST['date']);
+
+        echo date("Ymd", strtotime($_POST['date']));
+
+        // @TODO
+        if ( isset($_POST) && !empty($_POST) ) {
+            $uid = $Users->getUser();
+            $staff = null;
+            $treatment = $_POST['treatment'];
+            $date = $_POST['date'];
+            $time = $_POST['time'];
+            $note = $_POST['note'];
+
+            // test
+            // $Appointments->makeAppointment(
+            //     $uid,
+            //     $staff,
+            //     $treatment,
+            //     $date,
+            //     $time,
+            //     $note,
+            // );
+        }
     ?>
 
 

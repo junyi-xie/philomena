@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2021 at 11:10 AM
+-- Generation Time: Jun 07, 2021 at 08:58 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -33,7 +33,9 @@ CREATE TABLE `appointments` (
   `user_id` int(11) DEFAULT 0,
   `staff_id` int(11) DEFAULT 0,
   `treatment_id` int(11) DEFAULT 0,
-  `reservation_date` bigint(14) NOT NULL DEFAULT 0,
+  `reservation_date` mediumint(8) NOT NULL DEFAULT 0,
+  `reservation_time` mediumint(6) NOT NULL DEFAULT 0,
+  `notes` varchar(255) NOT NULL DEFAULT '',
   `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -125,10 +127,18 @@ DROP TABLE IF EXISTS `staffs`;
 CREATE TABLE `staffs` (
   `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT 0,
-  `description` varchar(255) NOT NULL DEFAULT '',
-  `experience` varchar(255) NOT NULL DEFAULT '',
-  `start_date` bigint(14) NOT NULL DEFAULT 0
+  `day_week` int(11) NOT NULL DEFAULT 0,
+  `start_time` mediumint(6) NOT NULL DEFAULT 0,
+  `end_time` mediumint(6) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `staffs`
+--
+
+INSERT INTO `staffs` (`id`, `user_id`, `day_week`, `start_time`, `end_time`) VALUES
+(1, 2, 1, 90000, 170000),
+(2, 2, 3, 90000, 180000);
 
 -- --------------------------------------------------------
 
@@ -140,10 +150,19 @@ DROP TABLE IF EXISTS `treatments`;
 CREATE TABLE `treatments` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL DEFAULT '',
-  `type` int(11) NOT NULL DEFAULT 0,
+  `duration` mediumint(6) NOT NULL DEFAULT 0,
   `price` float(10,3) NOT NULL DEFAULT 0.000,
   `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `treatments`
+--
+
+INSERT INTO `treatments` (`id`, `name`, `duration`, `price`, `status`) VALUES
+(1, 'Ice Cream', 10000, 2.150, 1),
+(2, 'Soda', 13000, 1.200, 1),
+(3, 'Popcorn', 11500, 3.500, 1);
 
 -- --------------------------------------------------------
 
@@ -157,9 +176,9 @@ CREATE TABLE `users` (
   `role_id` int(11) DEFAULT 0,
   `first_name` varchar(255) NOT NULL DEFAULT '',
   `last_name` varchar(255) NOT NULL DEFAULT '',
-  `phone` varchar(255) NOT NULL DEFAULT '',
   `email` varchar(255) NOT NULL DEFAULT '',
   `password` varchar(255) NOT NULL DEFAULT '',
+  `phone` varchar(255) NOT NULL DEFAULT '',
   `address` varchar(255) NOT NULL DEFAULT '',
   `zipcode` varchar(255) NOT NULL DEFAULT '',
   `city` varchar(255) NOT NULL DEFAULT '',
@@ -173,8 +192,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `role_id`, `first_name`, `last_name`, `phone`, `email`, `password`, `address`, `zipcode`, `city`, `province`, `country`, `account_created`, `last_login`) VALUES
-(1, 2, 'admin', 'admin', '0', 'admin@admin.com', '$2y$10$fcVZZ5FrAn/.tJYwf6uyFuH6BOxSwBV0Hz8LQbrrFJLnbTaLkcB8S', '', '', '', '', 'The Netherlands', 20210426110142, 0);
+INSERT INTO `users` (`id`, `role_id`, `first_name`, `last_name`, `email`, `password`, `phone`, `address`, `zipcode`, `city`, `province`, `country`, `account_created`, `last_login`) VALUES
+(1, 1, 'Junyi', 'Xie', 'yunyi.xie@outlook.com', '$2y$10$fcVZZ5FrAn/.tJYwf6uyFuH6BOxSwBV0Hz8LQbrrFJLnbTaLkcB8S', '0636560377', 'Neherkade 2178', '2521 RM', 'The Hague', 'South-Holland', 'The Netherlands', 20210426110142, 20210606170909),
+(2, 3, 'Kouhie', '', 'kouhie123@gmail.com', '$2y$10$NztYp6L9CNhODQFhIYIpfeRXgrESlZa950dBdd1.MvhbcH8vB1Wly', '', '', '', '', '', '', 20210605183945, 0);
 
 --
 -- Indexes for dumped tables
@@ -260,19 +280,19 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `staffs`
 --
 ALTER TABLE `staffs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `treatments`
 --
 ALTER TABLE `treatments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
