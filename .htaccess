@@ -1,2 +1,2 @@
 RewriteEngine on
-ErrorDocument 404 /philomena/404.php
+ErrorDocument 404 /philomena/404.html

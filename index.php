@@ -73,9 +73,9 @@
         // var_dump($a);
         printr($_POST);
 
-        printr($_POST['date']);
+        // printr($_POST['date']);
 
-        echo date("Ymd", strtotime($_POST['date']));
+        // echo date("Ymd", strtotime($_POST['date']));
 
         // @TODO
         if ( isset($_POST) && !empty($_POST) ) {
