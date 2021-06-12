@@ -57,7 +57,8 @@
         case '1':
             echo 'admin';
         break;
-        case '2':
+        case '3':
+        case '4':
             echo 'employee';
         break;
         default:
