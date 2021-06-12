@@ -80,28 +80,10 @@
         <div class="site__main">
 
             <div class="site__wrapper">
-    
-                <section class="about">
 
-                    <div class="container">
+                <section>
 
-                        <h2>About</h2>
-
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vel repellendus obcaecati quas, eius est ab porro nobis animi tempora voluptate? Quos, nobis dolores reiciendis doloribus quam adipisci corrupti soluta. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione maiores, harum voluptatem provident minima at alias voluptas iure deleniti, beatae illo perferendis necessitatibus ullam non vitae doloribus vel. Quas, nesciunt? Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ratione error quae dolorem exercitationem! Beatae quibusdam soluta architecto cumque consequuntur, a aliquid delectus velit perferendis cupiditate rem, veniam officiis accusamus?</p>
-
-                    </div>
-
-                </section>
-
-                <section class="portfolio">
-
-                    <div class="container">
-
-                    <h2>Portfolio</h2>
-
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vel repellendus obcaecati quas, eius est ab porro nobis animi tempora voluptate? Quos, nobis dolores reiciendis doloribus quam adipisci corrupti soluta. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione maiores, harum voluptatem provident minima at alias voluptas iure deleniti, beatae illo perferendis necessitatibus ullam non vitae doloribus vel. Quas, nesciunt? Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ratione error quae dolorem exercitationem! Beatae quibusdam soluta architecto cumque consequuntur, a aliquid delectus velit perferendis cupiditate rem, veniam officiis accusamus?</p>
-
-                    </div>
+                    <!-- TODO -->
 
                 </section>
 
