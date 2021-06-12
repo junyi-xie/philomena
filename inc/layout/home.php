@@ -9,6 +9,58 @@
 
             </div>
 
+            <div class="site__header_menu">
+
+                <input type="checkbox" class="site__header_menu_checkbox" id="site__header_menu_toggle">
+
+                <label class="site__header_menu_button" for="site__header_menu_toggle">
+
+                    <span class="site__header_menu_icon"><span class="site__header_menu_span"></span><span class="site__header_menu_span"></span><span class="site__header_menu_span"></span><span class="site__header_menu_span"></span><span class="site__header_menu_span"></span><span class="site__header_menu_span"></span></span>
+
+                </label>
+
+                <div class="site__header_menu_background"></div>
+
+                <nav class="site__header_menu_nav">
+
+                    <ul class="site__header_menu_list">
+
+                        <li class="site__header_menu_item">
+
+                            <a class="site__header_menu_link" href="index.php" rel="canonical">Home</a>
+
+                        </li>
+
+                        <li class="site__header_menu_item">
+
+                            <a class="site__header_menu_link" href="about.php" rel="canonical">About</a>
+
+                        </li>
+
+                        <li class="site__header_menu_item">
+
+                            <a class="site__header_menu_link" href="services.php" rel="canonical">Services</a>
+
+                        </li>
+
+                        <li class="site__header_menu_item">
+
+                            <a class="site__header_menu_link" href="news.php" rel="canonical">News</a>
+
+                        </li>
+
+                        <li class="site__header_menu_item">
+
+                            <a class="site__header_menu_link" href="login.php" rel="canonical">Sign In</a>
+
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+            </div> 
+        
             <nav class="site__header_nav">
 
                 <ul class="site__header_nav_list">
@@ -22,6 +74,12 @@
                     <li class="site__header_nav_item">
 
                         <a class="site__header_nav_link" href="about.php" rel="canonical">About</a>
+
+                    </li>
+
+                    <li class="site__header_nav_item">
+
+                        <a class="site__header_nav_link" href="services.php" rel="canonical">Services</a>
 
                     </li>
 
@@ -41,7 +99,7 @@
 
             </nav>
 
-        </div>
+        </div> 
 
     </header>
 
