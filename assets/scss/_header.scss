@@ -66,22 +66,38 @@
             flex-direction: row;
 
             .site__header_nav_item {
-                padding: 0 0.5em;
+                display: none;
+
+                @include md {
+                    padding: 0 0.5em;
+                    display: block;
+                }
             
                 .site__header_nav_link {
-                    font-size: 18px;
+                    font-size: 14px;
                     padding: 8px 15px;
                     color: $white;
                     text-decoration: none;
                     display: inline-block;
+
+                    @include md {
+                        font-size: 16px;
+                    }
                 }
 
                 &:last-child {
+                    display: block;
+
                     .site__header_nav_link {
                         background-color: $red-alt;
-                        padding: 8px 22px;
-                        border-radius: 6px;
+                        padding: 8px 15px;
+                        border-radius: 2px;
                         color: $white;
+
+                        @include md {
+                            border-radius: 6px;
+                            padding: 8px 20px;
+                        }
 
                         &:hover {
                             background-color: $red;

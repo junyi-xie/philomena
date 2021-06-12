@@ -1,4 +1,4 @@
-    <!-- HEADER -->
+    <!-- SITE HEADER -->
     <header class="site__header">
 
         <div class="site__header_container">
@@ -33,7 +33,7 @@
 
                     <li class="site__header_nav_item">
 
-                        <a class="site__header_nav_link" href="login.php" rel="canonical">Sign in</a>
+                        <a class="site__header_nav_link" href="login.php" rel="canonical">Sign In</a>
 
                     </li>
 
@@ -45,7 +45,7 @@
 
     </header>
 
-    <!-- HERO -->
+    <!-- SITE HERO -->
     <section class="site__hero">
 
         <div class="container">
@@ -74,7 +74,7 @@
 
     </section>
 
-    <!-- CONTENT -->
+    <!-- SITE CONTENT -->
     <div class="site__content_container">
 
         <div class="site__main">
@@ -93,7 +93,7 @@
 
     </div>
 
-    <!-- FOOTER -->
+    <!-- SITE FOOTER -->
     <footer class="site__footer">
 
     </footer>
