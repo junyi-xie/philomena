@@ -52,7 +52,7 @@
 
             <h2>Hair and Nails beautification.</h2>
 
-            <p>Philomena specilizes in giving your hair and nails the best treatment they deserve, we have a wide variety of services, which you'd enjoy and for a reasonable price on top - Make your first appointment before it's too late, we have limited customers we can serve a day.</p>
+            <p>Philomena specializes in giving your hair and nails the best treatment they deserve, we have a wide variety of services, which you'd enjoy, and for a reasonable price as well - Make your first appointment now, before it's too late, we have a limited amount of customers we can serve in a day.</p>
         
             <a href="reservation.php" rel="canonical" role="button">
 
