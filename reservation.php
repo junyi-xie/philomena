@@ -1,13 +1,16 @@
 <?php
     /* Copyright (c) - 2021 by Junyi Xie */
 
+    use Philomena\Appointments;
     use Philomena\Users;
     use Philomena\Session;
     use Philomena\Cookie;
+    use Philomena\Redirect;
 
     
     require_once 'config.php';
 
+    $Appointments = new Appointments();
     $Users = new Users();
 
 
@@ -20,9 +23,5 @@
         $Users->setUser(Cookie::getCookie('uid'));
     }
 
-    include_once INC . '/header.php';
-
-    include_once INC . '/layout/home.php';
-    
-    include_once INC . '/footer.php'; 
+    echo 'hello to appointments';
 ?>
