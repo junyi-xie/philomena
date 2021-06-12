@@ -9,6 +9,7 @@
 
             </div>
 
+            <!-- MOBILE MENU -->
             <div class="site__header_menu">
 
                 <input type="checkbox" class="site__header_menu_checkbox" id="site__header_menu_toggle">
@@ -61,6 +62,7 @@
 
             </div> 
         
+            <!-- DESKTOP MENU -->
             <nav class="site__header_nav">
 
                 <ul class="site__header_nav_list">
