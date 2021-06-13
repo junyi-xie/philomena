@@ -69,25 +69,25 @@
 
                     <li class="site__header_nav_item">
 
-                        <a class="site__header_nav_link" href="#site__section_hero" rel="canonical">Home</a>
+                        <a class="site__header_nav_link" href="#hero" rel="canonical">Home</a>
 
                     </li>
 
                     <li class="site__header_nav_item">
 
-                        <a class="site__header_nav_link" href="#site__section_about" rel="canonical">About</a>
+                        <a class="site__header_nav_link" href="#about" rel="canonical">About</a>
 
                     </li>
 
                     <li class="site__header_nav_item">
 
-                        <a class="site__header_nav_link" href="#site__section_service" rel="canonical">Services</a>
+                        <a class="site__header_nav_link" href="#service" rel="canonical">Services</a>
 
                     </li>
 
                     <li class="site__header_nav_item">
 
-                        <a class="site__header_nav_link" href="news.php" rel="canonical">News</a>
+                        <a class="site__header_nav_link" href="#news" rel="canonical">News</a>
 
                     </li>
 
@@ -106,7 +106,7 @@
     </header>
 
     <!-- SITE HERO -->
-    <section class="site__hero" id="site__section_hero">
+    <section class="site__hero" id="hero">
 
         <div class="container">
 
@@ -140,7 +140,7 @@
         <div class="site__main">
 
             <!-- ABOUT SECTION -->
-            <section class="site__section_about" id="site__section_about">
+            <section class="site__section_about" id="about">
 
                 <div class="container">
 
@@ -202,7 +202,7 @@
             </section>
 
             <!-- SERVICE SECTION -->
-            <section class="site__section_service" id="site__section_service">
+            <section class="site__section_service" id="service">
 
                 <div class="container">
 
@@ -275,6 +275,12 @@
                     </div>
 
                 </div>
+
+            </section>
+
+
+            <section class="site__section_news" id="news">
+
 
             </section>
 

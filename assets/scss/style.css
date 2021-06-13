@@ -1443,6 +1443,12 @@ a {
   color: #af1e48;
 }
 
+.site__section_news {
+  background-color: white;
+  padding: 100px 0;
+  position: relative;
+}
+
 .site__hero {
   background: url("../images/layout/hero.jpg") no-repeat center center;
   background-size: cover;
