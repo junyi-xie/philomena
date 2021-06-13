@@ -31,6 +31,10 @@
             .site__header_nav .site__header_nav_list .site__header_nav_item:not(:last-child) .site__header_nav_link,
             .site__header_logo .site__header_link {   
                 color: $black-alt;
+
+                &:hover {
+                    color: $red-alt;
+                }
             }
         }
 
@@ -77,6 +81,10 @@
                     color: $white;
                     text-decoration: none;
                     display: inline-block;
+
+                    &:hover {
+                        color: $red-alt;
+                    }
                 }
 
                 &:last-child {
@@ -135,13 +143,14 @@
         }
   
         .site__header_menu_background {
-            position: fixed;
-            width: 50px;
-            height: 50px;
+            position: absolute;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            background-image: linear-gradient(to right bottom, $red-alt, $white-alt);;
+            background-image: linear-gradient(to right bottom, $red-alt, $white-alt);
             z-index: 10;
             transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+            visibility: 0;
         }
   
         .site__header_menu_nav {
@@ -287,3 +296,7 @@
             transform: rotate(180deg);
         }
     }  
+
+    .site__menu_is__open {
+        overflow: hidden;
+    }

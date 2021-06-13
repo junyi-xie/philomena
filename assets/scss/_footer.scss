@@ -1,3 +1,15 @@
+    .site__footer {
+        background-image: linear-gradient(105deg, $red-alt, $red);
+        padding: 20px 0;
+        margin: 0;
+
+        .site__copyright {
+            color: $white;
+            font-size: 16px;
+            text-align: center; 
+        }
+    }
+    
     .privacy__terms {
         text-align: center;
         z-index: 100;

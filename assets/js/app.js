@@ -10,13 +10,17 @@
             changeMonth: true,
             changeYear: true
         });
+
+        $("#site__header_menu_toggle").click(function(){
+            $('body').toggleClass('site__menu_is__open');
+        });
     });
 
     $(window).scroll(function() {
         var header = $(document).scrollTop();
         var headerBar = $(".site__header");
         var headerHeight = headerBar.outerHeight();
-        var firstSection = $(".site__wrapper section:nth-of-type(1)").outerHeight();
+        var firstSection = $(".site__content_container section:nth-of-type(1)").outerHeight();
 
         if ( header > headerHeight ) {
             headerBar.addClass("fixed");

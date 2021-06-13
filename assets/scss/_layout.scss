@@ -98,3 +98,298 @@
             stroke-dashoffset: -200;
         }
     }
+
+
+
+    .test2 {
+        padding: 80px 0;
+        background-color: $white-alt;
+    }
+
+    .test3 {
+        padding: 80px 0;
+        background-color: $white;
+    }
+
+
+    
+    
+    .site__section_about {
+	    position: relative;
+	    padding: 60px 0 80px;
+        background-color: transparent;
+
+        #site__about_content {
+	        position: relative;
+            text-align: center;
+
+            @include lg {
+                text-align: left;
+	            margin-bottom: 50px;
+            }
+
+            .site__section_content_inner {
+                position: relative;
+
+                @include lg {
+                    padding: 40px 100px 0 0;
+                }
+
+                .site__section_content_heading {
+                    position: relative;
+                    padding-bottom: 20px;
+                    color: $black-alt;
+
+                    @include lg {
+                        padding-bottom: 20px;
+                    }
+                
+                    .site__section_content_title {
+                        position: relative;
+                        color: $red-alt;
+                        font-size: 18px;
+                        font-weight: 700;
+                        padding-right: 50px;
+                        margin-bottom: 10px;
+                        display: inline-block;
+                        text-transform: capitalize;
+                        
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            right: 0;
+                            bottom: 10px;
+                            width: 40px;
+                            height: 1px;
+                            background-color: $grey-alt;
+                        }
+                    }            
+                }
+
+                .site__section_content_text {
+                    position: relative;
+                    color: $grey;
+                    font-size: 14px;
+                    line-height: 1.5em;
+                    margin-bottom: 25px;
+
+                    @include lg {
+                        font-size: 16px;
+                        margin-bottom: 40px;
+                    }
+                }
+    
+                .site__section_content_button {
+                    position: relative;
+                    line-height: 24px;
+                    color: $black-alt;
+                    font-size: 16px;
+                    font-weight: 700;
+                    display: inline-block;
+                    padding: 12px 40px;
+                    background-color: $white;
+                    text-transform: capitalize;
+                    border: 2px solid $red-alt;
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        left: 10px;
+                        top: 10px;
+                        z-index: -1;
+                        right: -10px;
+                        bottom: -10px;
+                        background: url('../images/layout/pattern.jpg') no-repeat;
+                    }
+
+                    &:hover {
+                        color: $white;
+                        background-color: $red-alt;
+                    }
+                }
+            }
+        }
+
+        #site__about_image {
+            display: none;
+
+            @include lg {
+                position: relative;
+                display: block;
+                margin-bottom: 50px;
+            }
+
+            .site__section_image_inner {
+                position: relative;
+                padding: 40px 40px 0 0;
+                margin-left: 50px;
+
+                .site__section_image_container {
+                    position: relative;
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        left: -50px;
+                        bottom: -50px;
+                        width: 300px;
+                        height: 300px;
+                    }
+
+                    .site__section_image_overlay {
+                        position: absolute;
+                        left: 50px;
+                        bottom: 50px;
+
+                        .site__section_image_overlay_year {
+                            position: relative;
+                            color: $black-alt;
+                            font-size: 24px;
+                            font-weight: 700;
+                            line-height: 1.4em;
+                            padding-left: 125px;
+                        }
+
+                        .site__section_image_overlay_number {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 100px;
+                            height: 100px;
+                            color: $red-alt;
+                            font-size: 70px;
+                            font-weight: 700;
+                            line-height: 105px;
+                            text-align: center;
+                            background-color: $white;
+                            border: 1px solid $black;
+                        }
+                    }
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    left: 40px;
+                    bottom: 100px;
+                    z-index: -1;
+                    border: 2px solid $red-alt;
+                }
+            }
+        }
+    }
+
+
+    .site__section_service {
+        background-color: $white-alt;
+        position: relative;
+	    padding: 100px 0;
+
+        .site__section_service_title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: $black-alt;
+
+            h2 {
+                position: relative;
+                margin-bottom: 50px;
+                display: inline-block;
+                font-weight: 600;
+                line-height: 1;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    width: 80px;
+                    height: 5px;
+                    background-color: $red-alt;
+                    bottom: -25px;
+                    margin: auto;
+                    right: 0;
+                }
+            }
+
+            p {
+                margin-bottom: 10px;
+                font-size: 16px;
+                line-height: 1.5em;
+
+                @include xl {
+                    padding: 0 180px;
+                }
+            }
+        }
+
+        .site__section_service_container {
+            border: 1px solid $line-alt;
+            padding: 50px 30px;
+            position: relative;
+            text-align: center;
+            margin-bottom: 30px;
+
+            &:hover {
+                background-image: url(https://i.ibb.co/mykzQks/services1.jpg);
+                background-size: cover;
+                background-position: center center;
+                background-attachment: local;
+                transition: all .5s;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    background: rgba(0, 0, 0, 0.3);
+                    height: 100%;
+                    width: 100%;
+                    left: 0;
+                    top: 0;
+                    opacity: 1;
+                }
+
+                h4, 
+                p {
+                    color: $white;
+                }
+            }
+
+            .site__section_service_icon {
+                position: relative;
+                padding: 0;
+        
+                i {
+                    font-size: 40px;
+                    color: $red-alt;
+                    margin-bottom: 20px;
+                    display: inline-block;
+                }
+            }
+
+            h4 {
+                font-weight: 600;
+                color: $black-alt;
+                margin-bottom: 18px;
+                font-size: 18px;
+                text-transform: capitalize;
+                position: relative;
+            }
+
+            p {
+                color: $black;
+                margin-bottom: 15px;
+                position: relative;
+            }
+
+            a {
+                font-size: 14px;
+                font-weight: 600;
+                position: relative;
+                color: $red-alt;
+
+                &:hover {
+                    color: $red;
+                }
+            }
+        }
+    }

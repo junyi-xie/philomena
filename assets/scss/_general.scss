@@ -11,6 +11,7 @@
         height: 100%;
         line-height: 1.5;
         color: $blue;
+        scroll-behavior: smooth;
     }
 
     .site__content_container {
@@ -204,10 +205,10 @@
     }
 
     h2 {
-        font-size: 20px;
+        font-size: 24px;
 
         @include md {
-            font-size: 28px;
+            font-size: 30px;
         }
 
         @include lg {
@@ -219,11 +220,11 @@
         font-size: 18px;
 
         @include md {
-            font-size: 20px;
+            font-size: 22px;
         }
 
         @include lg {
-            font-size: 24px;
+            font-size: 28px;
         }
     }
 

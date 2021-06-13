@@ -28,19 +28,19 @@
 
                         <li class="site__header_menu_item">
 
-                            <a class="site__header_menu_link" href="index.php" rel="canonical">Home</a>
+                            <a class="site__header_menu_link" href="#site__section_home" rel="canonical">Home</a>
 
                         </li>
 
                         <li class="site__header_menu_item">
 
-                            <a class="site__header_menu_link" href="about.php" rel="canonical">About</a>
+                            <a class="site__header_menu_link" href="#site__section_about" rel="canonical">About</a>
 
                         </li>
 
                         <li class="site__header_menu_item">
 
-                            <a class="site__header_menu_link" href="services.php" rel="canonical">Services</a>
+                            <a class="site__header_menu_link" href="#site__section_service" rel="canonical">Services</a>
 
                         </li>
 
@@ -69,19 +69,19 @@
 
                     <li class="site__header_nav_item">
 
-                        <a class="site__header_nav_link" href="index.php" rel="canonical">Home</a>
+                        <a class="site__header_nav_link" href="#site__section_home" rel="canonical">Home</a>
 
                     </li>
 
                     <li class="site__header_nav_item">
 
-                        <a class="site__header_nav_link" href="about.php" rel="canonical">About</a>
+                        <a class="site__header_nav_link" href="#site__section_about" rel="canonical">About</a>
 
                     </li>
 
                     <li class="site__header_nav_item">
 
-                        <a class="site__header_nav_link" href="services.php" rel="canonical">Services</a>
+                        <a class="site__header_nav_link" href="#site__section_service" rel="canonical">Services</a>
 
                     </li>
 
@@ -106,7 +106,7 @@
     </header>
 
     <!-- SITE HERO -->
-    <section class="site__hero">
+    <section class="site__hero" id="site__section_home">
 
         <div class="container">
 
@@ -139,21 +139,153 @@
 
         <div class="site__main">
 
-            <div class="site__wrapper">
+            <!-- ABOUT SECTION -->
+            <section class="site__section_about" id="site__section_about">
 
-                <section>
+                <div class="container">
 
-                    <!-- TODO -->
+                    <div class="row">
+                        
+                        <div class="col-12 col-lg-6 content-column" id="site__about_content">
+                            
+                            <div class="site__section_content_inner">
 
-                </section>
+                                <div class="site__section_content_heading">
 
-            </div>
+                                    <div class="site__section_content_title">About Us</div>
+
+                                    <h2>We Are Care About<br>Quality and YOU</h2>
+
+                                </div>
+
+                                <div class="site__section_content_text">
+                                    
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro tempore sequi necessitatibus quis repellendus cum dignissimos dolorem animi repellat, quae officia corporis consequuntur, sed obcaecati, fugiat inventore esse adipisci. Dicta! Lorem ipsum dolor sit amet consectetur adipisicing elit. A reprehenderit esse id excepturi velit voluptatibus modi, error facere. Eius ratione aspernatur minus deserunt amet at ea atque eveniet placeat quisquam!</p>
+                                
+                                </div>
+
+                                <a class="site__section_content_button" href="#" rel="canonical">Read More</a>
+
+                            </div>
+
+                        </div>
+                        
+                        <div class="col-12 col-lg-6" id="site__about_image">
+
+                            <div class="site__section_image_inner">
+
+                                <div class="site__section_image_container">
+
+                                    <img class="responsiveimg" src="assets/images/layout/nails.jpg" alt="Nails">
+
+                                    <div class="site__section_image_overlay">
+
+                                        <div class="site__section_image_overlay_year">
+                                            
+                                            <span class="site__section_image_overlay_number">2</span>Years<br>Experience<br>Working
+                                    
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- SERVICE SECTION -->
+            <section class="site__section_service" id="site__section_service">
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-12">
+
+                            <div class="site__section_service_title">
+
+                                <h2>Our Services</h2>
+
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit deleniti fugit reiciendis neque delectus repellendus autem deserunt odio alias consectetur accusamus laudantium minima voluptates, quam, repellat enim. Fuga, rerum tempore?</p>
+                            
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-12 col-lg-4 col-md-6">
+
+                            <div class="site__section_service_container">
+
+                                <div class="site__section_service_icon"><i class="fa-solid fa-scissors"></i></div>
+
+                                <h4>Designs & interfaces</h4>
+
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry...</p>
+                                
+                                <a href="#">Read More</a>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-lg-4 col-md-6">
+
+                            <div class="site__section_service_container">
+
+                                <div class="site__section_service_icon"><i class="far fa-chart-bar"></i></div>
+
+                                <h4>Highly customizable</h4>
+
+                                
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry...</p>
+                                
+                                <a href="#">Read More</a>
+                            
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-lg-4 col-md-6">
+
+                            <div class="site__section_service_container">
+
+                                <div class="site__section_service_icon"><i class="fas fa-database"></i></div>
+
+                                <h4>Responsive design</h4>
+                                
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry...</p>
+                               
+                                <a href="#">Read More</a>
+                            
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            </section>
 
         </div>
 
     </div>
 
     <!-- SITE FOOTER -->
-    <footer class="site__footer">
+    <footer class="site__footer">               
+    
+        <p class="site__copyright">Copyright &copy; <?php echo date("Y"); ?> Philomena. All Rights Reserved.</p>
 
     </footer>
