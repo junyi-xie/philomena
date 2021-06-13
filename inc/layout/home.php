@@ -28,25 +28,25 @@
 
                         <li class="site__header_menu_item">
 
-                            <a class="site__header_menu_link" href="#site__section_home" rel="canonical">Home</a>
+                            <a class="site__header_menu_link" href="index.php" rel="canonical">Home</a>
 
                         </li>
 
                         <li class="site__header_menu_item">
 
-                            <a class="site__header_menu_link" href="#site__section_about" rel="canonical">About</a>
+                            <a class="site__header_menu_link" href="#" rel="canonical">About</a>
 
                         </li>
 
                         <li class="site__header_menu_item">
 
-                            <a class="site__header_menu_link" href="#site__section_service" rel="canonical">Services</a>
+                            <a class="site__header_menu_link" href="#" rel="canonical">Services</a>
 
                         </li>
 
                         <li class="site__header_menu_item">
 
-                            <a class="site__header_menu_link" href="news.php" rel="canonical">News</a>
+                            <a class="site__header_menu_link" href="#" rel="canonical">News</a>
 
                         </li>
 
@@ -69,7 +69,7 @@
 
                     <li class="site__header_nav_item">
 
-                        <a class="site__header_nav_link" href="#site__section_home" rel="canonical">Home</a>
+                        <a class="site__header_nav_link" href="#site__section_hero" rel="canonical">Home</a>
 
                     </li>
 
@@ -106,7 +106,7 @@
     </header>
 
     <!-- SITE HERO -->
-    <section class="site__hero" id="site__section_home">
+    <section class="site__hero" id="site__section_hero">
 
         <div class="container">
 
@@ -226,11 +226,11 @@
 
                         <div class="col-12 col-lg-4 col-md-6">
 
-                            <div class="site__section_service_container">
+                            <div class="site__section_service_container" id="site__section_service_hair">
 
-                                <div class="site__section_service_icon"><i class="fa-solid fa-scissors"></i></div>
+                                <div class="site__section_service_icon"><i class="fas fa-cut"></i></div>
 
-                                <h4>Designs & interfaces</h4>
+                                <h4>Hair Styling</h4>
 
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry...</p>
                                 
@@ -242,13 +242,12 @@
 
                         <div class="col-12 col-lg-4 col-md-6">
 
-                            <div class="site__section_service_container">
+                            <div class="site__section_service_container" id="site__section_service_nail">
 
-                                <div class="site__section_service_icon"><i class="far fa-chart-bar"></i></div>
+                                <div class="site__section_service_icon"><i class="fas fa-hand-sparkles"></i></div>
 
-                                <h4>Highly customizable</h4>
+                                <h4>Nails Beautification</h4>
 
-                                
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry...</p>
                                 
                                 <a href="#">Read More</a>
@@ -259,11 +258,11 @@
 
                         <div class="col-12 col-lg-4 col-md-6">
 
-                            <div class="site__section_service_container">
+                            <div class="site__section_service_container" id="site__section_service_massage">
 
-                                <div class="site__section_service_icon"><i class="fas fa-database"></i></div>
+                                <div class="site__section_service_icon"><i class="fas fa-spa"></i></div>
 
-                                <h4>Responsive design</h4>
+                                <h4>Massages</h4>
                                 
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry...</p>
                                

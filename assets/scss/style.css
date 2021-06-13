@@ -1284,7 +1284,7 @@ a {
 .site__section_about #site__about_image .site__section_image_inner .site__section_image_container .site__section_image_overlay .site__section_image_overlay_year {
   position: relative;
   color: #0a0918;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.4em;
   padding-left: 125px;
@@ -1368,13 +1368,25 @@ a {
   margin-bottom: 30px;
 }
 
+.site__section_service .site__section_service_container#site__section_service_hair:hover {
+  background-image: url("../images/layout/hair.jpg");
+}
+
+.site__section_service .site__section_service_container#site__section_service_nail:hover {
+  background-image: url("../images/layout/nail.jpg");
+}
+
+.site__section_service .site__section_service_container#site__section_service_massage:hover {
+  background-image: url("../images/layout/massage.jpg");
+}
+
 .site__section_service .site__section_service_container:hover {
-  background-image: url(https://i.ibb.co/mykzQks/services1.jpg);
   background-size: cover;
   background-position: center center;
   background-attachment: local;
   -webkit-transition: all .5s;
   transition: all .5s;
+  background-color: gradient(to top bottom, #6a6f72, #b8bdc5);
 }
 
 .site__section_service .site__section_service_container:hover::before {
