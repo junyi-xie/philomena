@@ -39,7 +39,13 @@
 
     } else {
 
-        Redirect::To('dashboard.php?from=login&method=email&auth=false');
-
+        if ( isset($_GET['uri']) && !empty($_GET['uri']) ) 
+        {
+            Redirect::To($_GET['uri']);
+        } 
+        else 
+        {
+            Redirect::To('dashboard.php?from=login&method=email&auth=false');
+        }
     }
 ?>

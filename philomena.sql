@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2021 at 08:58 AM
+-- Generation Time: Jun 13, 2021 at 10:10 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -33,8 +33,8 @@ CREATE TABLE `appointments` (
   `user_id` int(11) DEFAULT 0,
   `staff_id` int(11) DEFAULT 0,
   `treatment_id` int(11) DEFAULT 0,
-  `reservation_date` mediumint(8) NOT NULL DEFAULT 0,
-  `reservation_time` mediumint(6) NOT NULL DEFAULT 0,
+  `reservation_date` int(8) NOT NULL DEFAULT 0,
+  `reservation_time` int(6) NOT NULL DEFAULT 0,
   `notes` varchar(255) NOT NULL DEFAULT '',
   `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -132,14 +132,6 @@ CREATE TABLE `staffs` (
   `end_time` mediumint(6) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `staffs`
---
-
-INSERT INTO `staffs` (`id`, `user_id`, `day_week`, `start_time`, `end_time`) VALUES
-(1, 2, 1, 90000, 170000),
-(2, 2, 3, 90000, 180000);
-
 -- --------------------------------------------------------
 
 --
@@ -154,15 +146,6 @@ CREATE TABLE `treatments` (
   `price` float(10,3) NOT NULL DEFAULT 0.000,
   `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `treatments`
---
-
-INSERT INTO `treatments` (`id`, `name`, `duration`, `price`, `status`) VALUES
-(1, 'Ice Cream', 10000, 2.150, 1),
-(2, 'Soda', 13000, 1.200, 1),
-(3, 'Popcorn', 11500, 3.500, 1);
 
 -- --------------------------------------------------------
 
@@ -187,14 +170,6 @@ CREATE TABLE `users` (
   `account_created` bigint(14) NOT NULL DEFAULT 0,
   `last_login` bigint(14) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `role_id`, `first_name`, `last_name`, `email`, `password`, `phone`, `address`, `zipcode`, `city`, `province`, `country`, `account_created`, `last_login`) VALUES
-(1, 1, 'Junyi', 'Xie', 'yunyi.xie@outlook.com', '$2y$10$fcVZZ5FrAn/.tJYwf6uyFuH6BOxSwBV0Hz8LQbrrFJLnbTaLkcB8S', '0636560377', 'Neherkade 2178', '2521 RM', 'The Hague', 'South-Holland', 'The Netherlands', 20210426110142, 20210606170909),
-(2, 3, 'Kouhie', '', 'kouhie123@gmail.com', '$2y$10$NztYp6L9CNhODQFhIYIpfeRXgrESlZa950dBdd1.MvhbcH8vB1Wly', '', '', '', '', '', '', 20210605183945, 0);
 
 --
 -- Indexes for dumped tables
@@ -280,19 +255,19 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `staffs`
 --
 ALTER TABLE `staffs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `treatments`
 --
 ALTER TABLE `treatments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

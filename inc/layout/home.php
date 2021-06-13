@@ -114,7 +114,7 @@
 
             <p>Philomena specializes in giving your hair and nails the best treatment they deserve, we have a wide variety of services, which you'd enjoy, and for a reasonable price as well - Make your first appointment now, before it's too late, we have a limited amount of customers we can serve in a day.</p>
         
-            <a href="reservation.php" rel="canonical" role="button">
+            <a href="booking.php" rel="canonical" role="button">
 
                 <button class="hero__button">
 
@@ -246,7 +246,7 @@
 
                                 <div class="site__section_service_icon"><i class="fas fa-hand-sparkles"></i></div>
 
-                                <h4>Nails Beautification</h4>
+                                <h4>Nail Beautification</h4>
 
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry...</p>
                                 
@@ -281,7 +281,7 @@
 
             <section class="site__section_news" id="news">
 
-
+                news
             </section>
 
         </div>

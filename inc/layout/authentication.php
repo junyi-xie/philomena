@@ -18,7 +18,7 @@
 
                         <?php flashMessage('signin'); ?>
 
-                        <form action="login.php" accept-charset="UTF-8" method="POST" id="auth__form">
+                        <form accept-charset="UTF-8" method="POST" id="auth__form">
 
                             <label class="label">Email</label>
 

@@ -114,7 +114,7 @@
          */
         public function Delete(string $table, string $where, int $limit = 1)
         {
-            return $this->pdo->execute("DELETE FROM $table WHERE $where LIMIT $limit");
+            return $this->pdo->query("DELETE FROM $table WHERE $where LIMIT $limit");
         }
     }
 ?>

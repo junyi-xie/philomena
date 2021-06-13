@@ -20,7 +20,7 @@
 
                         </div>
 
-                        <form action="signup.php" accept-charset="UTF-8" method="POST" id="auth__signup">
+                        <form accept-charset="UTF-8" method="POST" id="auth__signup">
 
                             <label class="label">Full Name</label>
 

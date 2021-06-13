@@ -188,17 +188,44 @@
          * @param int $uid The id of the user that is trying to make an appointment for a specific treatment type.
          * @param int $staff This is the staff id, this has to be done manually since one of the available staffs on the choosen time and date needs to confirm this first.
          * @param int $treatment The treatment type id number. There can only be one id inserted, if the user wants multiple treatments he / she needs to make multiple appointments.
-         * @param string $date The date the customer is going to have the choosen treatment.
-         * @param string $time This is the time the customer has inputted to be available on the combined date.
+         * @param int $date The date the customer is going to have the choosen treatment.
+         * @param int $time This is the time the customer has inputted to be available on the combined date.
          * @param string $note Any extra notes the user has left with his appointments. [optional]
          * @param int $status Current status of the appointment. On default its null, when the appointment is finished, this will be manually put on completed.
          *
          * @return void
          */
-        public function makeAppointment(int $uid, int $staff = null, int $treatment, string $date, string $time, string $note = '', int $status = 0)
+        public function makeAppointment(int $uid, int $staff = null, int $treatment, int $date, int $time, string $note = '', int $status = 0)
         {
             // @TODO
-            $this->pdo->Insert($this->table, ['user_id' => $uid, 'staff_id' => $staff, 'treatment_id' => $treatment, 'reservation_date' => date("Ymd", strtotime($date)), 'reservation_time' => date("His", strtotime($time)), 'notes' => $note, 'status' => $status]);
+            return $this->pdo->Insert($this->table, ['user_id' => $uid, 'staff_id' => $staff, 'treatment_id' => $treatment, 'reservation_date' => $date, 'reservation_time' => $time, 'notes' => $note, 'status' => $status]);
+        }
+
+
+        /**
+         * Delete an existing appointment. This can only be performed by staff members or higher.
+         * 
+         * @param int $id This is the appointment id, it contains all the data about the appointment, such as, user, treatment and more.
+         *
+         * @return bool
+         */
+        public function removeAppointment(int $id)
+        {
+            // @TODO
+            return $this->pdo->Delete($this->table, "id = $id");
+        }
+
+
+        /**
+         * Thi function lets you edit an appointment by your given id number. You can change all the information in the appointment, like edit the staff member in charge, the status of the appointment and more.
+         * 
+         * @param int $id The id number of which appointment you'd like to edit their information.
+         * @param array $data Contains the new data which will overwrite the old data in the given appointment id number. 
+         * 
+         * @return void
+         */
+        public function editAppointment(int $id, array $data) {
+            // @TODO
         }
 
 
