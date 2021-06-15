@@ -141,6 +141,7 @@ CREATE TABLE `staffs` (
 DROP TABLE IF EXISTS `treatments`;
 CREATE TABLE `treatments` (
   `id` int(11) NOT NULL,
+  `type_id` int(11) DEFAULT NULL,
   `name` varchar(255) NOT NULL DEFAULT '',
   `duration` mediumint(6) NOT NULL DEFAULT 0,
   `price` float(10,3) NOT NULL DEFAULT 0.000,
@@ -151,10 +152,32 @@ CREATE TABLE `treatments` (
 -- Dumping data for table `treatments`
 --
 
-INSERT INTO `treatments` (`id`, `name`, `duration`, `price`, `status`) VALUES
-(1, 'Ice Cream', 10000, 2.150, 1),
-(2, 'Soda', 13000, 1.200, 1),
-(3, 'Popcorn', 11500, 3.500, 1);
+INSERT INTO `treatments` (`id`, `type_id`, `name`, `duration`, `price`, `status`) VALUES
+(1, 1, 'Nail Polish', 10000, 2.150, 1),
+(2, 1, 'Nails Fix', 13000, 1.200, 1),
+(3, 2, 'Hair Straightener', 11500, 3.500, 1),
+(4, 2, 'Hair Dressing', 10000, 2.750, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `type`
+--
+
+DROP TABLE IF EXISTS `type`;
+CREATE TABLE `type` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `status` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `type`
+--
+
+INSERT INTO `type` (`id`, `name`, `status`) VALUES
+(1, 'Nail', 1),
+(2, 'Hair', 1);
 
 -- --------------------------------------------------------
 
@@ -223,6 +246,13 @@ ALTER TABLE `staffs`
 -- Indexes for table `treatments`
 --
 ALTER TABLE `treatments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `type_id` (`type_id`);
+
+--
+-- Indexes for table `type`
+--
+ALTER TABLE `type`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -270,7 +300,13 @@ ALTER TABLE `staffs`
 -- AUTO_INCREMENT for table `treatments`
 --
 ALTER TABLE `treatments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `type`
+--
+ALTER TABLE `type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -301,6 +337,12 @@ ALTER TABLE `openinghours`
 --
 ALTER TABLE `staffs`
   ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `treatments`
+--
+ALTER TABLE `treatments`
+  ADD CONSTRAINT `type_id` FOREIGN KEY (`type_id`) REFERENCES `type` (`id`);
 
 --
 -- Constraints for table `users`
