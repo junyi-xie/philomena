@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2021 at 10:10 PM
+-- Generation Time: Jun 1, 2021 at 09:00 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -147,6 +147,15 @@ CREATE TABLE `treatments` (
   `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `treatments`
+--
+
+INSERT INTO `treatments` (`id`, `name`, `duration`, `price`, `status`) VALUES
+(1, 'Ice Cream', 10000, 2.150, 1),
+(2, 'Soda', 13000, 1.200, 1),
+(3, 'Popcorn', 11500, 3.500, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -261,7 +270,7 @@ ALTER TABLE `staffs`
 -- AUTO_INCREMENT for table `treatments`
 --
 ALTER TABLE `treatments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

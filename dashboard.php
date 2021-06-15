@@ -70,6 +70,8 @@
             echo 'you are guest';
         break;
     }
+
+    echo '<a href="dashboard.php?signout=true">Log out here!!</a>';
     
     echo '<br/><br/><br/>you can change your account info here';
     echo '
