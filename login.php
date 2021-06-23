@@ -13,9 +13,7 @@
 
     if ( isset($_POST) && !empty($_POST) ) 
     {
-        $cookie = !empty($_POST['cookie']) && $_POST['cookie'] === '1' ? true : false;
-
-        $Users->SignIn($_POST['email'], $_POST['password'], $cookie);
+        $Users->SignIn($_POST['email'], $_POST['password'], !empty($_POST['cookie']) && $_POST['cookie'] === '1' ? true : false);
     }
 
 
@@ -29,16 +27,16 @@
     }
 
 
-    if ( !$Users->isLoggedIn() ) {
-
+    if ( !$Users->isLoggedIn() ) 
+    {
         include_once INC . '/header.php';
 
-        include_once INC . '/layout/authentication.php';
+        include_once INC . '/' . LAYOUT .'/authentication.php';
         
         include_once INC . '/footer.php';        
-
-    } else {
-
+    } 
+    else 
+    {
         if ( isset($_GET['uri']) && !empty($_GET['uri']) ) 
         {
             Redirect::To($_GET['uri']);

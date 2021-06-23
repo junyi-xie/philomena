@@ -47,8 +47,14 @@ This will autoload the [database](https://github.com/junyi-xie/philomena/blob/ma
  ┃ ┃ ┃ ┗ 📜site.webmanifest
  ┃ ┃ ┗ 📂layout
  ┃ ┃ ┃ ┣ 📜double_caret.png
+ ┃ ┃ ┃ ┣ 📜hair.jpg
+ ┃ ┃ ┃ ┣ 📜hero.jpg
  ┃ ┃ ┃ ┣ 📜ice_cream.jpg
- ┃ ┃ ┃ ┗ 📜logo_philemena.png
+ ┃ ┃ ┃ ┣ 📜logo_philemena.png
+ ┃ ┃ ┃ ┣ 📜massage.jpg
+ ┃ ┃ ┃ ┣ 📜nail.jpg
+ ┃ ┃ ┃ ┣ 📜nails.jpg
+ ┃ ┃ ┃ ┗ 📜pattern.jpg
  ┃ ┣ 📂js
  ┃ ┃ ┣ 📜app.js
  ┃ ┃ ┣ 📜jquery-ui.min.js
@@ -66,10 +72,13 @@ This will autoload the [database](https://github.com/junyi-xie/philomena/blob/ma
  ┃ ┃ ┣ 📜_footer.scss
  ┃ ┃ ┣ 📜_general.scss
  ┃ ┃ ┣ 📜_header.scss
+ ┃ ┃ ┣ 📜_hero.scss
  ┃ ┃ ┣ 📜_layout.scss
  ┃ ┃ ┣ 📜_mixins.scss
+ ┃ ┃ ┣ 📜_modal.scss
  ┃ ┃ ┣ 📜_reset.scss
  ┃ ┃ ┗ 📜_variables.scss
+ ┃ ┗ 📜.htaccess
  ┣ 📂inc
  ┃ ┣ 📂class
  ┃ ┃ ┣ 📂Mollie
@@ -82,8 +91,13 @@ This will autoload the [database](https://github.com/junyi-xie/philomena/blob/ma
  ┃ ┃ ┣ 📜Session.php
  ┃ ┃ ┗ 📜Users.php
  ┃ ┣ 📂layout
+ ┃ ┃ ┣ 📜admin.php
  ┃ ┃ ┣ 📜authentication.php
- ┃ ┃ ┗ 📜registration.php
+ ┃ ┃ ┣ 📜home.php
+ ┃ ┃ ┣ 📜register.php
+ ┃ ┃ ┗ 📜reservation.php
+ ┃ ┣ 📜.htaccess
+ ┃ ┣ 📜actions.php
  ┃ ┣ 📜autoloader.php
  ┃ ┣ 📜connect.php
  ┃ ┣ 📜footer.php
@@ -91,7 +105,7 @@ This will autoload the [database](https://github.com/junyi-xie/philomena/blob/ma
  ┃ ┗ 📜header.php
  ┣ 📜.gitignore
  ┣ 📜.htaccess
- ┣ 📜404.php
+ ┣ 📜404.html
  ┣ 📜config.php
  ┣ 📜dashboard.php
  ┣ 📜index.php

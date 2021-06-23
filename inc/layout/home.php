@@ -69,25 +69,25 @@
 
                     <li class="site__header_nav_item">
 
-                        <a class="site__header_nav_link" href="#hero" rel="canonical">Home</a>
+                        <a class="site__header_nav_link js-page-anchor" href="#hero" rel="canonical">Home</a>
 
                     </li>
 
                     <li class="site__header_nav_item">
 
-                        <a class="site__header_nav_link" href="#about" rel="canonical">About</a>
+                        <a class="site__header_nav_link js-page-anchor" href="#about" rel="canonical">About</a>
 
                     </li>
 
                     <li class="site__header_nav_item">
 
-                        <a class="site__header_nav_link" href="#service" rel="canonical">Services</a>
+                        <a class="site__header_nav_link js-page-anchor" href="#service" rel="canonical">Services</a>
 
                     </li>
 
                     <li class="site__header_nav_item">
 
-                        <a class="site__header_nav_link" href="#news" rel="canonical">News</a>
+                        <a class="site__header_nav_link js-page-anchor" href="#news" rel="canonical">News</a>
 
                     </li>
 

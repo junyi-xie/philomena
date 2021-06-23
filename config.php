@@ -35,9 +35,12 @@
     /* Include Folder */
     define('INC', 'inc');
 
+    /* Layout Folder */
+    define('LAYOUT', 'layout');
+
     /* Absolute Base Path */
     if ( !defined('PATH') ) {
-        define('PATH', __DIR__ . '/');
+        define('PATH', __DIR__ . DIRECTORY_SEPARATOR);
     }
 
 

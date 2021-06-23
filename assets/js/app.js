@@ -14,6 +14,17 @@
         $("#site__header_menu_toggle").click(function(){
             $('body').toggleClass('site__menu_is__open');
         });
+
+
+        $('.js-page-anchor').on('click', function (e) {
+            e.preventDefault();
+              
+            var dest = $(this).attr("href");
+              
+            $("html, body").animate({
+                'scrollTop': $(dest).offset().top
+            }, 1000);
+        });
     });
 
     $(window).scroll(function() {

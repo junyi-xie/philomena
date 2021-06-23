@@ -16,7 +16,7 @@
 
     include_once INC . '/header.php';
 
-    include_once INC . '/layout/registration.php';
+    include_once INC . '/'. LAYOUT .'/register.php';
 
     include_once INC . '/footer.php';        
 ?>
