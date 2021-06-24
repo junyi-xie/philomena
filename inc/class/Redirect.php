@@ -21,8 +21,8 @@
          */
         public static function To(mixed $location = null) 
         {
-            if ( null !== $location ) {
-
+            if ( null !== $location ) 
+            {
                 if ( file_exists(PATH . strtok($location, '?')) ) 
                 {
                     header('Location: ' . $location);
@@ -31,7 +31,7 @@
                 else 
                 {
                     header('HTTP/1.0 404 Not Found');
-                    include('404.html');
+                    include(PATH . '404.html');
                     exit();
                 }
             }

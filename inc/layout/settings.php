@@ -14,33 +14,89 @@
 
             <div class="dashboard_section__content">
 
-                <form class="account_info_form" action="inc/actions.php" accept-charset="UTF-8" method="post">
+                <form class="account_info_form" action="actions.php" accept-charset="UTF-8" method="post">
 
-                    <input type="hidden" name="action" value="update_user_info">
+                <input type="hidden" name="action" value="update_user_info">
 
-                    <input type="hidden" name="uri" value="<?php echo basename($_SERVER['REQUEST_URI']); ?>">
+                <input type="hidden" name="uri" value="<?php echo basename($_SERVER['REQUEST_URI']); ?>">
 
-                    <div class="account__user_info">
+                <div class="account__user_info">
 
-                        <div class="account__user_name">
+                    <div class="row">
+                        
+                        <div class="col-12 col-md-6">
 
-                            <label class="label">Full Name</label>
+                            <label class="label">First Name</label>
 
-                            <input class="form__text_field" type="text" name="user[name]" value="<?php echo (!empty($aAccounts['fullname']) ? $aAccounts['fullname'] : ''); ?>" placeholder="Your Name">
+                            <input class="form__text_field" type="text" name="user[first_name]" value="" placeholder="John">
+                        
+                        </div>
+
+                        <div class="col-12 col-md-6">
+
+                            <label class="label">Last Name</label>
+
+                            <input class="form__text_field" type="text" name="user[last_name]" value="" placeholder="Doe">
+                        
+                        </div>
+
+                        <div class="col-12">
+                        
+                            <label class="label">Phone Number</label>
+                    
+                            <input class="form__text_field" type="phone" name="user[phone]" value="" placeholder="Your Phone">
 
                         </div>
 
-                        <div class="account__user_phone">
+                        <div class="col-12">
+                        
+                            <label class="label">Address</label>
+                    
+                            <input class="form__text_field" type="text" name="user[address]" value="" placeholder="Your Address">
 
-                            <label class="label">Phone Number</label>
+                        </div>
 
-                            <input class="form__text_field" type="phone" name="user[phone]" value="<?php echo (!empty($aAccounts['phone']) ? $aAccounts['phone'] : ''); ?>" placeholder="Your Phone">
+                        <div class="col-12">
 
+                            <label class="label">City</label>
+
+                            <input class="form__text_field" type="text" name="user[city]" value="" placeholder="Your City">
+                        
+                        </div>
+
+                        <div class="col-12">
+
+                            <label class="label">Province</label>
+
+                            <input class="form__text_field" type="text" name="user[province]" value="" placeholder="Your Province">
+                        
+                        </div>
+
+                        <div class="col-12 col-md-6">
+
+                            <label class="label">Postal Code</label>
+
+                            <input class="form__text_field" type="text" name="user[zipcode]" value="" placeholder="Your Postal code">
+                        
+                        </div>
+
+                        <div class="col-12 col-md-6">
+
+                            <label class="label">Country</label>
+
+                            <select class="form__select_menu" name="user[country]">
+
+                                <option value="The Netherlands">The Netherlands</option>
+                            
+                            </select>
+                        
                         </div>
 
                     </div>
+                        
+                </div>
 
-                    <input class="button button-settings--update" type="submit" value="Update Info">
+                <input class="button button-settings--update" type="submit" value="Update Info">
 
                 </form>
 
@@ -58,7 +114,7 @@
 
             <div class="dashboard_section__content">
 
-                <form class="update_email_form" action="inc/actions.php" accept-charset="UTF-8" method="post">
+                <form class="update_email_form" action="actions.php" accept-charset="UTF-8" method="post">
 
                     <input type="hidden" name="action" value="update_email_address">
 
@@ -110,7 +166,7 @@
 
             <div class="dashboard_section__content">
 
-                <form class="update_password_form" action="inc/actions.php" accept-charset="UTF-8" method="post">
+                <form class="update_password_form" action="actions.php" accept-charset="UTF-8" method="post">
 
                     <input type="hidden" name="action" value="update_password">
 
