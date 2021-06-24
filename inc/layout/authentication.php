@@ -16,7 +16,7 @@
 
                     <div class="authentication__wrapper">
 
-                        <?php flashMessage('signin'); ?>
+                        <?php Philomena\Session::flash('signin'); ?>
 
                         <form accept-charset="UTF-8" method="POST" id="auth__form">
 

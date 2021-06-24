@@ -65,5 +65,44 @@
                 unset($_SESSION[$name]);
             }
         }
+
+
+        /**
+         * Function to flash a message that has been stored in a session, can provide your own message and which class it has. Only one of the same name van be displayed at once.
+         * 
+         * @param string $name This is what the name of the session will be, used to also call the session and display the message.
+         * @param string $message Contains the message which needs to be displayed by the session.
+         * @param string $class The class, this can determine wether the message is successful or failed.
+         * 
+         * @return void
+         */
+        public static function flash(string $name, string $message = '', string $class = 'alert alert-success')
+        {
+            if ( !empty($name) ) 
+            {
+                if ( !empty($message) && !self::checkSession($name) ) 
+                { 
+                    if ( self::checkSession($name) ) 
+                    {
+                        self::unsetSession(self::getSession($name));
+                    }
+                            
+                    if ( self::checkSession($name . '_class') ) 
+                    {
+                        self::unsetSession(self::getSession($name . '_class'));
+                    }
+    
+                    self::putSession($name, $message);
+                    self::putSession($name . '_class', $class);
+                } 
+                elseif ( self::checkSession($name) && empty($message) ) 
+                {
+                    $class = self::checkSession($name . '_class') ? self::getSession($name . '_class') : 'alert alert-failure';
+                    echo '<div class="'.$class.'">' . self::getSession($name) . '</div>';
+                    self::unsetSession($name);
+                    self::unsetSession($name . '_class');
+                }
+            }
+        }
     }
 ?>

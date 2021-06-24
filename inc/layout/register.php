@@ -12,7 +12,7 @@
 
                     <div class="authentication__wrapper">
 
-                        <?php flashMessage('signup'); ?>
+                        <?php Philomena\Session::flash('signup'); ?>
                         
                         <div class="authentication__heading">
 

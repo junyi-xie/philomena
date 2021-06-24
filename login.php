@@ -31,7 +31,7 @@
     {
         include_once INC . '/header.php';
 
-        include_once INC . '/' . LAYOUT .'/authentication.php';
+        include_once INC . '/' . LAYOUT . '/authentication.php';
         
         include_once INC . '/footer.php';        
     } 

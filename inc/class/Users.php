@@ -202,7 +202,7 @@
             if ( null !== $email && $password ) {
 
                 if ( !$User = $this->verifyAccountExists($email) ) {
-                    return flashMessage('signin', 'Account doesn\'t exist.', 'alert alert-failure');
+                    return Session::flash('signin', 'Account doesn\'t exist.', 'alert alert-failure');
                 } else {
                     if ( $this->checkPassword($password, $User->password) ) {
 
@@ -220,7 +220,7 @@
 
                         return true;
                     } else {
-                        return flashMessage('signin', 'Incorrect Password.', 'alert alert-failure');
+                        return Session::flash('signin', 'Incorrect Password.', 'alert alert-failure');
                     }
                 }
             }
@@ -245,26 +245,26 @@
                     if ( !$this->pdo->Insert($this->table, $this->getData()) ) {
                         return false;
                     } else {
-                        return flashMessage('signup', 'Account successfully created, click <a href="login.php">here</a> to login.', 'alert alert-success');  
+                        return Session::flash('signup', 'Account successfully created, click <a href="login.php">here</a> to login.', 'alert alert-success');  
                     }
                 } else {
-                    return flashMessage('signup', 'Email address is already in use.', 'alert alert-failure');    
+                    return Session::flash('signup', 'Email address is already in use.', 'alert alert-failure');    
                 }
             } else {
                 if ( is_array($user) && null !== $user ) {
                     
                     if ( null !== $this->setEmail($user['email']) ) 
                     {
-                        return flashMessage('signup', 'Invalid email address.', 'alert alert-failure');
+                        return Session::flash('signup', 'Invalid email address.', 'alert alert-failure');
                     }
 
                     if ( null !== $this->setPassword($user['password']) ) 
                     {
-                        return flashMessage('signup', 'Password is too short.', 'alert alert-failure');
+                        return Session::flash('signup', 'Password is too short.', 'alert alert-failure');
                     } 
                     else if ( $user['password'] !== $user['confirm'] ) 
                     {
-                        return flashMessage('signup', 'Password confirmation doesn\'t match Password.', 'alert alert-failure');
+                        return Session::flash('signup', 'Password confirmation doesn\'t match Password.', 'alert alert-failure');
                     }
 
                     $this->setData(['role_id' => 2, 'first_name' => $user['first_name'], 'last_name' => $user['last_name'], 'email' => $this->getEmail(), 'password' => $this->getPassword(), 'account_created' => date("YmdHis")]);

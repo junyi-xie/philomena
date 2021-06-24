@@ -38,9 +38,13 @@
     
     include_once INC . '/header.php';
 
+    include_once INC . '/' . LAYOUT . '/sidebar.php';
+
+    include_once INC . '/' . LAYOUT . '/main.php';
+
     if ( isset($_GET['page']) && !empty($_GET['page']) )
     {
-        if ( !file_exists(PATH . LAYOUT . DIRECTORY_SEPARATOR . $_GET['page']) ) 
+        if ( !file_exists(PATH . INC . DIRECTORY_SEPARATOR . LAYOUT . DIRECTORY_SEPARATOR . $_GET['page'] . '.php') ) 
         {
             Redirect::To('404.html');
         } 
@@ -53,6 +57,8 @@
     {
         include_once INC . '/' . LAYOUT . '/admin.php';
     }
+
+    include_once INC . '/' . LAYOUT . '/end.php';
 
     include_once INC . '/footer.php';
 ?>
