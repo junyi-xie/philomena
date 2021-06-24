@@ -34,7 +34,7 @@
 
                     <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'employees'): ?> active<?php endif; ?>">
                     
-                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=employee"><i class="fas fa-users-cog"></i><span>Employees</span></a>
+                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=employees"><i class="fas fa-users-cog"></i><span>Employees</span></a>
                     
                     </li>
 
