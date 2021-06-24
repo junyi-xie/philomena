@@ -20,35 +20,29 @@
 
                     </li>
 
-                    <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'branches'): ?> active<?php endif; ?>">
+                    <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'booking'): ?> active<?php endif; ?>">
                     
-                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=branches"><i class="fas fa-map-marked-alt"></i><span>Branches</span></a>
-                    
-                    </li>
-
-                    <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'coupons'): ?> active<?php endif; ?>">
-                    
-                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=coupons"><i class="fas fa-ticket-alt"></i><span>Coupons</span></a>
-                    
-                    </li>
-
-                    <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'stores'): ?> active<?php endif; ?>">
-                    
-                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=stores"><i class="fas fa-store"></i><span>Stores</span></a>
+                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=booking"><i class="fas fa-calendar-plus"></i><span>Appointments</span></a>
                     
                     </li>
 
                     <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'customers'): ?> active<?php endif; ?>">
                     
-                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=customers"><i class="fas fa-users"></i><span>Customers</span></a>
+                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=customers"><i class="far fa-address-card"></i><span>Customers</span></a>
                     
                     </li>
 
-                    <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'payouts'): ?> active<?php endif; ?>">
+                    <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'employees'): ?> active<?php endif; ?>">
                     
-                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=payouts"><i class="fas fa-money-check"></i><span>Payouts</span></a>
+                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=employee"><i class="fas fa-users-cog"></i><span>Employees</span></a>
                     
-                    </li>   
+                    </li>
+
+                    <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'treatments'): ?> active<?php endif; ?>">
+                    
+                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=treatment"><i class="fas fa-briefcase-medical"></i><span>Treatments</span></a>
+                    
+                    </li>
                     
                     <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'profile'): ?> active<?php endif; ?>">
                     
