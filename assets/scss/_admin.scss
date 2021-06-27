@@ -246,24 +246,11 @@
         font-size: 16px;
         color: $black-alt;
         font-weight: 600;
-        font-family: $font-secondary;
-    }
 
-    .dashboard__actionbar_avatar {
-        border-radius: 50%;
-        width: auto;
-        display: inline-block;
-        height: 50px;
-        min-width: 50px;
-        background-color: $haze;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        color: $white;
-        position: relative;
-        vertical-align: middle;
+        .dashboard__actionbar_icon {
+            margin-right: 5px;
+            color: $blue;
+        }
     }
 
     .dashboard__sidebar {
@@ -425,13 +412,13 @@
         height: 100%;
     }
 
-    .dashboard__notifications {
-        position: relative;
+    .dashboard_page__wrapper {
+        display: block;
+        height: 100%;
     }
 
     .dashboard_page__heading,
     .dashboard_section__heading {
-        font-family: $font-secondary;
         font-style: normal;
         font-weight: 500;
         font-size: 18px;
@@ -439,6 +426,11 @@
         letter-spacing: 0.05em;
         color: $black;
         margin-bottom: 1rem;
+    }
+
+    .dashboard_page__heading {
+        font-size: 20px;
+        font-weight: bold;
     }
 
     .dashboard_section__header {
@@ -451,7 +443,6 @@
         border-bottom: 0;
     }
     
-
     .dashboard_section__content {
         zoom: 1;
         position: relative;
@@ -469,11 +460,6 @@
         font-weight: 600;
     }
 
-    .dashboard_page__heading {
-        font-size: 20px;
-        font-weight: bold;
-    }
-
     .dashboard_section__title {
         text-align: left;
     }
@@ -489,84 +475,17 @@
         }
     }
 
-    .dashboard__form_message {
-        background-color: $grey-alt;
-        border-radius: .3rem;
-        color: $white;
-        font-size: .875rem;
-        font-weight: 600;
-        margin: 0 0 1.25rem;
-        padding: .5rem 2rem .5rem 1rem;
+    .dashboard__notifications {
         position: relative;
-        text-align: left;
-        width: 100%;
-
-        &.dashboard__form_message--success {
-            background-color: $green-alt;
-        }
-
-        &.dashboard__form_message--alert {
-            background-color: $red-alt;
-        }
     }
 
-    .dashboard_page__account {
-        display: block;
-        height: 100%;
-    }
-
-    .account__general_settings,
-    .account__email_settings,
-    .account__password_settings {
+    .dashboard_section__wrapper {
         margin-bottom: 2.5rem;
-    } 
-
-    .button-settings--update {
-        background-color: $black;
-
-        &:hover {
-            background-color: $blue;
-        }
     }
 
-    .account_info_form,
-    .update_email_form,
-    .update_password_form {
-        width: 100%;
-        position: relative;
-    }
-
-    .account__user_info,
-    .account__email_info,
-    .account__password_info {
+    .profile__wrapper {
         max-width: 25rem;
         margin-right: 6.25rem;
-    }
-
-    .form__textfield--input {
-        margin-top: 10px;
-        font-size: 14px;
-        width: 100%;
-        border: 1px solid $line-alt;
-        margin-bottom: 1.25em;
-        padding: 0.625rem 0.875rem;
-        color: $black-alt;
-        border-radius: 2px;
-        background-color: $white;
-        background-clip: padding-box;
-        transition: border-color .15s, background-color .15s;
-
-        &:focus {
-            border-color: $blue-alt;
-            outline: none;
-            box-shadow: none;
-        }
-    }
-
-    .form___label {
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 1;
     }
 
     .profile__user_container {
@@ -577,253 +496,44 @@
         width: 100%;
     }
 
-    .profile__account_view {
-        margin-bottom: 2.5rem;
-    }
-
-    .profile__user_avatar {
+    .profile__user_thumbnail {
         display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: column;
-        margin-right: 1rem;
         height: 100%;
+        width: 100%;
+        min-height: 250px;
+        background-color: $grey-alt;
+        overflow: hidden;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
+        border-radius: 2px;
+        color: $grey;
 
-        .profile__user_thumbnail {
+        .profile__user_no_photo {
+            flex-direction: column;
             display: flex;
-            height: auto;
-            max-width: 250px;
-            width: 250px;
-            min-height: 250px;
-            background-color: $haze;
-            overflow: hidden;
-            position: relative;
-            justify-content: center;
             align-items: center;
-            vertical-align: middle;
-            border-radius: 2px;
-            color: $grey;
 
-            .profile__user_no_photo {
-                flex-direction: column;
-                display: flex;
-                align-items: center;
+            i {
+                font-size: 3em;
+            }
 
-                i {
-                    font-size: 3em;
-                }
-
-                span {
-                    font-weight: 700;
-                    font-size: 14px;
-                }
+            span {
+                font-weight: 700;
+                font-size: 14px;
             }
         }
     }
-
-    .border-top-left-right {
-        border-top-left-radius: 2px;
-        border-top-right-radius: 2px;
-    }
-
-    .profile__user_general {
-        position: relative;
-        display: block;
-
-        .profile__user_fullname,
-        .profile__user_email,
-        .profile__user_phone,
-        .profile__user_joined {
-            display: flex;
-            flex-direction: column;
-            padding-bottom: 1.1rem;
-        }
-
-        label {
-            text-align: left;
-            font-weight: 600;
-            font-size: 1em;
-            line-height: 1;
-            margin-bottom: 0.3125rem;
-        }
-
-        span {
-            text-align: left;
-
-        }
-    }
-
-    .dashboard_page__coupons,
-    .dashboard_page__branches,
-    .dashboard_page__customers,
-    .dashboard_page__stores,
-    .dashboard_page__payouts {
-        display: block;
-        height: 100%;
-    }
-
-    .coupons__view_all, 
-    .coupons__create_new,
-    .branches_active_main,
-    .branches_other_locations,
-    .customers_view_all,
-    .stores_toppings_wrapper,
-    .stores_sizes_wrapper,
-    .stores_types_wrapper,
-    .stores_create_item,
-    .payouts_view_checkout,
-    .payouts_statistics_overview {
-        margin-bottom: 2.5rem;
-    }
-
-    .coupons__container,
-    .branches__container,
-    .customers__container,
-    .stores__container,
-    .payouts__container {
-        padding: 0;
-        margin: 0;
-        position: relative;
-        overflow-x: auto;
-    }
-
-    .new_coupon__form,
-    .new_stores__form {
+    
+    .profile__user_column {
+        color: $black-alt;
+        padding-bottom: 1.1rem;
         display: flex;
-        align-items: flex-end;
-        width: 100%;
-        flex-direction: row;
-        position: relative;
+        flex-direction: column;
     }
 
-    .new_coupons__textfield,
-    .new_stores__textfield {
-        font-size: 14px;
-        width: 100%;
-        border: 1px solid $line-alt;
-        padding: 0.625rem 0.875rem;
-        color: $black-alt;
-        border-radius: 2px;
-        background-color: $white;
-        background-clip: padding-box;
-        transition: border-color .15s, background-color .15s;
-        height: 40px;
 
-        &:focus {
-            border-color: $blue-alt;
-            outline: none;
-            box-shadow: none;
-        }
-    }
-
-    .new_coupons__form_select,
-    .new_stores__form_select {
-        background: $white url(../images/layout/double_caret.png) no-repeat right 5px top 50%;
-        background-size: 14px 16px;
-        border: 1px solid $line-alt;
-        border-radius: 2px;
-        color: $black-alt;
-        font-size: 14px;
-        width: 100%;
-        outline: 0;
-        padding: 11px 14px;
-        padding-right: 1.5em;
-        height: 40px;
-        appearance: none;
-
-        &:focus {
-            border-color: $blue-alt;
-            outline: none;
-            box-shadow: none;
-        }
-    }
-
-    .new_coupon__code,
-    .new_coupon__type,
-    .new_coupon__discount,
-    .new_coupon__quantity,
-    .new_coupon__expiration {
-        margin-right: 12px;
-        width: 100%;
-    }
-
-    .new_coupon__save__container {
-        position: relative;
-        margin: 0;
-    }
-
-    .new_coupon__save_button {
-        background-color: $black-alt;
-        border: solid 1px;
-        border-color: $black-alt;
-
-        &:hover {
-            border-color: $blue;
-            background-color: $blue;
-        }
-
-        &.disabled {
-            background-color: $grey-alt;
-            border: solid 1px $grey-alt;
-            pointer-events: none;
-            cursor: not-allowed;
-        }
-    }
-
-    .news_stores__thumbnail,
-    .new_stores__name,
-    .new_stores__quantity,
-    .new_stores__size,
-    .new_stores__price {
-        margin-right: 12px;
-        width: 100%;
-    }
-
-    .new_stores__add_item {
-        background-color: $black-alt;
-        border: solid 1px;
-        border-color: $black-alt;
-
-        &:hover {
-            background-color: $blue;
-            border-color: $blue;
-        }
-    }
-
-    .new_stores__edit_item {
-        background-color: $blue-alt;
-        border: solid 1px;
-        border-color: $blue-alt;
-        color: $white;
-
-        &:hover {
-            background-color: $cyan;
-            border-color: $cyan;
-        }
-    }
-
-    .new_stores__cancel_item {
-        background-color: $white;
-        border: solid 1px;
-        border-color: $grey;
-        color: $black-alt;
-
-        &:hover {
-            background-color: $white-alt;
-            border-color: $line-alt;
-        }
-    }
-
-    .stores__form_container {
-        border-top: solid 1px $line;
-        padding: 0;
-        position: relative;
-    }
-
-    .stores__wrapper {
-        padding: 1.1rem 1.667rem 1.1rem;
-
-    }
 
     .list__container {
         border-collapse: collapse;
@@ -893,4 +603,13 @@
     .list_item__cell--icons {
         position: relative;
         margin: 0;
+    }
+
+
+    .button__settings_update {
+        background-color: $black;
+
+        &:hover {
+            background-color: $blue;
+        }
     }

@@ -8,7 +8,7 @@
 
                     <div class="dashboard__actionbar_profile">
                         
-                        <span class="dashboard__actionbar_name">Kouhie</span>
+                        <span class="dashboard__actionbar_name"><a class="dashboard__actionbar_icon" href="dashboard.php?page=profile"><i class="fas fa-user-alt"></i></a><?= rtrim($Profile->first_name . ' ' . $Profile->last_name); ?></span>
 
                     </div>
 
@@ -21,3 +21,5 @@
         <section class="dashboard__overview">
 
             <div class="dashboard__overview_inner">
+
+            <?php Philomena\Session::flash('dashboard'); ?>

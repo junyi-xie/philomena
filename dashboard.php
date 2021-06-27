@@ -32,10 +32,21 @@
 
     if ( !$Users->isLoggedIn() ) 
     {
-        Redirect::To('index.php');
+        Redirect::To('login.php');
     }
 
+
+    // User information.
+    $Profile = $Database->Select("SELECT * FROM users WHERE id = :uid LIMIT 1", ['uid' => $Users->getUser()], \PDO::FETCH_OBJ, false, true);
+    $Roles = $Database->Select("SELECT * FROM roles");
     
+    
+    if ( empty($Profile->phone) || empty($Profile->address) || empty($Profile->zipcode) || empty($Profile->city) || empty($Profile->province) || empty($Profile->country) ) 
+    {
+        Session::flash('dashboard', 'Your account is missing some of your personal information. Click <a href="dashboard.php?page=settings">here</a> to head over to the settings page to fix this.', 'alert alert-failure');
+    }
+    
+
     include_once INC . '/header.php';
 
     include_once INC . '/' . LAYOUT . '/sidebar.php';

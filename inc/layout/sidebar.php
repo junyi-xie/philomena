@@ -40,7 +40,7 @@
 
                     <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'treatments'): ?> active<?php endif; ?>">
                     
-                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=treatment"><i class="fas fa-briefcase-medical"></i><span>Treatments</span></a>
+                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=treatments"><i class="fas fa-briefcase-medical"></i><span>Treatments</span></a>
                     
                     </li>
                     
