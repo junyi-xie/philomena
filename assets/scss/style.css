@@ -1930,16 +1930,6 @@ a {
   }
 }
 
-.test2 {
-  padding: 80px 0;
-  background-color: #f6f6f9;
-}
-
-.test3 {
-  padding: 80px 0;
-  background-color: white;
-}
-
 .site__section_about {
   position: relative;
   padding: 60px 0 80px;
@@ -2246,8 +2236,105 @@ a {
 
 .site__section_news {
   background-color: white;
-  padding: 100px 0;
+  padding: 100px 0 80px;
   position: relative;
+}
+
+.site__section_news_container {
+  -webkit-box-shadow: 0 0 15px #edeff3;
+          box-shadow: 0 0 15px #edeff3;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin: 0 0 40px;
+}
+
+.site__section_news_container:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-box-shadow: 0px 15px 15px 0px #d8dae0;
+          box-shadow: 0px 15px 15px 0px #d8dae0;
+}
+
+.site__section_news_item {
+  position: relative;
+}
+
+.site__section_news_content {
+  padding: 30px 25px;
+}
+
+.site__section_news_content h3 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #0a0918;
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.site__section_news_content p {
+  color: black;
+  font-size: 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-bottom: 10px;
+}
+
+.site__section_news_image {
+  position: relative;
+}
+
+.site__section_news_date {
+  color: #ee2761;
+}
+
+.site__section_news_author {
+  border: transparent;
+  padding: 14px 0 0;
+  font-size: 14px;
+}
+
+.site__section_news_author i {
+  margin-right: 6px;
+  color: #321497;
+}
+
+.site__section_news_author a {
+  color: #6a6f72;
+}
+
+.site__section_news_author span:last-child {
+  float: right;
+}
+
+.site__section_news_heading {
+  margin: 0 0 50px;
+  text-align: center;
+}
+
+.site__section_news_heading .site__section_news_title {
+  color: #0a0918;
+  position: relative;
+  margin-bottom: 25px;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.site__section_news_heading .site__section_news_title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 80px;
+  height: 5px;
+  background-color: #ee2761;
+  bottom: -25px;
+  margin: auto;
+  right: 0;
 }
 
 .site__hero {

@@ -31,10 +31,10 @@
                 ($Users->updateCredentials($_POST['user'])) ? Session::flash('settings', 'Successfully updated your Information.') : Session::flash('settings', 'Something went wrong... Could not update your Information.', 'alert alert-failure');
             break;
             case 'update_email_address':
-                ($Users->updateCredentials($_POST['password'])) ? Session::flash('settings', 'Successfully updated your Email.') : Session::flash('settings', 'Something went wrong... Could not update your Password.', 'alert alert-failure');
+                ($Users->updateCredentials($_POST['credential'], $_POST['password'], true)) ? Session::flash('settings', 'Successfully updated your Email.') : Session::flash('settings', 'Something went wrong... Could not update your Password.', 'alert alert-failure');
             break;
             case 'update_password':
-                ($Users->updateCredentials($_POST['email'])) ? Session::flash('settings', 'Successfully updated your Password.') : Session::flash('settings', 'Something went wrong... Could not update your Password.', 'alert alert-failure');
+                ($Users->updateCredentials($_POST['email'], $_POST['password'], true)) ? Session::flash('settings', 'Successfully updated your Password.') : Session::flash('settings', 'Something went wrong... Could not update your Password.', 'alert alert-failure');
             break;
         }
 

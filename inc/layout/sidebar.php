@@ -20,9 +20,9 @@
 
                     </li>
 
-                    <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'booking'): ?> active<?php endif; ?>">
+                    <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'reservation'): ?> active<?php endif; ?>">
                     
-                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=booking"><i class="fas fa-calendar-plus"></i><span>Appointments</span></a>
+                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=reservation"><i class="fas fa-calendar-plus"></i><span>Appointments</span></a>
                     
                     </li>
 

@@ -278,10 +278,171 @@
 
             </section>
 
-
+            <!-- NEWS SECTION -->
             <section class="site__section_news" id="news">
 
-                news
+                <div class="container">
+
+                    <div class="site__section_news_heading">
+
+                        <h2 class="site__section_news_title">Latest News</h2>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-12 col-xl-3 col-lg-4 col-md-6">
+
+                            <div class="site__section_news_container">
+
+                                <div class="site__section_news_item">
+
+                                    <div class="site__section_news_image">
+
+                                        <img class="responsiveimg" src="assets/images/layout/logo_philomena.png" alt="Philomena">
+                                        
+                                    </div>
+
+                                    <div class="site__section_news_content">
+
+                                        <div class="site__section_news_date"><span><?php echo date("M d, Y"); ?></span></div>
+
+                                        <a href="#" rel="canonical"><h3>Lorem ipsum</h3></a>
+                                        
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo iste, unde corrupti tempora autem eos, fuga perspiciatis dolorum velit quo amet deleniti dolorem! Quo pariatur libero voluptatem necessitatibus odio ab?</p>
+                                        
+                                        <div class="site__section_news_author">
+                                        
+                                            <span><i class="fa fa-user"></i><a href="#" rel="canonical">Admin</a></span>
+                                        
+                                            <span><i class="fa fa-comment"></i><a href="#" rel="canonical">Comments: (10)</a></span>
+                                        
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- END NEWS ARTICLE 1 -->
+
+                        <div class="col-12 col-xl-3 col-lg-4 col-md-6">
+
+                            <div class="site__section_news_container">
+
+                                <div class="site__section_news_item">
+
+                                    <div class="site__section_news_image">
+
+                                        <img class="responsiveimg" src="assets/images/layout/logo_philomena.png" alt="Philomena">
+                                        
+                                    </div>
+
+                                    <div class="site__section_news_content">
+
+                                        <div class="site__section_news_date"><span><?php echo date("M d, Y"); ?></span></div>
+
+                                        <a href="#" rel="canonical"><h3>Lorem ipsum</h3></a>
+                                        
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo iste, unde corrupti tempora autem eos, fuga perspiciatis dolorum velit quo amet deleniti dolorem! Quo pariatur libero voluptatem necessitatibus odio ab?</p>
+                                        
+                                        <div class="site__section_news_author">
+                                        
+                                            <span><i class="fa fa-user"></i><a href="#" rel="canonical">Admin</a></span>
+                                        
+                                            <span><i class="fa fa-comment"></i><a href="#" rel="canonical">Comments: (10)</a></span>
+                                        
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- END NEWS ARTICLE 2 -->
+
+                        <div class="col-12 col-xl-3 col-lg-4 col-md-6">
+
+                            <div class="site__section_news_container">
+
+                                <div class="site__section_news_item">
+
+                                    <div class="site__section_news_image">
+
+                                        <img class="responsiveimg" src="assets/images/layout/logo_philomena.png" alt="Philomena">
+                                        
+                                    </div>
+
+                                    <div class="site__section_news_content">
+
+                                        <div class="site__section_news_date"><span><?php echo date("M d, Y"); ?></span></div>
+
+                                        <a href="#" rel="canonical"><h3>Lorem ipsum</h3></a>
+                                        
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo iste, unde corrupti tempora autem eos, fuga perspiciatis dolorum velit quo amet deleniti dolorem! Quo pariatur libero voluptatem necessitatibus odio ab?</p>
+                                        
+                                        <div class="site__section_news_author">
+                                        
+                                            <span><i class="fa fa-user"></i><a href="#" rel="canonical">Admin</a></span>
+                                        
+                                            <span><i class="fa fa-comment"></i><a href="#" rel="canonical">Comments: (10)</a></span>
+                                        
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- END NEWS ARTICLE 3 -->
+
+                        <div class="col-12 col-xl-3 col-lg-4 col-md-6">
+
+                            <div class="site__section_news_container">
+
+                                <div class="site__section_news_item">
+
+                                    <div class="site__section_news_image">
+
+                                        <img class="responsiveimg" src="assets/images/layout/logo_philomena.png" alt="Philomena">
+                                        
+                                    </div>
+
+                                    <div class="site__section_news_content">
+
+                                        <div class="site__section_news_date"><span><?php echo date("M d, Y"); ?></span></div>
+
+                                        <a href="#" rel="canonical"><h3>Lorem ipsum</h3></a>
+                                        
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo iste, unde corrupti tempora autem eos, fuga perspiciatis dolorum velit quo amet deleniti dolorem! Quo pariatur libero voluptatem necessitatibus odio ab?</p>
+                                        
+                                        <div class="site__section_news_author">
+                                        
+                                            <span><i class="fa fa-user"></i><a href="#" rel="canonical">Admin</a></span>
+                                        
+                                            <span><i class="fa fa-comment"></i><a href="#" rel="canonical">Comments: (10)</a></span>
+                                        
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- END NEWS ARTICLE 4 -->
+
+                    </div>
+
+                </div>
+
             </section>
 
         </div>
