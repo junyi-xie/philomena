@@ -164,7 +164,7 @@
          */
         protected function selectHashedPassword(int $uid, bool $fetch = true)
         {
-            return $this->pdo->Select(sql: "SELECT password FROM $this->table WHERE id = :uid", data: [':uid' => $uid], fetch: $fetch);
+            return $this->pdo->Select("SELECT password FROM $this->table WHERE id = :uid", [':uid' => $uid], \PDO::FETCH_OBJ, false, $fetch);
         }
 
 
@@ -206,7 +206,7 @@
          */
         protected function verifyAccountExists(string $email, bool $count = false, bool $single = true)
         {
-            return $this->pdo->Select(sql: "SELECT * FROM $this->table WHERE email = :email", data: [':email' => $email], row: $count, fetch: $single);
+            return $this->pdo->Select("SELECT * FROM $this->table WHERE email = :email", [':email' => $email], \PDO::FETCH_OBJ, $count, $single);
         }
 
 
@@ -312,7 +312,7 @@
             if ( !empty($this->getUser()) && $this->getUser() >= 1 ) {
 
                 if ( $required ) {   
-                    $this->setPassword(password: $this->selectHashedPassword($this->getUser())->password, hash: false);
+                    $this->setPassword($this->selectHashedPassword($this->getUser())->password, 6, PASSWORD_BCRYPT, false);
 
                     if ( !$this->checkPassword($password, $this->getPassword()) ) {
                         return false;

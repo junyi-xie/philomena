@@ -218,7 +218,7 @@
          */
         public function makeAppointment(int $uid, int $staff = null, int $treatment, string $date, string $time, string $note = '', int $status = 0)
         {
-            return $this->pdo->Insert($this->table, ['user_id' => $uid, 'staff_id' => $staff, 'treatment_id' => $treatment, 'reservation_date' => str_replace('-', '', $date), 'reservation_time' => str_replace(': AM PM', '', $time), 'notes' => $note, 'status' => $status]);
+            return $this->pdo->Insert($this->table, ['user_id' => $uid, 'staff_id' => $staff, 'treatment_id' => $treatment, 'reservation_date' => str_replace('-', '', $date), 'reservation_time' => str_replace([':', 'AM', 'PM', 'am', 'pm'], '', $time), 'notes' => $note, 'status' => $status]);
         }
 
 

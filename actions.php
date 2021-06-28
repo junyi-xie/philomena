@@ -28,9 +28,6 @@
         $date = date("YmdHis");
         $action = $_POST['action'];
 
-        // printr($_POST);
-        // exit();
-
         switch($action) {
             case 'update_password':
                 ($Users->updateCredentials($_POST['credential'], $_POST['password'], true)) ? Session::flash('settings', 'Successfully updated your Password.') : Session::flash('settings', 'Something went wrong... Could not update your Password.', 'alert alert-failure');
