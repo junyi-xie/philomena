@@ -2,7 +2,7 @@
 
     $(document).ready(function(){
 
-        $("#datepicker").datepicker({
+        $(".js-datepicker").datepicker({
             lang:'en',
             dateFormat: 'yy-mm-dd',
             minDate: 0,

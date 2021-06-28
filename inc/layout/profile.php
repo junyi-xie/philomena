@@ -70,7 +70,7 @@
 
                             <label class="label">Role</label>
 
-                            <span><?= $Users->getRole($Profile->role_id);; ?></span>
+                            <span><?= $Users->getRole($Profile->role_id); ?></span>
 
                         </div>
 

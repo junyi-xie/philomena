@@ -140,26 +140,4 @@
             return true;
         }
     }
-
-
-    /**
-     * Get the full name of the role by their id.
-     * 
-     * @param int $id
-     * @param array $roles
-     * 
-     * @return string
-     */
-    function getRole($id = 0, $roles = array()) {
-        
-        $name = null;
-
-        foreach ($roles as $key => $value) {
-            if ($value->id == $id) {
-                $name = $value->function;
-            }
-        }
-
-        return $name;
-    }
 ?>

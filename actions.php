@@ -28,6 +28,9 @@
         $date = date("YmdHis");
         $action = $_POST['action'];
 
+        // printr($_POST);
+        // exit();
+
         switch($action) {
             case 'update_password':
                 ($Users->updateCredentials($_POST['credential'], $_POST['password'], true)) ? Session::flash('settings', 'Successfully updated your Password.') : Session::flash('settings', 'Something went wrong... Could not update your Password.', 'alert alert-failure');
@@ -39,7 +42,7 @@
                 ($Users->updateCredentials($_POST['credential'], $_POST['password'], true)) ? Session::flash('settings', 'Successfully updated your Email.') : Session::flash('settings', 'Something went wrong... Could not update your Email.', 'alert alert-failure');
             break;
             case 'make_appointment':
-                ($Appointments->makeAppointment()) ? '' : '';
+                ($Appointments->makeAppointment($Users->getUser(), (isset($_POST['staff'])) ? $_POST['staff'] : null, $_POST['treatment'], $_POST['date'], $_POST['time'], $_POST['notes'])) ? Session::flash('appointments', 'Successfully made an appointment.', 'alert alert-success') : Session::flash('appointments', 'Something went wrong... Could not make an appointment.', 'alert alert-failure');
             break;
         }
 

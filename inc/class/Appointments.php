@@ -20,9 +20,9 @@
 
 
         /**
-         * The staff id.
+         * The staff information.
          *
-         * @var int
+         * @var mixed
          */
         private $staff;
 
@@ -67,6 +67,7 @@
         public function __construct() 
         {
             $this->pdo = Database::getInstance();
+            $this->configurateStaff();
         }
 
 
@@ -86,13 +87,13 @@
         /**
          * Set the staff id, this will tell the system who is currently handling the procress of verifying and validation the final checkup on the reservations.
          *
-         * @param int $id The id number of the staff who is on duty / logged in to handle the appointments. 
+         * @param mixed $info The id number of the staff who is on duty / logged in to handle the appointments.  Or an array of data of staffs / employees.
          * 
          * @return void
          */
-        public function setStaff(int $id)
+        public function setStaff(mixed $info)
         {
-            $this->staff = $id;
+            $this->staff = $info;
         }
 
 
@@ -183,22 +184,41 @@
 
 
         /**
+         * Function to assign predefined staff members from the database to this class variable.
+         *
+         * @return void
+         */
+        public function configurateStaff()
+        {            
+            $data = [];
+
+            $staff = $this->pdo->Select("SELECT * FROM users WHERE role_id = 3 OR role_id = 4");
+
+            foreach ($staff as $k => $v) 
+            {
+                $data[$v->id] = rtrim($v->first_name . ' ' . $v->last_name);
+            }
+
+            $this->setStaff($data);
+        }
+
+
+        /**
          * This function inserts the appointment the customer has made. The staff and status of the appointment are both set on null, since a staff member needs to finalize this appointment first, after it has been done, the customer will get a reminder.
          * 
          * @param int $uid The id of the user that is trying to make an appointment for a specific treatment type.
          * @param int $staff This is the staff id, this has to be done manually since one of the available staffs on the choosen time and date needs to confirm this first.
          * @param int $treatment The treatment type id number. There can only be one id inserted, if the user wants multiple treatments he / she needs to make multiple appointments.
-         * @param int $date The date the customer is going to have the choosen treatment.
-         * @param int $time This is the time the customer has inputted to be available on the combined date.
+         * @param string $date The date the customer is going to have the choosen treatment.
+         * @param string $time This is the time the customer has inputted to be available on the combined date.
          * @param string $note Any extra notes the user has left with his appointments. [optional]
          * @param int $status Current status of the appointment. On default its null, when the appointment is finished, this will be manually put on completed.
          *
          * @return void
          */
-        public function makeAppointment(int $uid, int $staff = null, int $treatment, int $date, int $time, string $note = '', int $status = 0)
+        public function makeAppointment(int $uid, int $staff = null, int $treatment, string $date, string $time, string $note = '', int $status = 0)
         {
-            // @TODO
-            return $this->pdo->Insert($this->table, ['user_id' => $uid, 'staff_id' => $staff, 'treatment_id' => $treatment, 'reservation_date' => $date, 'reservation_time' => $time, 'notes' => $note, 'status' => $status]);
+            return $this->pdo->Insert($this->table, ['user_id' => $uid, 'staff_id' => $staff, 'treatment_id' => $treatment, 'reservation_date' => str_replace('-', '', $date), 'reservation_time' => str_replace(': AM PM', '', $time), 'notes' => $note, 'status' => $status]);
         }
 
 
@@ -211,7 +231,6 @@
          */
         public function removeAppointment(int $id)
         {
-            // @TODO
             return $this->pdo->Delete($this->table, "id = $id");
         }
 
@@ -243,11 +262,13 @@
         /**
          * Get the staff id, used to verify if the staff is eligible for making changes to the pending appointments.
          *
+         * @param int $key The key number of the staff, used to get specific data of the matching key from the staff array.
+         * 
          * @return int
          */
-        public function getStaff()
+        public function getStaff($key = 0)
         {
-            return $this->staff;
+            return (!empty($key)) ? $this->staff[$key] : $this->staff;
         }
 
 

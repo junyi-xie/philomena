@@ -399,7 +399,7 @@
     }
 
     .site__section_news {
-        background-color: $white;
+        background-color: transparent;
         padding: 100px 0 80px;
         position: relative;
     }
@@ -498,3 +498,178 @@
             }
         }
     }
+
+    .appointment {
+        background-color: $pink-alt;
+        padding: 30px 0 80px;
+        min-height: 100%;
+    }
+
+    .appointment__header {
+        margin: 15px auto;
+        padding: 10px;
+        background-color: $pink;
+        text-align: center;
+        color: $white;
+        border-radius: 4px;
+        font-size: 20px;
+    }
+
+    .appointment__inner {
+        margin: 10px auto;
+        padding: 20px;
+        border-radius: 4px;
+        background-color: $white;
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(146, 98, 98, 0.04), 0px 18px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    
+
+.appointment__form #grid-name {
+  margin: 10px;
+  background: #f5efef;
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+.appointment__form #grid-phone {
+  margin: 10px;
+  background: #f5efef;
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+}
+
+.appointment__form #grid-date {
+  margin: 10px;
+  background: #f5efef;
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+.appointment__form #grid-start {
+  margin: 10px;
+  background: #f5efef;
+  grid-row: 3 / 4;
+  grid-column: 1 / 2;
+}
+
+.appointment__form #grid-end {
+  margin: 10px;
+  background: #f5efef;
+  grid-row: 3 / 4;
+  grid-column: 2 / 3;
+}
+
+.appointment__form #grid-adult {
+  margin: 10px;
+  background: #f5efef;
+  grid-row: 4 / 5;
+  grid-column: 1 / 2;
+}
+
+.appointment__form #grid-kids {
+  margin: 10px;
+  background: #f5efef;
+  grid-row: 4 / 5;
+  grid-column: 2 / 3;
+}
+
+.appointment__form #grid-smork {
+  margin: 10px;
+  background: #f5efef;
+  grid-row: 5 / 6;
+  grid-column: 1 / 2;
+}
+
+.appointment__form #grid-table-id {
+  margin: 10px;
+  background: #f5efef;
+  grid-row: 5 / 6;
+  grid-column: 2 / 3;
+}
+
+.appointment__form #grid-remarks {
+  margin: 10px;
+  background: #f5efef;
+  grid-row: 6 / 7;
+  grid-column: 1 / 3;
+}
+
+.reservation-form-item {
+  display: flex;
+  margin-top: 20px;
+}
+
+.reservation-form-item .title {
+  display: flex;
+  margin: 10px;
+  width: 100px;
+  -webkit-align-items: center;
+  /* 縦方向中央揃え（Safari用） */
+  align-items: center;
+  /* 縦方向中央揃え */
+  -webkit-justify-content: center;
+  /* 横方向中央揃え（Safari用） */
+  justify-content: center;
+  /* 横方向中央揃え */
+}
+
+.reservation-form-item .text-test {
+  height: 40px;
+  width: 230px;
+}
+
+.reservation-form-item .form-radio-btn {
+  width: 200px;
+  font-size: 18px;
+  line-height: 40px;
+}
+
+.reservation-form-item .textarea-text {
+  margin: 12px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #FFFFFF;
+  background-image: none;
+  border-radius: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  height: 150px;
+  padding: 0.4em 0.8em;
+  width: 600px;
+}
+
+.btn-form-submit {
+  display: block;
+  margin: 20px auto;
+  padding: 13px 0;
+  width: 174px;
+  height: 50px;
+  background-color: #f48e09;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn-form-submit:hover {
+  background-color: #ffe19f;
+  color: #999;
+}
+
+.btn-reset {
+  display: block;
+  margin: 20px auto;
+  background: #fff;
+  border: none;
+  border-bottom: 1px solid #1014ff;
+  color: #1014ff;
+  cursor: pointer;
+}

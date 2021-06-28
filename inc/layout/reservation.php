@@ -10,6 +10,8 @@
 
     </h1>
 
+    <div class="dashboard__notifications"><?php Philomena\Session::flash('appointments'); ?></div>
+
     <?php if ($Profile->role_id != 2): ?>
 
     <div class="dashboard_page__account">
@@ -46,7 +48,7 @@
 
                     </div>
 
-                    <?php foreach ($Appointments as $k => $v): ?>
+                    <?php foreach ($Booking as $k => $v): ?>
 
                     <div class="list_item" appointment-id="<?= $v->appointment_id; ?>">
 
@@ -54,7 +56,7 @@
 
                         <div class="list_item__cell"><?= rtrim($v->first_name . ' ' . $v->last_name); ?></div>
 
-                        <div class="list_item__cell"><?= (isset($v->staff_id)) ? $v->staff_id : 'Unknown'; ?></div>
+                        <div class="list_item__cell"><?= (isset($v->staff_id)) ? $Appointments->getStaff($v->staff_id) : 'Unknown'; ?></div>
 
                         <div class="list_item__cell"><?= (isset($v->reservation_date)) ? date("M j, Y", strtotime($v->reservation_date)) : '-'; ?></div>
 
@@ -125,7 +127,7 @@
 
                         <div class="list_item__cell"><?= $v->id; ?></div>
 
-                        <div class="list_item__cell"><?= (isset($v->staff_id)) ? $v->staff_id : 'Unknown'; ?></div>
+                        <div class="list_item__cell"><?= (isset($v->staff_id)) ? $Appointments->getStaff($v->staff_id) : 'Unknown'; ?></div>
 
                         <div class="list_item__cell"><?= (isset($v->reservation_date)) ? date("M j, Y", strtotime($v->reservation_date)) : '-'; ?></div>
 
