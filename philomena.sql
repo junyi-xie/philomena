@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 1, 2021 at 09:00 PM
+-- Generation Time: Jun 28, 2021 at 02:00 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -132,6 +132,14 @@ CREATE TABLE `staffs` (
   `end_time` mediumint(6) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `staffs`
+--
+
+INSERT INTO `staffs` (`id`, `user_id`, `day_week`, `start_time`, `end_time`) VALUES
+(1, 2, 1, 90000, 170000),
+(2, 3, 1, 90000, 180000);
+
 -- --------------------------------------------------------
 
 --
@@ -202,6 +210,15 @@ CREATE TABLE `users` (
   `account_created` bigint(14) NOT NULL DEFAULT 0,
   `last_login` bigint(14) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `role_id`, `first_name`, `last_name`, `email`, `password`, `phone`, `address`, `zipcode`, `city`, `province`, `country`, `account_created`, `last_login`) VALUES
+(1, 1, 'admin', 'admin', 'admin@admin.com', '$2y$10$ltK/t87nMecbIWlYF0IbauGlXiKqs5VB1AqussCQIRX1cVrrjOpEq', '123456789', 'Street 123', '1234 AB', 'City Z', 'Washington', 'United States', 20210426110142, 20210628141348),
+(2, 3, 'Employee', '1', 'employee1@email.com', '$2y$10$NztYp6L9CNhODQFhIYIpfeRXgrESlZa950dBdd1.MvhbcH8vB1Wly', '', '', '', '', '', 'The Netherlands', 20210605183945, 20210628105035),
+(3, 4, 'Employee', '2', 'employee2@email.com', '$2y$10$fno7erycnXkfLQHhe9F0pu.Rt8GlNtcCGxNoQe6TFVWGOtcOEn.PK', '', '', '', '', '', 'The Netherlands', 20210605183945, 20210628105035);
 
 --
 -- Indexes for dumped tables
@@ -294,7 +311,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `staffs`
 --
 ALTER TABLE `staffs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `treatments`
@@ -312,7 +329,7 @@ ALTER TABLE `type`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
