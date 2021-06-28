@@ -1356,6 +1356,21 @@ a {
           flex-direction: column;
 }
 
+.list__table {
+  color: #0a0918;
+  position: relative;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-color: white;
+  border: 1px solid #edeff3;
+  -webkit-box-shadow: 0 2px 3px -2px #d8dae0;
+          box-shadow: 0 2px 3px -2px #d8dae0;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow-x: auto;
+}
+
 .list__container {
   border-collapse: collapse;
   display: table;
@@ -1389,6 +1404,7 @@ a {
   display: table-cell;
   text-align: left;
   vertical-align: middle;
+  text-overflow: ellipsis;
 }
 
 .list_item__cell:first-of-type {

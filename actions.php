@@ -2,6 +2,7 @@
     /* Copyright (c) - 2021 by Junyi Xie */
 
     use Philomena\Users;
+    use Philomena\Appointments;
     use Philomena\Redirect;
     use Philomena\Session;
     use Philomena\Cookie;
@@ -10,6 +11,7 @@
     require_once 'config.php';
 
     $Users = new Users();
+    $Appointments = new Appointments();
 
     if ( !empty(Session::checkSession('uid')) ) 
     {
@@ -36,7 +38,9 @@
             case 'update_email':
                 ($Users->updateCredentials($_POST['credential'], $_POST['password'], true)) ? Session::flash('settings', 'Successfully updated your Email.') : Session::flash('settings', 'Something went wrong... Could not update your Email.', 'alert alert-failure');
             break;
-            
+            case 'make_appointment':
+                ($Appointments->makeAppointment()) ? '' : '';
+            break;
         }
 
         Redirect::To($_POST['uri']);

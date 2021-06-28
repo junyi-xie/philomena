@@ -534,6 +534,19 @@
     }
 
 
+    .list__table {
+        color: $black-alt;
+        position: relative;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+        background-color: $white;
+        border: 1px solid $line;
+        box-shadow: 0 2px 3px -2px $line-alt;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        overflow-x: auto;
+    }
 
     .list__container {
         border-collapse: collapse;
@@ -565,6 +578,7 @@
         display: table-cell;
         text-align: left;
         vertical-align: middle;
+        text-overflow: ellipsis;
 
         &:first-of-type {
             padding-left: 1.667rem;

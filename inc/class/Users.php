@@ -20,6 +20,14 @@
 
 
         /**
+         * Available roles.
+         *
+         * @var array
+         */
+        private $role = ['1' => 'Administrator', '2' => 'Guest', '3' => 'Barber', '4' => 'Nail Stylist'];
+
+
+        /**
          * The user e-mail address.
          *
          * @var string
@@ -61,7 +69,7 @@
         public function __construct(array $config = null)
         {
             $this->pdo = Database::getInstance();
-
+            
             if ( !empty($config) && is_array($config) && null !== $config ) {
                 $this->setData($config);
             }
@@ -79,6 +87,20 @@
         {
             $this->uid = $id;
         }
+
+
+        /**
+         * Set the roles variable, filled with the input data given.
+         *
+         * @param array $data Array containing all the roles. 
+         * 
+         * @return void
+         */
+        public function setRole(array $data)
+        {
+            $this->role = $data;
+        }
+
 
 
         /**
@@ -348,6 +370,19 @@
         public function getUser()
         {
             return $this->uid;
+        }
+
+
+        /**
+         * Get the role name.
+         * 
+         * @param int $id The key value of the array you want to return, instead of the default array full of roles.
+         *
+         * @return mixed
+         */
+        public function getRole($key)
+        {
+            return (isset($key)) ? $this->role[$key] : $this->role;
         }
 
 

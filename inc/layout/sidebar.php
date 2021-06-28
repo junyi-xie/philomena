@@ -26,6 +26,8 @@
                     
                     </li>
 
+                    <?php if ($Profile->role_id != 2): ?>
+
                     <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'customers'): ?> active<?php endif; ?>">
                     
                         <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=customers"><i class="far fa-address-card"></i><span>Customers</span></a>
@@ -38,11 +40,19 @@
                     
                     </li>
 
+                    <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'branches'): ?> active<?php endif; ?>">
+                    
+                        <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=branches"><i class="fas fa-map-marked-alt"></i><span>Location</span></a>
+                
+                    </li>
+
                     <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'treatments'): ?> active<?php endif; ?>">
                     
                         <a class="dashboard__sidebar_menu__item_link" href="dashboard.php?page=treatments"><i class="fas fa-briefcase-medical"></i><span>Treatments</span></a>
                     
                     </li>
+
+                    <?php endif; ?>
                     
                     <li class="dashboard__sidebar_menu__item<?php if (isset($_GET['page']) && $_GET['page'] == 'profile'): ?> active<?php endif; ?>">
                     
