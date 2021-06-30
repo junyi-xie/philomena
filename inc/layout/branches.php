@@ -94,9 +94,9 @@
 
                         <div class="list_item__cell"><?= $v->day; ?></div>
                         
-                        <div class="list_item__cell"><?= (isset($v->open)) && ($v->open !== 0) ? date("G:i A", strtotime($v->open)) : 'Closed'; ?></div>
+                        <div class="list_item__cell"><?= (isset($v->open)) && ($v->open !== 0) ? date("g:i A", strtotime($v->open)) : 'Closed'; ?></div>
                         
-                        <div class="list_item__cell"><?= (isset($v->closed)) && ($v->closed !== 0) ? date("G:i A", strtotime($v->closed)) : 'Closed'; ?></div>
+                        <div class="list_item__cell"><?= (isset($v->closed)) && ($v->closed !== 0) ? date("g:i A", strtotime($v->closed)) : 'Closed'; ?></div>
 
                         <div class="list_item__cell">
 
